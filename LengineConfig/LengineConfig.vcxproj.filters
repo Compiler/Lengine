@@ -26,5 +26,8 @@
     <ClInclude Include="LengineCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

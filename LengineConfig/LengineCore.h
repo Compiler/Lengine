@@ -9,6 +9,9 @@ public:
 
 
 	void run();
+	void setHeight();
+	void setWidth();
+	void setFlag();
 	~LengineCore();
 
 private:
@@ -17,6 +20,8 @@ private:
 	void render();
 	void update();
 
+
+	unsigned int width, height;
 	SDL_Window* window;
 	SDL_Event event;
 

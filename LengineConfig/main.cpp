@@ -1,10 +1,11 @@
 
 #include <iostream>
 #include <SDL\SDL.h>
+#include "LengineCore.h"
 
 int main(int argc, char** argv){
 
-	SDL_Init(SDL_INIT_EVERYTHING);
+	LengineCore core;
 
 
 	//studder for build errors

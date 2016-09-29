@@ -19,6 +19,9 @@ private:
 	void initSubSystems();
 	void render();
 	void update();
+	
+	void subSDLInit();
+	void subWindow();
 
 
 	unsigned int width, height;

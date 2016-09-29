@@ -1,6 +1,6 @@
 #include "LengineCore.h"
 #include "ScreenHelper.h"
-
+#include "Error.h"
 
 LengineCore::LengineCore(){
 	
@@ -30,7 +30,6 @@ void LengineCore::run(){
 
 
 void LengineCore::initSubSystems(){
-	
 	subSDLInit();
 	subWindow();
 
@@ -42,7 +41,7 @@ void LengineCore::subSDLInit(){
 	int code = SDL_Init(SDL_INIT_EVERYTHING);
 
 	if(code == -1){
-		exit(-1);
+		Error::throwException(Error::ExceptionType::GENERAL, "Couldn't init SDL2", true);
 	}
 
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -51,7 +50,7 @@ void LengineCore::subSDLInit(){
 }
 void LengineCore::subWindow(){
 
-	
+	window.create();
 
 }
 

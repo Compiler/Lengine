@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL\SDL.h>
-
+#include "Window.h"
 
 class LengineCore{
 public:
@@ -25,7 +25,7 @@ private:
 
 
 	unsigned int width, height;
-	SDL_Window* window;
+	Window window;
 	SDL_Event event;
 
 };

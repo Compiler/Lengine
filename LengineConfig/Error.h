@@ -20,6 +20,8 @@ public:
 		std::cout << type << " Exception: "  << error << "\n";
 		if(close){
 			std::cout << "Forcing exit...\n";
+
+			SDL_Delay(10000);
 			exit(-10);
 		}
 	}

@@ -4,19 +4,19 @@
 #include <string>
 
 
-enum ExceptionType{
-	
-	INIT,
-	NULL_EXC,
-	GENERAL
 
-};
 
 class Error{
-
+	
 public:
+	enum ExceptionType{
 
-	static void toss(ExceptionType type, std::string error, bool close){
+		INIT,
+		NULL_EXC,
+		GENERAL
+
+	};
+	static void throwException(ExceptionType type, std::string error, bool close){
 		std::cout << type << " Exception: "  << error << "\n";
 		if(close){
 			std::cout << "Forcing exit...\n";

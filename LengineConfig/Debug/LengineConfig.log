@@ -1,3 +1,3 @@
 ﻿  Window.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\window.h(13): error C2440: 'default argument': cannot convert from 'char' to 'std::string'
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\window.h(13): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Partial PDB)

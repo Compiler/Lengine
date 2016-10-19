@@ -4,10 +4,15 @@
 #include "Error.h"
 
 
+//defaults to 640,480
+
+//TODO use the screen helper
 Window::Window(): screenWidth(640), screenHeight(480){
 }
 
 
+
+//creates the window by title x,y and width,height as well current flags
 int Window::create(std::string title, int xPos, int yPos, unsigned int width, unsigned int height, unsigned int currentFlags){
 	
 
@@ -63,19 +68,22 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 	return 1;
 }
 	
-
+//set the name for
 void Window::setName(std::string newName){
 
 
 
 }
 
+//display the fps
 void Window::displayFPS(Uint32 frames){
 
 
 
 }
 
+
+//for double buffering
 void Window::swapBuffer(){
 
 

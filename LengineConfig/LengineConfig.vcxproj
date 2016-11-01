@@ -117,12 +117,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Error.h" />
+    <ClInclude Include="InputListener.h" />
     <ClInclude Include="LengineCore.h" />
     <ClInclude Include="ScreenHelper.h" />
     <ClInclude Include="Window.h" />

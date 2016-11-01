@@ -56,7 +56,7 @@ void LengineCore::subWindow(){
 
 
 void LengineCore::render(){
-
+	
 
 
 

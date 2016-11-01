@@ -10,6 +10,8 @@ LengineCore::LengineCore(){
 	std::cout << "Width: " << width << ", Height: " << height << std::endl;
 	
 
+	currentState = GameState::PLAY;
+
 }
 
 
@@ -20,7 +22,7 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
-	while(true){
+	while(currentState != GameState::EXIT){
 	
 		update();
 		render();
@@ -37,7 +39,7 @@ void LengineCore::run(){
 void LengineCore::initSubSystems(){
 	subSDLInit();
 	subWindow();
-
+	std::cout << "initialized";
 }
 
 //inits sdl2 and sets the double buffer
@@ -58,13 +60,16 @@ void LengineCore::subSDLInit(){
 //creates the window
 void LengineCore::subWindow(){
 
-	window.create();
+	if(window.create() != 1){
+		Error::throwException(Error::ExceptionType::GENERAL, "Couldn't create the window", true);
+	}
 
 }
 
 
 void LengineCore::render(){
-	
+	glClearDepth(1.0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
 
@@ -72,7 +77,7 @@ void LengineCore::render(){
 
 void LengineCore::update(){
 
-
+	listener.update(currentState);
 
 
 }

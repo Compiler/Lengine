@@ -2,10 +2,18 @@
 
 #include <SDL\SDL.h>
 #include "Window.h"
+#include "InputListener.h"
+#include "GameState.h"
 
 class LengineCore{
+
 public:
 	LengineCore();
+
+
+
+	
+
 
 
 	void run();
@@ -26,7 +34,9 @@ private:
 
 	unsigned int width, height;
 	Window window;
-	SDL_Event event;
+	InputListener listener;
+	GameState currentState;
+	
 
 };
 

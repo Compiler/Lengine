@@ -17,6 +17,8 @@ public:
 		// and the bottom right corner will have coordinates
 		// (horizontal, vertical)
 		horizontal = desktop.right;
+		
+		//gets handle to the verticle vector
 		vertical = desktop.bottom;
 	}
 

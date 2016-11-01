@@ -5,6 +5,7 @@
 #include <GL\glew.h>
 #include <string>
 
+//flags consist of the allowed properties supported by Lengine
 enum WindowFlags{
 	HIDDEN = 0x1,
 	SHOWN = 0x2,

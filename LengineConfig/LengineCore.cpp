@@ -2,6 +2,8 @@
 #include "ScreenHelper.h"
 #include "Error.h"
 
+
+//grabs the desktop res to auto the stand
 LengineCore::LengineCore(){
 	
 	ScreenHelper::GetDesktopResolution(width, height);
@@ -11,6 +13,7 @@ LengineCore::LengineCore(){
 }
 
 
+//inits everything and starts game loop
 
 void LengineCore::run(){
 
@@ -29,13 +32,15 @@ void LengineCore::run(){
 }
 
 
+
+//wrapper for calling class
 void LengineCore::initSubSystems(){
 	subSDLInit();
 	subWindow();
 
 }
 
-
+//inits sdl2 and sets the double buffer
 void LengineCore::subSDLInit(){
 
 	int code = SDL_Init(SDL_INIT_EVERYTHING);
@@ -48,6 +53,9 @@ void LengineCore::subSDLInit(){
 
 
 }
+
+
+//creates the window
 void LengineCore::subWindow(){
 
 	window.create();

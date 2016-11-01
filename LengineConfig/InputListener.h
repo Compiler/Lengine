@@ -58,6 +58,6 @@ public:
 private:
 
 	std::vector<unsigned int> keys;
-	SDL_Event event;
+	
 };
 

@@ -39,7 +39,6 @@ void LengineCore::run(){
 void LengineCore::initSubSystems(){
 	subSDLInit();
 	subWindow();
-	std::cout << "initialized";
 }
 
 //inits sdl2 and sets the double buffer
@@ -68,8 +67,8 @@ void LengineCore::subWindow(){
 
 
 void LengineCore::render(){
-	glClearDepth(1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClearDepth(1.0);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
 
@@ -78,7 +77,6 @@ void LengineCore::render(){
 void LengineCore::update(){
 
 	listener.update(currentState);
-
 
 }
 

@@ -5,6 +5,7 @@
 #include <GL\glew.h>
 #include <string>
 
+//flags consist of the trans for the window
 enum WindowFlags{
 	HIDDEN = 0x1,
 	SHOWN = 0x2,

@@ -32,7 +32,7 @@ void Sprite::init(float x, float y, float width, float height){
 	vertex[11] = y + height;
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(vbo, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);
+	glBufferData(vbo, sizeof(vertex), vertex, GL_STATIC_DRAW);
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

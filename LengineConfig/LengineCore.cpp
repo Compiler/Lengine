@@ -1,6 +1,6 @@
 #include "LengineCore.h"
 #include "Error.h"
-
+#include <GL\glew.h>
 
 //grabs the desktop res to auto the stand
 LengineCore::LengineCore(){
@@ -39,7 +39,12 @@ void LengineCore::render(){
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//sprite.render();
+	program.use();
+	
+	sprite.render();
+	
+
+	program.unuse();
 	window.swapBuffer();
 }
 

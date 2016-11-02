@@ -1,5 +1,5 @@
 #include "Sprite.h"
-
+#include <iostream>
 
 
 Sprite::Sprite(): vbo(0){
@@ -52,7 +52,7 @@ void Sprite::init(float x, float y, float width, float height){
 
 
 void Sprite::render(){
-
+	SDL_Delay(2000);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	glEnableVertexAttribArray(0);
@@ -64,7 +64,7 @@ void Sprite::render(){
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, uv));
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
-
+	
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(2);
@@ -81,4 +81,6 @@ void Sprite::update(){
 
 
 Sprite::~Sprite(){
+	if (vbo != 0)
+		glDeleteBuffers(1, &vbo);
 }

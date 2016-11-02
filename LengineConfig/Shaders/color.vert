@@ -10,13 +10,14 @@ out vec4 fragmentColor;
 out vec2 fragmentPosition;
 out vec2 fragmentUV;
 
-uniform mat4 cameraMatrix;
+/*uniform mat4 cameraMatrix;*/
 
 void main(){
 
 	
 	//Assigns position
-	gl_Position.xy = (/*cameraMatrix * */vec4(vertexPosition, 0.0, 1.0)).xy;
+	//gl_Position.xy = (/*cameraMatrix * */vec4(vertexPosition, 0.0, 1.0)).xy;
+	gl_Position.xy = vertexPosition;
 	//gl_Position.xy = vec2(1,1);
 	
 	//Defaults the z coordinate

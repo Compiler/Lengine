@@ -12,6 +12,12 @@ void ShaderProgram::compile(std::string vertex, std::string fragment) {
 
 	vertexID = glCreateShader(GL_VERTEX_SHADER);
 	fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
+
+
+
+	compileShader(vertex, vertexID);
+	compileShader(fragment, fragmentID);
+
 	
 
 }
@@ -31,7 +37,7 @@ void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 		fileContents += line + "\n";
 	}
 	file.close();
-
+	//std::cout << "hello" << fileContents;
 	const char* contentsPointer = fileContents.c_str();
 	glShaderSource(shaderID, 1, &contentsPointer, nullptr);
 

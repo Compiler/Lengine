@@ -19,6 +19,11 @@ void LengineCore::run(){
 
 	sprite.init(0.0, 0.0, 1.0, 1.0);
 
+	program.compile("Shaders/color.vert", "Shaders/color.frag");
+	program.bindAttrib("vertexPosition", 0);
+	program.bindAttrib("vertexColor", 1);
+	program.bindAttrib("vertexUV", 2);
+	program.linkShaders();
 	while(currentState != GameState::EXIT){
 	
 		update();
@@ -34,7 +39,7 @@ void LengineCore::render(){
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	sprite.render();
+	//sprite.render();
 	window.swapBuffer();
 }
 

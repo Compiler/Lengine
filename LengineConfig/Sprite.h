@@ -3,6 +3,7 @@
 
 #include <SDL\SDL.h>
 #include <GL\glew.h>
+#include "Vertex.h"
 
 
 class Sprite{

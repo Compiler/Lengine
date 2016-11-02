@@ -130,6 +130,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="LengineCore.h" />
+    <ClInclude Include="ModelVertex.h" />
     <ClInclude Include="ScreenHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Sprite.h" />

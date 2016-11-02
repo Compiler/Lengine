@@ -3,20 +3,20 @@
 
 
 
-struct Position {
+struct Position2 {
 
 	float x, y, z;
 
 };
 
 
-struct UV {
+struct UV2 {
 
 	float u, v;
 
 };
 
-struct Color {
+struct Color2 {
 
 	GLubyte r, g, b, a;
 };
@@ -26,11 +26,11 @@ struct Color {
 struct ModelVertex {
 
 
-	Position position;
+	Position2 position;
 
-	Color color;
+	Color2 color;
 
-	UV uv;
+	UV2 uv;
 
 	void setUV(float u, float v) {
 		uv.u = u;

@@ -7,7 +7,7 @@ in vec2 vertexUV;
 
 //out sends to frag when named the same and in vertex shader
 out vec4 fragmentColor;
-out vec2 fragmentPosition;
+out vec3 fragmentPosition;
 out vec2 fragmentUV;
 
 /*uniform mat4 cameraMatrix;*/

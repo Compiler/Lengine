@@ -1,4 +1,6 @@
 #pragma once
+#include <GL\glew.h>
+#include "ModelVertex.h"
 class Model
 {
 public:

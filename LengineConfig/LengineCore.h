@@ -6,7 +6,7 @@
 #include "GameState.h"
 #include "Sprite.h"
 #include "ShaderProgram.h"
-
+#include "Model.h"
 class LengineCore{
 
 public:
@@ -39,6 +39,7 @@ private:
 	InputListener listener;
 	GameState currentState;
 	
+	Model model;
 	Sprite sprite;
 	ShaderProgram program;
 	

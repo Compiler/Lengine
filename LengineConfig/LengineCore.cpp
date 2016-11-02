@@ -17,9 +17,9 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
-	sprite.init(-0.5, -0.5, 1.0, 1.0);
-
-	program.compile("Shaders/color.vert", "Shaders/color.frag");
+	//sprite.init(-0.5, -0.5, 1.0, 1.0);
+	model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
+	program.compile("Shaders/color3.vert", "Shaders/color3.frag");
 	program.bindAttrib("vertexPosition", 0);
 	program.bindAttrib("vertexColor", 1);
 	program.bindAttrib("vertexUV", 2);
@@ -36,13 +36,13 @@ void LengineCore::run(){
 }
 
 void LengineCore::render(){
-	glClearDepth(1.0);
+	//glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	program.use();
 	
-	sprite.render();
-	
+	//sprite.render();
+	model.render();
 
 	program.unuse();
 	window.swapBuffer();

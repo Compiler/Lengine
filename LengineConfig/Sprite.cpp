@@ -19,27 +19,27 @@ void Sprite::init(float x, float y, float width, float height){
 
 	Vertex vertex[6];
 
-	vertex[0].position.set(x, y);
-	vertex[0].uv.set(0, 0);
+	vertex[0].setPosition(x, y);
+	vertex[0].setUV(0, 0);
 
-	vertex[1].position.set(x, y + height);
-	vertex[1].uv.set(0, 1);
+	vertex[1].setPosition(x, y + height);
+	vertex[1].setUV(0, 1);
 
-	vertex[2].position.set(x + width, y + height);
-	vertex[2].uv.set(1, 1);
+	vertex[2].setPosition(x + width, y + height);
+	vertex[2].setUV(1, 1);
 
 
-	vertex[3].position.set(x, y);
-	vertex[3].uv.set(0, 0);
+	vertex[3].setPosition(x, y);
+	vertex[3].setUV(0, 0);
 
-	vertex[4].position.set(x + width, y);
-	vertex[4].uv.set(1, 0);
+	vertex[4].setPosition(x + width, y);
+	vertex[4].setUV(1, 0);
 
-	vertex[5].position.set(x + width, y + height);
-	vertex[5].uv.set(1, 1);
+	vertex[5].setPosition(x + width, y + height);
+	vertex[5].setUV(1, 1);
 
 	for (int i = 0; i < 6; i++)
-		vertex[i].color.set(0.0, 0.0, 1.0, 1.0);
+		vertex[i].setColor(0.0, 0.0, 1.0, 1.0);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(vbo, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);

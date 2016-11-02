@@ -121,6 +121,7 @@
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -130,6 +131,7 @@
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="LengineCore.h" />
     <ClInclude Include="ScreenHelper.h" />
+    <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

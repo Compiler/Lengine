@@ -67,7 +67,7 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 	std::printf("***   OpenG Version: %s   ***", glGetString(GL_VERSION));
 	
 	//sets to context for glClearBufferBit
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
 	//SDL_GL_DeleteContext(glContext);
 	return 1;
 }

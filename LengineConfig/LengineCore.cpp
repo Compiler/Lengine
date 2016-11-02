@@ -4,9 +4,6 @@
 
 //grabs the desktop res to auto the stand
 LengineCore::LengineCore(){
-	
-	
-	
 
 	currentState = GameState::PLAY;
 

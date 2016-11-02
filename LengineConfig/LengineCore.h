@@ -32,13 +32,13 @@ private:
 	void subSDLInit();
 	void subWindow();
 
-	Sprite sprite;
 
 	unsigned int width, height;
 	Window window;
 	InputListener listener;
 	GameState currentState;
 	
+	Sprite sprite;
 
 };
 

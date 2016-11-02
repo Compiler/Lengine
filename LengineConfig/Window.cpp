@@ -1,6 +1,4 @@
 #include "Window.h"
-#include <SDL\SDL.h>
-#include <GL\gl.h>
 #include "Error.h"
 #include "ScreenHelper.h"
 
@@ -63,7 +61,9 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 
 
 
-	SDL_GL_SetSwapInterval(1);
+	if(SDL_GL_SetSwapInterval(1) != 0){
+		Error::throwException(Error::ExceptionType::INIT, "Couldnt initialize swapping buffers", true);
+	}
 	std::printf("***   OpenG Version: %s   ***", glGetString(GL_VERSION));
 	
 	//sets to context for glClearBufferBit

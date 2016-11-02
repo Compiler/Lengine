@@ -4,6 +4,7 @@
 #include "Window.h"
 #include "InputListener.h"
 #include "GameState.h"
+#include "Sprite.h"
 
 class LengineCore{
 
@@ -31,6 +32,7 @@ private:
 	void subSDLInit();
 	void subWindow();
 
+	Sprite sprite;
 
 	unsigned int width, height;
 	Window window;

@@ -11,14 +11,15 @@ public:
 
 
 	void init(float x, float y, float width, float height);
-
+	void update();
+	void render();
 
 	~Sprite();
 
 private:
 	
 	float x, y, width, height;
-	GLint vbo;
+	GLuint vbo;
 
 };
 

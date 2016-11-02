@@ -20,6 +20,8 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
+	sprite.init(0.0, 0.0, 1.0, 1.0);
+
 	while(currentState != GameState::EXIT){
 	
 		update();
@@ -31,6 +33,19 @@ void LengineCore::run(){
 
 }
 
+void LengineCore::render(){
+	glClearDepth(1.0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	sprite.render();
+	window.swapBuffer();
+}
+
+void LengineCore::update(){
+
+	listener.update(currentState);
+
+}
 
 
 //wrapper for calling class
@@ -64,19 +79,6 @@ void LengineCore::subWindow(){
 }
 
 
-void LengineCore::render(){
-	glClearDepth(1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-	window.swapBuffer();
-}
-
-void LengineCore::update(){
-
-	listener.update(currentState);
-
-}
 
 
 

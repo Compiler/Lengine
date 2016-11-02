@@ -1,3 +1,4 @@
 ﻿  Window.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\window.cpp(15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Partial PDB)

@@ -1,13 +1,11 @@
 #include "LengineCore.h"
-#include "ScreenHelper.h"
 #include "Error.h"
 
 
 //grabs the desktop res to auto the stand
 LengineCore::LengineCore(){
 	
-	ScreenHelper::GetDesktopResolution(width, height);
-	std::cout << "Width: " << width << ", Height: " << height << std::endl;
+	
 	
 
 	currentState = GameState::PLAY;

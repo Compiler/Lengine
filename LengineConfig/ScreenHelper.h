@@ -7,7 +7,7 @@ using namespace std;
 class ScreenHelper{
 
 public:
-	static void GetDesktopResolution(unsigned int& horizontal, unsigned int& vertical){
+	static void GetDesktopResolution(int& horizontal, int& vertical){
 		RECT desktop;
 		// Get a handle to the desktop window
 		const HWND hDesktop = GetDesktopWindow();

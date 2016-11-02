@@ -2,12 +2,18 @@
 #include <SDL\SDL.h>
 #include <GL\gl.h>
 #include "Error.h"
+#include "ScreenHelper.h"
 
-
-//defaults to 640,480
 
 //TODO use the screen helper
 Window::Window(): screenWidth(640), screenHeight(480){
+
+
+	ScreenHelper::GetDesktopResolution(screenWidth, screenHeight);
+	std::cout << "Width: " << screenWidth << ", Height: " << screenHeight << std::endl;
+	screenWidth = screenWidth / 3;
+	screenHeight = screenHeight / 2.25;
+	std::cout << "New Width: " << screenWidth << ", New Height: " << screenHeight << std::endl;
 }
 
 
@@ -32,8 +38,8 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 	if(currentFlags & WindowFlags::FULL_SCREEN)
 		flags |= SDL_WINDOW_FULLSCREEN;
 
-	screenWidth = width;
-	screenHeight = height;
+	//screenWidth = width;
+	//screenHeight = height;
 
 	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, flags);
 

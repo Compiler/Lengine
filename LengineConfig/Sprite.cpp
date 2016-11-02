@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include <cstddef>
 #include <iostream>
 
 
@@ -38,11 +39,13 @@ void Sprite::init(float x, float y, float width, float height){
 	vertex[5].setPosition(x + width, y + height);
 	vertex[5].setUV(1, 1);
 
-	for (int i = 0; i < 6; i++)
-		vertex[i].setColor(0.0, 0.0, 1.0, 1.0);
+	for (int i = 0; i < 3; i++)
+		vertex[i].setColor(0.0, 0.0, 255.0, 1.0);
+	for (int i = 3; i < 6; i++)
+		vertex[i].setColor(255.0, 0.0, 0.0, 1.0);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(vbo, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -52,7 +55,7 @@ void Sprite::init(float x, float y, float width, float height){
 
 
 void Sprite::render(){
-	SDL_Delay(2000);
+	
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	glEnableVertexAttribArray(0);

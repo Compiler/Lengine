@@ -59,16 +59,16 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 
 
 
-
-
-	if(SDL_GL_SetSwapInterval(1) != 0){
-		Error::throwException(Error::ExceptionType::INIT, "Couldnt initialize swapping buffers", true);
-	}
-	std::printf("***   OpenG Version: %s   ***", glGetString(GL_VERSION));
-	
 	//sets to context for glClearBufferBit
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	//SDL_GL_DeleteContext(glContext);
+
+
+	SDL_GL_SetSwapInterval(1);
+
+	
+	std::printf("***   OpenG Version: %s   ***", glGetString(GL_VERSION));
+	
 	return 1;
 }
 	

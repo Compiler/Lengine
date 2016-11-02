@@ -17,7 +17,7 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
-	sprite.init(0.0, 0.0, 1.0, 1.0);
+	sprite.init(-0.5, -0.5, 1.0, 1.0);
 
 	program.compile("Shaders/color.vert", "Shaders/color.frag");
 	program.bindAttrib("vertexPosition", 0);

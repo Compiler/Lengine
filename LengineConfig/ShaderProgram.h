@@ -5,6 +5,7 @@
 #include <GL\glew.h>
 #include <string>
 #include <vector>
+#include "Error.h"
 
 class ShaderProgram
 {

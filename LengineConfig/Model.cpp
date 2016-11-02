@@ -17,33 +17,35 @@ void Model::init(float x, float y, float z, float width, float height) {
 
 	if (vbo == 0)
 		glGenBuffers(1, &vbo);
-
+	
 	ModelVertex vertex[6];
 
-	vertex[0].setPosition(x, y, z);
+	vertex[0].setPosition(-0.5f, -0.5f, -0.5f);
 	vertex[0].setUV(0, 0);
 
-	vertex[1].setPosition(x, y + height, z + width);
+	vertex[1].setPosition(-0.5f, -0.5f, 0.5f);
 	vertex[1].setUV(0, 1);
 
-	vertex[2].setPosition(x + width, y + height, z + height);
+	vertex[2].setPosition(-0.5f, 0.5f, 0.5f);
 	vertex[2].setUV(1, 1);
 
 
-	vertex[3].setPosition(x, y, z);
+	vertex[3].setPosition(0.5f, 0.5f, -0.5f);
 	vertex[3].setUV(0, 0);
 
-	vertex[4].setPosition(x + width, y, z - width);
+	vertex[4].setPosition(-0.5f, -0.5f, -0.5f);
 	vertex[4].setUV(1, 0);
-
-	vertex[5].setPosition(x + width, y + height, z);
+	
+	vertex[5].setPosition(-0.5f, 0.5f, -0.5f);
 	vertex[5].setUV(1, 1);
+
 
 	vertex[0].setColor(255, 255, 255, 255);
 	vertex[1].setColor(0, 255, 255, 255);
 	vertex[2].setColor(255, 0, 255, 255);
 	vertex[3].setColor(255, 255, 0, 255);
 	vertex[4].setColor(255, 0, 0, 255);
+	vertex[5].setColor(00, 0, 255, 255);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);

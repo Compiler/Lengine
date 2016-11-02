@@ -18,18 +18,18 @@ void main(){
 	
 	//Assigns position
 	//gl_Position.xyz = (/*cameraMatrix * */vec4(vertexPosition, 1.0)).xyz;
-	gl_Position.w = 1.0;
-	gl_Position = vec4(vertexPosition, 1.0) * mat4(
-	cos(45), sin(45), 0.0, 0.0, 
-	-sin(45), cos(45),0.0, 0.0, 
-	0.0,   	0.0, 	1.0, 	0.0, 
-	0.0, 	0.0, 	0.0, 	1.0
+	float rad = 45.0;
+	gl_Position = vec4(vertexPosition,1.0) * mat4(
+	1.0, 0.0, 	   0.0,	    0.0,
+	0.0, cos(rad), -sin(rad), 0.0,
+	0.0, sin(rad), cos(rad),  0.0,
+	0.0, 0.0, 	  0.0,   	1.0
 	);
 	//gl_Position.xy = vec2(1,1);
 	
 	
 	//Says that the coordinates ARE normalized
-	
+	//gl_Position.w = 1.0;
 	
 	fragmentPosition = vertexPosition;
 	

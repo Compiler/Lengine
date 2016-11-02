@@ -1,15 +1,15 @@
 #pragma once
-
+#include <GL\glew.h>
 
 struct Vertex {
 
 	//8 bits
 	Position position;
-	//16 bits
+	//4 bits
 	Color color;
 	//8 bits
 	UV uv;
-	//8+16+8 = 32 = 2^5  no padding needed
+	//8+8+4 = 20 =   padding needed
 
 };
 
@@ -33,13 +33,13 @@ struct UV{
 		u = newU;
 		v = newV;
 	}
-};
+}uv;
 
 struct Color {
 
-	float r, g, b, a;
+	GLubyte r, g, b, a;
 
-	void set(float red, float green, float blue, float alpha) {
+	void set(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha) {
 		r = red;
 		g = green;
 		b = blue;

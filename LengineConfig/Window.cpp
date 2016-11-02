@@ -55,8 +55,6 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 
 
 
-	//sets to context for glClearBufferBit
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 
 
@@ -64,7 +62,9 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 	SDL_GL_SetSwapInterval(1);
 	std::printf("***   OpenG Version: %s   ***", glGetString(GL_VERSION));
 	
-	SDL_GL_DeleteContext(glContext);
+	//sets to context for glClearBufferBit
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	//SDL_GL_DeleteContext(glContext);
 	return 1;
 }
 	
@@ -86,7 +86,7 @@ void Window::displayFPS(Uint32 frames){
 //for double buffering
 void Window::swapBuffer(){
 
-
+	SDL_GL_SwapWindow(window);
 
 }
 

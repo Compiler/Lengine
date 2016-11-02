@@ -1,7 +1,7 @@
 #version 330
 
 
-in vec2 vertexPosition;
+in vec3 vertexPosition;
 in vec4 vertexColor;
 in vec2 vertexUV;
 
@@ -12,25 +12,15 @@ out vec2 fragmentUV;
 
 /*uniform mat4 cameraMatrix;*/
 
-mat2 getMat(){
-	
-	return mat2(
-		1.0, 0.0,
-		0.0, -1.0
-	);
-	
-}
 
 void main(){
 
 	
 	//Assigns position
-	//gl_Position.xy = (/*cameraMatrix * */vec4(vertexPosition, 0.0, 1.0)).xy;
-	gl_Position.xy = vertexPosition;
+	//gl_Position.xyz = (/*cameraMatrix * */vec4(vertexPosition, 1.0)).xyz;
+	gl_Position.xyz = vertexPosition;
 	//gl_Position.xy = vec2(1,1);
 	
-	//Defaults the z coordinate
-	gl_Position.z = 0.0;
 	
 	//Says that the coordinates ARE normalized
 	gl_Position.w = 1.0;

@@ -96,10 +96,29 @@ void ShaderProgram::linkShaders() {
 
 
 
-void ShaderProgram::bindAttrib() {
+void ShaderProgram::bindAttrib(const std::string& attributeName, GLuint indexOfAttribute) {
+	glBindAttribLocation(programID, indexOfAttribute, attributeName.c_str());
+	numOfAttribs++;
 
 }
 
+
+void ShaderProgram::use() {
+
+	glUseProgram(programID);
+
+	for (int i = 0; i < numOfAttribs; i++)
+		glEnableVertexAttribArray(i);
+
+}
+
+void ShaderProgram::unuse() {
+
+	glUseProgram(0);
+	for (int i = 0; i < numOfAttribs; i++)
+		glDisableVertexAttribArray(i);
+
+}
 
 GLint ShaderProgram::getUniformLocation() {
 

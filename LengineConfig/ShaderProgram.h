@@ -16,7 +16,9 @@ public:
 
 	void compile(std::string vertex, std::string fragment);
 	void linkShaders();
-	void bindAttrib();
+	void bindAttrib(const std::string& attributeName, GLuint indexOfAttribute);
+	void use();
+	void unuse();
 	GLint getUniformLocation();
 
 	~ShaderProgram();
@@ -25,7 +27,7 @@ private:
 
 	void compileShader(std::string filePath, GLuint shaderID);
 
-
+	int numOfAttribs;
 	GLuint programID, vertexID, fragmentID;
 
 };

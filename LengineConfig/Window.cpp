@@ -38,8 +38,6 @@ int Window::create(std::string title, int xPos, int yPos, unsigned int width, un
 	if(currentFlags & WindowFlags::FULL_SCREEN)
 		flags |= SDL_WINDOW_FULLSCREEN;
 
-	//screenWidth = width;
-	//screenHeight = height;
 
 	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, flags);
 

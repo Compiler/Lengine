@@ -120,6 +120,7 @@
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +129,7 @@
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="LengineCore.h" />
     <ClInclude Include="ScreenHelper.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

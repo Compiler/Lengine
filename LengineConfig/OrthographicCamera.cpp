@@ -2,7 +2,7 @@
 
 
 
-OrthographicCamera::OrthographicCamera()
+OrthographicCamera::OrthographicCamera(int width, int height)
 {
 }
 

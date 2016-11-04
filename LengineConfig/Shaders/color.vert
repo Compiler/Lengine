@@ -12,20 +12,23 @@ out vec2 fragmentUV;
 
 uniform mat4 cameraMatrix;
 
-mat2 getMat(){
+mat4 getMat(){
 	
-	return mat2(
-		1.0, 0.0,
-		0.0, -1.0
+	return mat4(
+		1.0, 0.0, 0.0, 0.0,
+		0.0, 1.0, 0.0, 0.0,
+		0.0, 0.0, 1.0, 0.0,
+		0.0, 0.0, 0.0, 1.0
 	);
 	
 }
 
 void main(){
 
-	
+	vec2 orig = (getMat() * vec4(vertexPosition, 0.0, 1.0)).xy;
 	//Assigns position
 	gl_Position.xy = (cameraMatrix * vec4(vertexPosition, 0.0, 1.0)).xy;
+	gl_Position.y = orig.y;
 //	gl_Position.xy = vertexPosition;
 	//gl_Position.xy = vec2(1,1);
 	

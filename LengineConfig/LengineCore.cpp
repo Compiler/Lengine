@@ -23,14 +23,7 @@ void LengineCore::run(){
 	program.bindAttrib("vertexPosition", 0);
 	program.bindAttrib("vertexColor", 1);
 	program.bindAttrib("vertexUV", 2);
-	float test[4][4]= {
-		{ 1.0f, 0.0f, 0.0f, 0.0f },
-		{ 0.0f, 1.0f, 0.0f, 0.0f },
-		{ 0.0f, 0.0f, 1.0f, 0.0f },
-		{ 0.0f, 0.0f, 0.0f, 1.0f }
-	};
-
-	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, false, test);
+	
 	program.linkShaders();
 	while(currentState != GameState::EXIT){
 	
@@ -47,7 +40,14 @@ void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	program.use();
-	
+	const GLfloat test[16] = {
+		1.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f
+	};
+
+	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, test);
 	sprite.render();
 	//model.render();
 

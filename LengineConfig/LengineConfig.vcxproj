@@ -121,6 +121,7 @@
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mat4.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="OrthographicCamera.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="LengineCore.h" />
+    <ClInclude Include="mat4.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelVertex.h" />
     <ClInclude Include="OrthographicCamera.h" />

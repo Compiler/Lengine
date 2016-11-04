@@ -122,6 +122,7 @@
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="OrthographicCamera.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="LengineCore.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelVertex.h" />
+    <ClInclude Include="OrthographicCamera.h" />
     <ClInclude Include="ScreenHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Sprite.h" />

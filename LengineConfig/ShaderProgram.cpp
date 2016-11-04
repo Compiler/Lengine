@@ -126,10 +126,8 @@ void ShaderProgram::unuse() {
 
 }
 
-GLint ShaderProgram::getUniformLocation() {
-
-	//todo implement
-	return 0;
+GLint ShaderProgram::getUniformLocation(std::string name) {
+	return glGetUniformLocation(programID, name.c_str());
 	
 }
 

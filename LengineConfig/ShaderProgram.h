@@ -19,7 +19,7 @@ public:
 	void bindAttrib(const std::string& attributeName, GLuint indexOfAttribute);
 	void use();
 	void unuse();
-	GLint getUniformLocation();
+	GLint getUniformLocation(std::string name);
 
 	~ShaderProgram();
 

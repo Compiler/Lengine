@@ -1,4 +1,8 @@
 #pragma once
+#include <GL/glew.h>
+#include "mat4.h"
+
+
 class OrthographicCamera
 {
 public:
@@ -13,6 +17,8 @@ public:
 private:
 
 	int width, height;
+
+	mat4 matrix;
 
 };
 

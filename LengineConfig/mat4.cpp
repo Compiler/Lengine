@@ -32,7 +32,7 @@ mat4::mat4(GLfloat linear[16]){
 			count++;
 		}
 		
-		matrix[i][count] = linear[i];
+		matrix[i % 4][count] = linear[i];
 		std::cout << i << ", " << count << " = " << linear[i] << "\n";
 	}
 

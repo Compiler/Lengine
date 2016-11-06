@@ -3,9 +3,33 @@
   RoadToLengine is me practicing for when I officially build my engine
 
 ## Features to be implemented
-* Creating a math library for games [x]
-* Particle systems []
-* Collision filter []
-* Built in shaders and lighting []
-* Editor []
-* Parser []
+ - [ ] Creating a math library for games 
+      - [ ] Camera
+        - [ ] Perspective
+        - [ ] Orthographic
+      - [ ] Matrices and functions
+ - [ ] Particle systems
+    - [ ] Particle editor
+    - [ ] Shader implementation
+      - [ ] Tinting
+      - [ ] Life span
+    - [ ] Task bar
+ - [ ] Collision filter
+ - [ ] Built in shaders and lighting 
+    - [ ] Change weather systems
+      - [ ] Rain
+      - [ ] Clouds
+      - [ ] Sunny
+      - [ ] Aurora
+ - [ ] Editor 
+    - [ ] Intuitive
+    - [ ] Design able
+ - [ ] Parser 
+    - [ ] Use in other engines
+    - [ ] Multi-platform
+    - [ ] Easy to load
+ - [ ] Easy Sprites
+    - [x] Sprite Batch
+    - [ ] Vertex manipulation
+    - [ ] Tinter
+

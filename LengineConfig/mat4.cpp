@@ -22,14 +22,27 @@ mat4::mat4(GLfloat mat[4][4]){
 
 }
 
+
+
 mat4::mat4(GLfloat linear[16]){
-	int count = 0;
+	int count = -1;
 	for (int i = 0; i < 16; i++) {
-		
-		matrix[i][count] = 6.09f;
 		if (i % 4 == 0) {
 			std::cout << i % 4 << " to " << i << "\n";
+			count++;
 		}
+		
+		matrix[i][count] = linear[i];
+		std::cout << i << ", " << count << " = " << linear[i] << "\n";
+	}
+
+	std::cout << "\n\n\n\n";
+
+	for (int i = 0; i < 4; i++) {
+		for (int k = 0; k < 4; k++) {
+			std::cout << matrix[k][i] << "  ";
+		}
+		std::cout << "\n";
 	}
 
 }

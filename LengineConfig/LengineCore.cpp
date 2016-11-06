@@ -24,6 +24,7 @@ void LengineCore::run(){
 	program.bindAttrib("vertexColor", 1);
 	program.bindAttrib("vertexUV", 2);
 	
+	camera.init(640, 480);
 	program.linkShaders();
 	while(currentState != GameState::EXIT){
 	
@@ -40,14 +41,16 @@ void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	program.use();
-	const GLfloat test[16] = {
+	 GLfloat test[16] = {
 		1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f
 	};
 
-	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, test);
+	 GLfloat*ass = camera.getUniformVal();
+	
+	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, ass);
 	sprite.render();
 	//model.render();
 

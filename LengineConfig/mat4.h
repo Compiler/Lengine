@@ -12,10 +12,13 @@ public:
 	void initByMat(GLfloat mat[4][4]);
 	void initByArray(GLfloat linear[16]);
 
+	GLfloat* getLinear();
+
 	GLfloat getElement(GLint x, GLint y);
 	~mat4();
 
 private:
 	GLfloat matrix[4][4];
+	GLfloat linMat[16];
 };
 

@@ -7,6 +7,7 @@
 #include "Sprite.h"
 #include "ShaderProgram.h"
 #include "Model.h"
+#include "OrthographicCamera.h"
 class LengineCore{
 
 public:
@@ -41,6 +42,7 @@ private:
 	
 	Model model;
 	Sprite sprite;
+	OrthographicCamera camera;
 	ShaderProgram program;
 	
 

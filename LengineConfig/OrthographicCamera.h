@@ -6,17 +6,20 @@
 class OrthographicCamera
 {
 public:
-	OrthographicCamera(int width, int height);
+	OrthographicCamera();
+	OrthographicCamera(GLfloat width, GLfloat height);
 
+	void init(GLfloat width, GLfloat height);
 	void translate(float x, float y);
 	void flip(bool x, bool y);
 	void rotateAbout(float x, float y, float degrees);
+	GLfloat* getUniformVal();
 
 	~OrthographicCamera();
 
 private:
 
-	int width, height;
+	GLfloat width, height;
 
 	mat4 matrix;
 

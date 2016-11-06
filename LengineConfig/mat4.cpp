@@ -23,11 +23,13 @@ mat4::mat4(GLfloat mat[4][4]){
 }
 
 mat4::mat4(GLfloat linear[16]){
-
+	int count = 0;
 	for (int i = 0; i < 16; i++) {
 		
-
-	
+		matrix[i][count] = 6.09f;
+		if (i % 4 == 0) {
+			std::cout << i % 4 << " to " << i << "\n";
+		}
 	}
 
 }
@@ -36,7 +38,7 @@ mat4::mat4(GLfloat linear[16]){
 GLfloat mat4::getElement(GLint x, GLint y){
 
 
-	return 0.0f;
+	return matrix[x][y];
 }
 
 

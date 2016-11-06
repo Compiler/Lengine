@@ -3,8 +3,8 @@
   RoadToLengine is me practicing for when I officially build my engine
 
 ## Features to be implemented
- - [ ] Creating a math library for games 
-      - [ ] Camera
+- [ ] Creating a math library for games 
+    - [ ] Camera
         - [ ] Perspective
         - [ ] Orthographic
       - [ ] Matrices and functions

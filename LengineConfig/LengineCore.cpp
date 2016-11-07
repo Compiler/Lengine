@@ -48,9 +48,13 @@ void LengineCore::render(){
 		0.0f, 0.0f, 0.0f, 1.0f
 	};
 
-	 GLfloat*ass = camera.getUniformVal();
+	 GLfloat* ass = new GLfloat;
+	 for (int i = 0; i < 16; i++) {
+		 ass[i] = camera.getUniformVal()[i];
+		 std::cout << ass[i] << ", ";
+	 }
 	
-	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, ass);
+	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, test);
 	sprite.render();
 	//model.render();
 

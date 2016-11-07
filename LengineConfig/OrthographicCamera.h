@@ -14,7 +14,7 @@ public:
 	void flip(bool x, bool y);
 	void rotateAbout(float x, float y, float degrees);
 	GLfloat* getUniformVal();
-
+	void getUniformVal(GLfloat (&arr)[16]);
 	~OrthographicCamera();
 
 private:

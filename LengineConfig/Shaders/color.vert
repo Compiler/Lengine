@@ -27,8 +27,8 @@ void main(){
 
 	vec2 orig = (getMat() * vec4(vertexPosition, 0.0, 1.0)).xy;
 	//Assigns position
-	gl_Position.xy = (cameraMatrix * vec4(vertexPosition, 0.0, 1.0)).xy;
-	gl_Position.y = orig.y;
+	gl_Position = (cameraMatrix * vec4(vertexPosition, 0.0, 1.0));
+	gl_Position.x = orig.x;
 //	gl_Position.xy = vertexPosition;
 	//gl_Position.xy = vec2(1,1);
 	

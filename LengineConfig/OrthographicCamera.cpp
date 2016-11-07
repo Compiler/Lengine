@@ -29,6 +29,7 @@ void OrthographicCamera::init(GLfloat width, GLfloat height) {
 		0.0f, 0.0f, 1.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f,
 	};
+
 	matrix.initByArray(first);
 
 	std::cout << std::endl;

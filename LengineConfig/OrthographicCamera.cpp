@@ -1,6 +1,6 @@
 #include "OrthographicCamera.h"
 #include <iostream>
-
+#include <SDL\SDL.h>
 
 OrthographicCamera::OrthographicCamera() {
 
@@ -53,6 +53,7 @@ void OrthographicCamera::rotateAbout(float x, float y, float degrees) {
 }
 
 GLfloat* OrthographicCamera::getUniformVal() {
+	
 	return matrix.getLinear();
 }
 

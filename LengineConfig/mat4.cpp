@@ -61,11 +61,14 @@ void mat4::initByMat(GLfloat mat[4][4]) {
 
 */
 mat4::mat4(GLfloat linear[16]){
-	std::memcpy(linear, linMat, sizeof(linMat));
+	
 	int count = -1;
 	for (int i = 0; i < 16; i++) {
+		
 		matrix[i % 4][i % 4 == 0 ? ++count : count] = linear[i];
+		
 	}
+
 }
 
 /*
@@ -83,6 +86,7 @@ void mat4::initByArray(GLfloat linear[16]) {
 	int count = -1;
 	for (int i = 0; i < 16; i++) {
 		matrix[i % 4][i % 4 == 0 ? ++count : count] = linear[i];
+		linMat[i] = linear[i];
 	}
 }
 

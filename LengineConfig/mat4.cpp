@@ -100,12 +100,29 @@ GLfloat mat4::getElement(GLint x, GLint y){
 }
 
 GLfloat* mat4::getLinear() {
-	
+	toLinear();
 	return linMat;
 
 }
 
 
+void mat4::setElement(int x, int y, GLfloat value) {
+	matrix[x][y] = value;
+	toLinear();
+}
+
+void mat4::translateElement(int x, int y, GLfloat value) {
+	matrix[x][y] += value;
+	toLinear();
+}
+
+void mat4::toLinear() {
+	for (int i = 0; i < 4; i++) {
+		for (int k = 0; k < 4; k++) {
+			linMat[k + i] = matrix[k][i];
+		}
+	}
+}
 
 mat4::~mat4()
 {

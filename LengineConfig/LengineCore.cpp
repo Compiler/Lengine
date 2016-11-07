@@ -48,8 +48,8 @@ void LengineCore::render(){
 		0.0f, 0.0f, 0.0f, 1.0f
 	};
 
-
-	
+	 
+	 camera.translate(0.01f, 0.01f);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
 	//model.render();

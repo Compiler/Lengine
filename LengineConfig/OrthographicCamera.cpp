@@ -40,8 +40,13 @@ void OrthographicCamera::init(GLfloat width, GLfloat height) {
 
 }
 
-void OrthographicCamera::translate(float x, float y) {
+void OrthographicCamera::translate(float x, float y, float z) {
 
+}
+
+void OrthographicCamera::translate(float x, float y) {
+	matrix.translateElement(0, 0, x);
+	matrix.translateElement(1, 1, y);
 }
 
 void OrthographicCamera::flip(bool x, bool y) {

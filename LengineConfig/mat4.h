@@ -12,12 +12,17 @@ public:
 	void initByMat(GLfloat mat[4][4]);
 	void initByArray(GLfloat linear[16]);
 
+	void setElement(int x, int y, GLfloat value);
+	void translateElement(int x, int y, GLfloat value);
+
 	GLfloat* getLinear();
 
 	GLfloat getElement(GLint x, GLint y);
 	~mat4();
 
 private:
+	void toLinear();
+
 	GLfloat matrix[4][4];
 	GLfloat linMat[16];
 };

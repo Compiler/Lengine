@@ -11,6 +11,7 @@ public:
 
 	void init(GLfloat width, GLfloat height);
 	void translate(float x, float y);
+	void translate(float x, float y, float z);
 	void flip(bool x, bool y);
 	void rotateAbout(float x, float y, float degrees);
 	GLfloat* getUniformVal();

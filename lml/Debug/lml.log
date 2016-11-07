@@ -1,0 +1,7 @@
+﻿  Vector3f.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3f.cpp(71): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Vector2f.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector2f.cpp(76): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Mat2.cpp
+  Generating Code...
+  lml.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\lml.lib

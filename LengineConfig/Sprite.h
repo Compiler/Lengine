@@ -14,6 +14,7 @@ public:
 	void init(float x, float y, float width, float height);
 	void update();
 	void render();
+	void rotateBy();
 
 	~Sprite();
 

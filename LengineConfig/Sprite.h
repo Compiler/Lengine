@@ -5,7 +5,6 @@
 #include <GL\glew.h>
 #include "Vertex.h"
 
-
 class Sprite{
 public:
 	Sprite();

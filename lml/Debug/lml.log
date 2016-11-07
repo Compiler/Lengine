@@ -4,4 +4,16 @@ c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3f.c
 c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector2f.cpp(76): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Mat2.cpp
   Generating Code...
+glew32.lib(glew32.dll) : warning LNK4006: _wglewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _wglewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _wglewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetString@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetErrorString@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+opengl32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
   lml.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\lml.lib

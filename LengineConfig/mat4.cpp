@@ -117,9 +117,10 @@ void mat4::translateElement(int x, int y, GLfloat value) {
 }
 
 void mat4::toLinear() {
+	int count = 0;
 	for (int i = 0; i < 4; i++) {
 		for (int k = 0; k < 4; k++) {
-			linMat[k + i] = matrix[k][i];
+			linMat[count++] = matrix[k][i];
 		}
 	}
 }

@@ -37,6 +37,8 @@ void OrthographicCamera::init(GLfloat width, GLfloat height) {
 		for (int k = 0; k < 4; k++)
 			std::cout << matrix.getElement(k, i);
 		std::cout << std::endl;
+
+		matrix.setElement(1, 1, 1.0f);
 	}
 
 }
@@ -46,6 +48,10 @@ void OrthographicCamera::translate(float x, float y, float z) {
 }
 
 void OrthographicCamera::translate(float x, float y) {
+	
+}
+
+void OrthographicCamera::scale(float x, float y) {
 	matrix.translateElement(0, 0, x);
 	matrix.translateElement(1, 1, y);
 }

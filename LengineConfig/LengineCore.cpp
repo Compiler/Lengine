@@ -17,7 +17,7 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
-	sprite.init(-0.5, -0.5, 1.0, 1.0);
+	sprite.init(0.0f, .0f, 100.0f, 100.0f);
 	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
 	program.compile("Shaders/color.vert", "Shaders/color.frag");
 	program.bindAttrib("vertexPosition", 0);
@@ -41,15 +41,9 @@ void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	program.use();
-	 GLfloat test[16] = {
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
 
 	 
-	camera.translate(0.01f, 0.01f);
+	camera.translate(10, 1);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
 	//model.render();

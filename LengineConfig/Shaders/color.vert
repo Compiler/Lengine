@@ -11,6 +11,7 @@ out vec2 fragmentPosition;
 out vec2 fragmentUV;
 
 uniform mat4 cameraMatrix;
+uniform mat2 transform;
 
 mat4 getMat(){
 	
@@ -29,6 +30,8 @@ void main(){
 	//Assigns position
 	gl_Position = (cameraMatrix * vec4(vertexPosition.x, -vertexPosition.y, 0.0, 1.0));
 	//gl_Position.y = orig.y;
+	//gl_Position.x = gl_Position.x * transform[0][0] + gl_Position.y * transform[0][1];
+	//gl_Position.y = gl_Position.x * transform[0][0] + gl_Position.y * transform[0][1];
 //	gl_Position.xy = vertexPosition;
 	//gl_Position.xy = vec2(1,1);
 	
@@ -45,5 +48,5 @@ void main(){
 	
 	fragmentUV = vec2(vertexUV.x, 1 - vertexUV.y);
 	
-	
+	//075880586
 }

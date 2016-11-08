@@ -6,7 +6,7 @@ OrthographicCamera::OrthographicCamera() {
 
 }
 
-OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(width), height(height)
+OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(width), height(height), zoom(1)
 {
 
 	
@@ -23,15 +23,32 @@ OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(wid
 
 
 void OrthographicCamera::init(GLfloat width, GLfloat height) {
-	/*GLfloat first[16] = {
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f,
-	};*/
+	zoom = 1.0f;
 	GLfloat first[16] = {
-		2.0f / width, 0.0f, 0.0f, 0.0f,
-		0.0f, 2.0f / height, 0.0f, 0.0f,
+		zoom * 2.0f / width, 0.0f, 0.0f, 0.0f,
+		0.0f, zoom * 2.0f / height, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f,
+	};
+	matrix.initByArray(first);
+
+	std::cout << std::endl;
+	for (int i = 0; i < 4; i++) {
+		for (int k = 0; k < 4; k++)
+			std::cout << matrix.getElement(k, i) << ",";
+		std::cout << std::endl;
+
+		//matrix.setElement(1, 1, 1.0f);
+	}
+
+}
+
+
+void OrthographicCamera::init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat height) {
+	zoom = 1.0f;
+	GLfloat first[16] = {
+		zoom * 2.0f / (width - posX), 0.0f, 0.0f, 0.0f,
+		0.0f, zoom * 2.0f / (height - posY), 0.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f,
 	};

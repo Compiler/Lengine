@@ -3,6 +3,7 @@
 #include "mat4.h"
 
 
+
 class OrthographicCamera
 {
 public:
@@ -10,6 +11,7 @@ public:
 	OrthographicCamera(GLfloat width, GLfloat height);
 
 	void init(GLfloat width, GLfloat height);
+	void init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat height);
 	void translate(float x, float y);
 	void translate(float x, float y, float z);
 	void flip(bool x, bool y);
@@ -22,7 +24,7 @@ public:
 
 private:
 
-	GLfloat width, height;
+	GLfloat width, height, zoom;
 
 	mat4 matrix;
 

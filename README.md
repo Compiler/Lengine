@@ -9,7 +9,7 @@
         - [ ] Orthographic
       - [ ] Matrices and functions
         - [x] Matrix 4x4 operations
-        - [ ] Swizzling Struct
+        - [x] Swizzling Struct
         
         
  - [ ] Particle systems

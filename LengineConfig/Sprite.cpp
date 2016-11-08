@@ -7,10 +7,9 @@ Sprite::Sprite(): vbo(0){
 }
 
 
-void Sprite::init(float x, float y, float width, float height){
+void Sprite::init(GLfloat x, GLfloat y, GLfloat width, GLfloat height){
 
-	this->x = x;
-	this->y = y;
+	position.set(x, y);
 	this->width = width;
 	this->height = height;
 
@@ -18,7 +17,7 @@ void Sprite::init(float x, float y, float width, float height){
 	if(vbo == 0)
 		glGenBuffers(1, &vbo);
 
-	Vertex vertex[6];
+	
 
 	vertex[0].setPosition(x, y);
 	vertex[0].setUV(0, 0);
@@ -81,6 +80,26 @@ void Sprite::render(){
 void Sprite::update(){
 
 }
+
+void Sprite::rotateBy() {
+	
+
+
+}
+
+void Sprite::translate(GLfloat x, GLfloat y) {
+
+	for (int i = 0; i < 6; i++) {
+		vertex[i].position.x += x;
+		vertex[i].position.y += y;
+	
+	}
+
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
 
 
 Sprite::~Sprite(){

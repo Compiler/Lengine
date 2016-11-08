@@ -1,22 +1,23 @@
 #pragma once
 #include "iostream"
 #include "math.h"
+#include <GL\glew.h>
 namespace lml {
 	class Vector2f {
 	public:
 		Vector2f();
-		Vector2f(float xd, float yd);
+		Vector2f(GLfloat xd, GLfloat yd);
 
 
 
 
-		static float dot(Vector2f me, Vector2f you) {
+		static GLfloat dot(Vector2f me, Vector2f you) {
 			return (me.x * you.x) + (me.y * you.y);
 		}
 
 
-		float angleBetween(Vector2f vec);
-		float magnitude();
+		GLfloat angleBetween(Vector2f vec);
+		GLfloat magnitude();
 
 		Vector2f getProjectionOnto(Vector2f vec);
 		Vector2f getNormalized();
@@ -27,7 +28,7 @@ namespace lml {
 
 
 		//x and y components
-		float x, y;
+		GLfloat x, y;
 
 
 		~Vector2f();

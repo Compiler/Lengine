@@ -1,7 +1,7 @@
 #pragma once
 #include <GL/glew.h>
 #include "mat4.h"
-
+#include <lml\Vector2f.h>
 
 
 class OrthographicCamera

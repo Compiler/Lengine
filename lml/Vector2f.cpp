@@ -12,9 +12,9 @@ namespace lml {
 
 	}
 	/*
-		Gives current Vector2f object float components 'xd' and 'yd'
+		Gives current Vector2f object GLfloat components 'xd' and 'yd'
 	*/
-	Vector2f::Vector2f(float xd, float yd) {
+	Vector2f::Vector2f(GLfloat xd, GLfloat yd) {
 		x = xd;
 		y = yd;
 
@@ -33,7 +33,7 @@ namespace lml {
 			(u * u)
 
 		*/
-		float projScalar = (dot(*this, vec)) / (dot(*this, *this));
+		GLfloat projScalar = (dot(*this, vec)) / (dot(*this, *this));
 		return Vector2f(projScalar * x, projScalar * y);
 
 	}
@@ -43,7 +43,7 @@ namespace lml {
 		the given Vector2f 'vec'
 	*/
 	void Vector2f::projectOnto(Vector2f vec) {
-		float projScalar = dot(*this, vec) / dot(*this, *this);
+		GLfloat projScalar = dot(*this, vec) / dot(*this, *this);
 		x = x * projScalar;
 		y = y * projScalar;
 	}
@@ -54,7 +54,7 @@ namespace lml {
 		normalized
 	*/
 	void Vector2f::normalize() {
-		float tmp = magnitude();
+		GLfloat tmp = magnitude();
 		x = x / tmp;
 		y = y / tmp;
 	}
@@ -64,7 +64,7 @@ namespace lml {
 		Vector2f object called upon
 	*/
 	Vector2f Vector2f::getNormalized() {
-		float tmp = magnitude();
+		GLfloat tmp = magnitude();
 		return Vector2f(x / tmp, y / tmp);
 	}
 
@@ -72,7 +72,7 @@ namespace lml {
 		returns the angle between the invoked Vector2f object
 		and the given 'vec' Vector2f object
 	*/
-	float Vector2f::angleBetween(Vector2f vec) {
+	GLfloat Vector2f::angleBetween(Vector2f vec) {
 		return acosf(dot(*this, vec) / (magnitude() * vec.magnitude())) * TO_DEG;
 	}
 
@@ -81,7 +81,7 @@ namespace lml {
 		Returns the magnitude of the currently invoked Vector2f
 		object
 	*/
-	float Vector2f::magnitude() {
+	GLfloat Vector2f::magnitude() {
 
 		return sqrtf(powf(x, 2) + powf(y, 2));
 	}

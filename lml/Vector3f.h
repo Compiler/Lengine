@@ -27,8 +27,8 @@ namespace lml {
 
 		void normalize();
 		void projectOnto(Vector3f vec);
-
-
+		void set(GLfloat x, GLfloat y, GLfloat z);
+		void set(lml::Vector3f vec);
 		//x and y components
 		GLfloat x, y, z;
 

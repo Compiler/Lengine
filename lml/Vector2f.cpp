@@ -21,6 +21,17 @@ namespace lml {
 	}
 
 
+	void Vector2f::set(GLfloat x, GLfloat y) {
+		this->x = x;
+		this->y = y;
+	}
+
+
+	void Vector2f::set(Vector2f vec) {
+		set(vec.x, vec.y);
+	}
+
+
 
 	/*
 		Returns a vector of the projection but doesn't effect the current

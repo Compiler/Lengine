@@ -10,8 +10,7 @@ OrthographicCamera::OrthographicCamera(): zoom(1.0f)
 
 OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(width), height(height), zoom(1)
 {
-	position.x = 0.0f;
-	position.y = 0.0f;
+	position.set(0.0f, 0.0f);
 	
 	GLfloat first[16] = { 
 		zoom * 2.0f / width, 0.0f, 0.0f, 0.0f,
@@ -27,8 +26,7 @@ OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(wid
 
 void OrthographicCamera::init(GLfloat width, GLfloat height) {
 	zoom = 1.0f;
-	viewport.x = width;
-	viewport.y = height;
+	viewport.set(width, height);
 	GLfloat first[16] = {
 		zoom * 2.0f / width, 0.0f, 0.0f, 0.0f,
 		0.0f, zoom * 2.0f / height, 0.0f, 0.0f,
@@ -51,6 +49,8 @@ void OrthographicCamera::init(GLfloat width, GLfloat height) {
 
 void OrthographicCamera::init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat height) {
 	zoom = 1.0f;
+	viewport.set(width, height);
+	position.set(posX, posY);
 	GLfloat first[16] = {
 		zoom * 2.0f / (width - posX), 0.0f, 0.0f, 0.0f,
 		0.0f, zoom * 2.0f / (height - posY), 0.0f, 0.0f,

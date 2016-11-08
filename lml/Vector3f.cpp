@@ -19,6 +19,18 @@ namespace lml {
 	}
 
 
+	void Vector3f::set(GLfloat x, GLfloat y, GLfloat z) {
+		this->x = x;
+		this->y = y;
+		this->z = z;
+
+	}
+
+	void Vector3f::set(lml::Vector3f vec) {
+		set(vec.x, vec.y, vec.z);
+	}
+
+
 
 	/*
 	Returns a vector of the projection but doesn't effect the current

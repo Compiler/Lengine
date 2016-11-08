@@ -21,11 +21,12 @@ namespace lml {
 
 		Vector2f getProjectionOnto(Vector2f vec);
 		Vector2f getNormalized();
-
+		
 
 		void normalize();
 		void projectOnto(Vector2f vec);
-
+		void set(GLfloat x, GLfloat y);
+		void set(Vector2f vec);
 		//x and y components
 		GLfloat x, y;
 

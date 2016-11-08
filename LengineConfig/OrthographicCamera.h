@@ -11,6 +11,7 @@ public:
 	OrthographicCamera(GLfloat width, GLfloat height);
 
 	void init(GLfloat width, GLfloat height);
+	void init(lml::Vector2f viewport);
 	void init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat height);
 	void translate(float x, float y);
 	void translate(float x, float y, float z);
@@ -25,6 +26,8 @@ public:
 private:
 
 	GLfloat width, height, zoom;
+
+	lml::Vector2f position, viewport;
 
 	mat4 matrix;
 

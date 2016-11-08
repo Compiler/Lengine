@@ -2,17 +2,20 @@
 #include <iostream>
 #include <SDL\SDL.h>
 
-OrthographicCamera::OrthographicCamera() {
+OrthographicCamera::OrthographicCamera(): zoom(1.0f)
+{
+	
 
 }
 
 OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(width), height(height), zoom(1)
 {
-
+	position.x = 0.0f;
+	position.y = 0.0f;
 	
 	GLfloat first[16] = { 
-		2.0f / width, 0.0f, 0.0f, 0.0f,
-		0.0f, 2.0f / height, 0.0f, 0.0f,
+		zoom * 2.0f / width, 0.0f, 0.0f, 0.0f,
+		0.0f, zoom * 2.0f / height, 0.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f,
 	};
@@ -24,6 +27,8 @@ OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(wid
 
 void OrthographicCamera::init(GLfloat width, GLfloat height) {
 	zoom = 1.0f;
+	viewport.x = width;
+	viewport.y = height;
 	GLfloat first[16] = {
 		zoom * 2.0f / width, 0.0f, 0.0f, 0.0f,
 		0.0f, zoom * 2.0f / height, 0.0f, 0.0f,

@@ -2,24 +2,25 @@
 
 #include "iostream"
 #include "math.h"
+#include <GL\glew.h>
 
 namespace lml {
 
 	class Vector3f {
 	public:
 		Vector3f();
-		Vector3f(float xd, float yd, float zd);
+		Vector3f(GLfloat xd, GLfloat yd, GLfloat zd);
 
 
 
 
-		float dot(Vector3f me, Vector3f you) {
+		GLfloat dot(Vector3f me, Vector3f you) {
 			return (me.x * you.x) + (me.y * you.y) + (me.z * you.z);
 		}
 
 
-		float angleBetween(Vector3f vec);
-		float magnitude();
+		GLfloat angleBetween(Vector3f vec);
+		GLfloat magnitude();
 
 		Vector3f getProjectionOnto(Vector3f vec);
 		Vector3f getNormalized();
@@ -29,7 +30,7 @@ namespace lml {
 
 
 		//x and y components
-		float x, y, z;
+		GLfloat x, y, z;
 
 
 

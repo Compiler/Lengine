@@ -26,7 +26,6 @@ namespace lml {
 		void normalize();
 		void projectOnto(Vector2f vec);
 
-
 		//x and y components
 		GLfloat x, y;
 

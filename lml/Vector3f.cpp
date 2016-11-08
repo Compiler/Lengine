@@ -9,9 +9,9 @@ namespace lml {
 
 	}
 	/*
-	Gives current Vector3f object float components 'xd' and 'yd' and 'zd'
+	Gives current Vector3f object GLfloat components 'xd' and 'yd' and 'zd'
 	*/
-	Vector3f::Vector3f(float xd, float yd, float zd) {
+	Vector3f::Vector3f(GLfloat xd, GLfloat yd, GLfloat zd) {
 		x = xd;
 		y = yd;
 		z = zd;
@@ -26,7 +26,7 @@ namespace lml {
 	*/
 	Vector3f Vector3f::getProjectionOnto(Vector3f vec) {
 
-		float projScalar = (dot(*this, vec)) / (dot(*this, *this));
+		GLfloat projScalar = (dot(*this, vec)) / (dot(*this, *this));
 		return Vector3f(projScalar * x, projScalar * y, projScalar * z);
 
 	}
@@ -36,7 +36,7 @@ namespace lml {
 	the given Vector3f 'vec'
 	*/
 	void Vector3f::projectOnto(Vector3f vec) {
-		float projScalar = dot(*this, vec) / dot(*this, *this);
+		GLfloat projScalar = dot(*this, vec) / dot(*this, *this);
 		x = x * projScalar;
 		y = y * projScalar;
 		z = z * projScalar;
@@ -48,7 +48,7 @@ namespace lml {
 	normalized
 	*/
 	void Vector3f::normalize() {
-		float tmp = magnitude();
+		GLfloat tmp = magnitude();
 		x = x / tmp;
 		y = y / tmp;
 		z = z / tmp;
@@ -59,7 +59,7 @@ namespace lml {
 	Vector3f object called upon
 	*/
 	Vector3f Vector3f::getNormalized() {
-		float tmp = magnitude();
+		GLfloat tmp = magnitude();
 		return Vector3f(x / tmp, y / tmp, z / tmp);
 	}
 
@@ -67,7 +67,7 @@ namespace lml {
 	returns the angle between the invoked Vector3f object
 	and the given 'vec' Vector3f object
 	*/
-	float Vector3f::angleBetween(Vector3f vec) {
+	GLfloat Vector3f::angleBetween(Vector3f vec) {
 		return acosf(dot(*this, vec) / (magnitude() * vec.magnitude())) * TO_DEG;
 	}
 
@@ -76,7 +76,7 @@ namespace lml {
 	Returns the magnitude of the currently invoked Vector3f
 	object
 	*/
-	float Vector3f::magnitude() {
+	GLfloat Vector3f::magnitude() {
 
 		return sqrtf(powf(x, 2) + powf(y, 2) + powf(z, 3));
 	}

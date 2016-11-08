@@ -55,8 +55,8 @@ void OrthographicCamera::translate(float x, float y, float z) {
 void OrthographicCamera::translate(float x, float y) {
 	float newX = matrix.getElement(0, 0) * x + matrix.getElement(1, 0) * y;
 	float newY = matrix.getElement(0, 1) * x + matrix.getElement(1, 1) * y;
-	matrix.setElement(0, 0, newX);
-	matrix.setElement(1, 1, newY);
+	matrix.setElement(3, 0, newX);
+	matrix.setElement(3, 1, newY);
 }
 
 void OrthographicCamera::scale(float x, float y) {

@@ -16,6 +16,8 @@
           - [ ] Matrix 3x2 operations
           - [ ] Matrix 2x2 operations
         - [ ] Swizzling Struct
+        - [ ] Noise function
+        - [ ] Cardinal Sine
         
         
  - [ ] Particle systems

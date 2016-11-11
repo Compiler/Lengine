@@ -8,8 +8,14 @@
         - [ ] Perspective
         - [ ] Orthographic
       - [ ] Matrices and functions
-        - [x] Matrix 4x4 operations
-        - [x] Swizzling Struct
+        - [ ] Matrices
+          - [x] Matrix 4x4 operations
+          - [ ] Matrix 4x3 operations
+          - [ ] Matrix 4x2 operations
+          - [ ] Matrix 3x3 operations
+          - [ ] Matrix 3x2 operations
+          - [ ] Matrix 2x2 operations
+        - [ ] Swizzling Struct
         
         
  - [ ] Particle systems

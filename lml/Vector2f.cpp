@@ -20,13 +20,17 @@ namespace lml {
 
 	}
 
-
+	/*
+		Sets each component to the given values
+	*/
 	void Vector2f::set(GLfloat x, GLfloat y) {
 		this->x = x;
 		this->y = y;
 	}
 
-
+	/*
+		Sets each component to the given values by passing in another vec3
+	*/
 	void Vector2f::set(Vector2f vec) {
 		set(vec.x, vec.y);
 	}

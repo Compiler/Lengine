@@ -18,14 +18,18 @@ namespace lml {
 
 	}
 
-
+	/*
+		Easier way to set
+	*/
 	void Vector3f::set(GLfloat x, GLfloat y, GLfloat z) {
 		this->x = x;
 		this->y = y;
 		this->z = z;
 
 	}
-
+	/*
+		Sets, calls inner method to do so
+	*/
 	void Vector3f::set(lml::Vector3f vec) {
 		set(vec.x, vec.y, vec.z);
 	}

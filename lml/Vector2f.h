@@ -15,6 +15,10 @@ namespace lml {
 			return (me.x * you.x) + (me.y * you.y);
 		}
 
+		static Vector2f ZERO() {
+			return Vector2f(0.0f, 0.0f);
+		}
+
 
 		GLfloat angleBetween(Vector2f vec);
 		GLfloat magnitude();

@@ -23,7 +23,10 @@ OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): width(wid
 
 }
 
-
+/*
+	Initializes the camera with the given viewport dimensions and 
+	is defaulted to be set at 0,0,0
+*/
 void OrthographicCamera::init(GLfloat width, GLfloat height) {
 	zoom = 1.0f;
 	viewport.set(width, height);
@@ -46,7 +49,10 @@ void OrthographicCamera::init(GLfloat width, GLfloat height) {
 
 }
 
-
+/*
+	Initializes the camera with the given viewport dimensions and
+	is also set to the given position to look at
+*/
 void OrthographicCamera::init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat height) {
 	zoom = 1.0f;
 	viewport.set(width, height);
@@ -70,10 +76,19 @@ void OrthographicCamera::init(GLfloat posX, GLfloat posY, GLfloat width, GLfloat
 
 }
 
+/*
+
+	Translates the invoked camera by each vector component
+
+*/
 void OrthographicCamera::translate(float x, float y, float z) {
 
 }
+/*
 
+	Deprecated
+
+*/
 void OrthographicCamera::translate(float x, float y) {
 	float newX = matrix.getElement(0, 0) * x + matrix.getElement(1, 0) * y;
 	float newY = matrix.getElement(0, 1) * x + matrix.getElement(1, 1) * y;
@@ -81,18 +96,42 @@ void OrthographicCamera::translate(float x, float y) {
 	matrix.setElement(3, 1, newY);
 }
 
+/*
+
+	Scales the invoked camera
+
+*/
 void OrthographicCamera::scale(float x, float y) {
 	matrix.translateElement(0, 0, x);
 	matrix.translateElement(1, 1, y);
 }
+/*
 
+	Flips the given camera over the given axis in boolean form
+
+*/
 void OrthographicCamera::flip(bool x, bool y) {
 
 }
 
+/*
+
+	Rotates the looked at position of the camera about a given point
+	by a given amount of degrees
+
+*/
+
 void OrthographicCamera::rotateAbout(float x, float y, float degrees) {
 
 }
+
+
+/*
+
+	Returns the value able to be passed through OpenGL to
+	GLSL to use as a uniform variable
+
+*/
 
 GLfloat* OrthographicCamera::getUniformVal() {
 	

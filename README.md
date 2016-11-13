@@ -1,9 +1,7 @@
-# RoadToLengine
-## The RoadToLengine
+# The RoadToLengine
   RoadToLengine is me practicing for when I officially build my engine
 
 ## Features to be implemented
----
 
 
 - [ ] Creating a math library for games 

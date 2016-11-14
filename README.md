@@ -16,6 +16,10 @@
           - [ ] Matrix 3x3 operations
           - [ ] Matrix 3x2 operations
           - [ ] Matrix 2x2 operations
+        - [ ] Vectors
+          - [ ] Dot
+          - [ ] Projections
+          - [ ] todo
         - [ ] Swizzling Struct
         - [ ] Noise function
         - [ ] Cardinal Sine
@@ -35,6 +39,12 @@
 
 
  - [ ] Collision filter
+  - [ ] Tree Listed
+  - [ ] By point
+  - [ ] Predictive
+  - [ ] Info by Collision
+  - [ ] Logs
+  - [ ] Precision
  
  
 ---

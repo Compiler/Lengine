@@ -5,7 +5,9 @@
 ShaderProgram::ShaderProgram() : programID(0), vertexID(0), fragmentID(0)
 {
 }
-
+/*
+	Compiles the given shader program with the given file paths for vertex and fragment
+*/
 void ShaderProgram::compile(std::string vertex, std::string fragment) {
 	
 	programID = glCreateProgram();
@@ -22,7 +24,9 @@ void ShaderProgram::compile(std::string vertex, std::string fragment) {
 
 }
 
-
+/*
+	Compiles each shader individually
+*/
 void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 		
 	std::ifstream file(filePath);
@@ -65,7 +69,9 @@ void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 
 }
 
-
+/*
+	Links the shaders to the shader program id created
+*/
 void ShaderProgram::linkShaders() {
 
 	glAttachShader(programID, vertexID);
@@ -101,14 +107,18 @@ void ShaderProgram::linkShaders() {
 }
 
 
-
+/*
+	Allows for binding of attributes in the shader
+*/
 void ShaderProgram::bindAttrib(const std::string& attributeName, GLuint indexOfAttribute) {
 	glBindAttribLocation(programID, indexOfAttribute, attributeName.c_str());
 	numOfAttribs++;
 
 }
 
-
+/*
+	Uses the shader program
+*/
 void ShaderProgram::use() {
 
 	glUseProgram(programID);
@@ -117,6 +127,9 @@ void ShaderProgram::use() {
 		glEnableVertexAttribArray(i);
 
 }
+/*
+	Ends the shader program
+*/
 
 void ShaderProgram::unuse() {
 
@@ -125,6 +138,10 @@ void ShaderProgram::unuse() {
 		glDisableVertexAttribArray(i);
 
 }
+/*
+	Returns the id location of the searched for uniform variable in the
+	current shader program
+*/
 
 GLint ShaderProgram::getUniformLocation(std::string name) {
 	return glGetUniformLocation(programID, name.c_str());

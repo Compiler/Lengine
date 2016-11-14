@@ -16,6 +16,10 @@
           - [ ] Matrix 3x3 operations
           - [ ] Matrix 3x2 operations
           - [ ] Matrix 2x2 operations
+        - [ ] Vectors
+          - [ ] Dot
+          - [ ] Projections
+          - [ ] todo
         - [ ] Swizzling Struct
         - [ ] Noise function
         - [ ] Cardinal Sine

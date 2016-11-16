@@ -6,7 +6,9 @@
 LengineCore::LengineCore(){
 
 	currentState = GameState::PLAY;
-
+	newTime = 0;
+	currentTime = 0;
+	deltaTime = 0;
 }
 
 
@@ -17,17 +19,16 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
-	sprite.init(-50.0f, -50.0f, 100.0f, 100.0f);
-	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
-	program.compile("Shaders/color.vert", "Shaders/color.frag");
-	program.bindAttrib("vertexPosition", 0);
-	program.bindAttrib("vertexColor", 1);
-	program.bindAttrib("vertexUV", 2);
-	
-	camera.init(640, 480);
-	program.linkShaders();
+
+
 	while(currentState != GameState::EXIT){
-	
+		newTime = SDL_GetTicks();
+		deltaTime = newTime - currentTime;
+
+		currentTime = newTime;
+
+		std::cout << "Delta: " << deltaTime << "\n";
+
 		update();
 		render();
 		
@@ -39,7 +40,7 @@ void LengineCore::run(){
 
 void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+	
 	program.use();
 
 	 
@@ -65,6 +66,17 @@ void LengineCore::update(){
 void LengineCore::initSubSystems(){
 	subSDLInit();
 	subWindow();
+
+
+	sprite.init(-50.0f, -50.0f, 100.0f, 100.0f);
+	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
+	program.compile("Shaders/color.vert", "Shaders/color.frag");
+	program.bindAttrib("vertexPosition", 0);
+	program.bindAttrib("vertexColor", 1);
+	program.bindAttrib("vertexUV", 2);
+
+	camera.init(640, 480);
+	program.linkShaders();
 }
 
 //inits sdl2 and sets the double buffer

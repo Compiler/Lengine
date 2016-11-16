@@ -44,6 +44,9 @@ private:
 	Sprite sprite;
 	OrthographicCamera camera;
 	ShaderProgram program;
+
+
+	GLuint newTime, currentTime, deltaTime;
 	
 
 };

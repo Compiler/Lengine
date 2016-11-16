@@ -46,7 +46,7 @@ private:
 	ShaderProgram program;
 
 
-	GLuint newTime, currentTime, deltaTime;
+	GLfloat newTime, currentTime, deltaTime;
 	
 
 };

@@ -6,9 +6,9 @@
 LengineCore::LengineCore(){
 
 	currentState = GameState::PLAY;
-	newTime = 0;
-	currentTime = 0;
-	deltaTime = 0;
+	newTime = 0.0f;
+	currentTime = 0.0f;
+	deltaTime = 0.0f;
 }
 
 
@@ -45,7 +45,9 @@ void LengineCore::render(){
 
 	 
 	camera.translate(100.1f, 1);
-	sprite.translate(1.0f, 0.0f);
+	GLfloat newX = deltaTime == 0 ? 1.0f : 10.6f / deltaTime;
+	sprite.translate(newX, 0.0f);
+	std::cout << " - " << newX << " - \n";
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
 	//model.render();

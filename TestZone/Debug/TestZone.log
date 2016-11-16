@@ -1,3 +1,4 @@
-﻿  main.cpp
-  TestZone.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\TestZone.exe
-  TestZone.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\TestZone.pdb (Full PDB)
+﻿main.obj : error LNK2019: unresolved external symbol "public: __thiscall LengineCore::LengineCore(void)" (??0LengineCore@@QAE@XZ) referenced in function _SDL_main
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall LengineCore::run(void)" (?run@LengineCore@@QAEXXZ) referenced in function _SDL_main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall LengineCore::~LengineCore(void)" (??1LengineCore@@QAE@XZ) referenced in function _SDL_main
+C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\TestZone.exe : fatal error LNK1120: 3 unresolved externals

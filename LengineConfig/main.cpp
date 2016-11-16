@@ -6,13 +6,13 @@
 #include <GL\glew.h>
 //start of app
 int main(int argc, char** argv){
-	GLfloat ay[16] = { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+	//GLfloat ay[16] = { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
 	
-	mat4 mat(ay);
+	//mat4 mat(ay);
 
 	//run the main loop
-	LengineCore core;
-	core.run();
+	//LengineCore core;
+//	core.run();
 
 	return 0;
 }

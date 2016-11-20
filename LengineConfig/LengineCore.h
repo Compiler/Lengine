@@ -45,7 +45,7 @@ private:
 	OrthographicCamera camera;
 	ShaderProgram program;
 
-
+	std::vector<GLfloat> averages = {};
 	GLfloat newTime, currentTime, deltaTime;
 	
 

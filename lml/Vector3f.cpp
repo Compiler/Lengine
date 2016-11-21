@@ -97,6 +97,13 @@ namespace lml {
 		return sqrtf(powf(x, 2) + powf(y, 2) + powf(z, 3));
 	}
 
+	/*
+	Returns the unit vector version of this vector
+	*/
+	Vector3f Vector3f::getUnitVector() {
+		return Vector3f(this->x / magnitude(), this->y / magnitude(), this->z / magnitude());
+	}
+
 
 	/*
 	Destructor

@@ -25,7 +25,7 @@ namespace lml {
 
 		Vector2f getProjectionOnto(Vector2f vec);
 		Vector2f getNormalized();
-		
+		Vector2f getUnitVector();
 
 		void normalize();
 		void projectOnto(Vector2f vec);

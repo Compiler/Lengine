@@ -24,6 +24,7 @@ namespace lml {
 
 		Vector3f getProjectionOnto(Vector3f vec);
 		Vector3f getNormalized();
+		Vector3f getUnitVector();
 
 		void normalize();
 		void projectOnto(Vector3f vec);

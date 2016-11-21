@@ -9,6 +9,8 @@ LengineCore::LengineCore(){
 	newTime = 0.0f;
 	currentTime = 0.0f;
 	deltaTime = 0.0f;
+	//averages = {};
+	count = 0;
 }
 
 
@@ -23,10 +25,13 @@ void LengineCore::run(){
 
 	while(currentState != GameState::EXIT){
 		newTime = SDL_GetTicks();
-		deltaTime = newTime - currentTime;
-
+		//deltaTime = newTime - currentTime;
+		averages[count % 10] = newTime - currentTime;;
+		
 		currentTime = newTime;
-
+		for (int i = 0; i < 10; i++)
+			deltaTime += averages[i];
+		deltaTime = deltaTime / 10;
 		std::cout << "Delta: " << deltaTime << "\n";
 
 		update();

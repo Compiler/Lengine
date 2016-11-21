@@ -1,4 +1,8 @@
 ﻿  LengineCore.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(25): warning C4244: '=': conversion from 'Uint32' to 'GLfloat', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(27): warning C4244: '=': conversion from 'Uint32' to 'GLfloat', possible loss of data
+  Generating Code...
+  Compiling...
+  main.cpp
+  Generating Code...
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

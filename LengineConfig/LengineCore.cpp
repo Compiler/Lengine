@@ -22,16 +22,15 @@ void LengineCore::run(){
 	initSubSystems();
 
 
-
 	while(currentState != GameState::EXIT){
 		newTime = SDL_GetTicks();
-		//deltaTime = newTime - currentTime;
+		deltaTime = 0;
 		averages[count % 10] = newTime - currentTime;;
 		
 		currentTime = newTime;
 		for (int i = 0; i < 10; i++)
 			deltaTime += averages[i];
-		deltaTime = deltaTime / 10;
+		deltaTime = deltaTime / 10 / 1000;
 		std::cout << "Delta: " << deltaTime << "\n";
 
 		update();
@@ -42,7 +41,7 @@ void LengineCore::run(){
 
 
 }
-
+GLfloat newX = 0;
 void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
@@ -50,7 +49,7 @@ void LengineCore::render(){
 
 	 
 	camera.translate(100.1f, 1);
-	GLfloat newX = deltaTime == 0 ? 1.0f : 10.6f / deltaTime;
+	newX += deltaTime == 0 ? 1.0f : 20.6f * deltaTime;
 	sprite.translate(newX, 0.0f);
 	std::cout << " - " << newX << " - \n";
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());

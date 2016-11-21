@@ -33,6 +33,9 @@ void LengineCore::run(){
 		deltaTime = deltaTime / 10 / 1000;
 		std::cout << "Delta: " << deltaTime << "\n";
 
+		if (deltaTime < 0.06)
+			SDL_Delay(100);
+
 		update();
 		render();
 		
@@ -41,7 +44,6 @@ void LengineCore::run(){
 
 
 }
-GLfloat newX = 0;
 void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
@@ -49,9 +51,9 @@ void LengineCore::render(){
 
 	 
 	camera.translate(100.1f, 1);
-	newX += deltaTime == 0 ? 1.0f : 20.6f * deltaTime;
-	sprite.translate(newX, 0.0f);
-	std::cout << " - " << newX << " - \n";
+	
+	//sprite.translate(newX, 0.0f);
+
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
 	//model.render();

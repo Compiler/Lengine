@@ -31,6 +31,8 @@ private:
 	void render();
 	void update();
 	
+	void calculateDelta();
+
 	void subSDLInit();
 	void subWindow();
 
@@ -47,7 +49,7 @@ private:
 
 	GLfloat averages[10];
 	GLint count;
-	GLfloat newTime, currentTime, deltaTime;
+	GLfloat newTime, currentTime, deltaTime, maxCap;
 	
 
 };

@@ -11,6 +11,7 @@ LengineCore::LengineCore(){
 	deltaTime = 0.0f;
 	//averages = {};
 	count = 0;
+	maxCap = 0.06f;
 }
 
 
@@ -23,18 +24,8 @@ void LengineCore::run(){
 
 
 	while(currentState != GameState::EXIT){
-		newTime = SDL_GetTicks();
-		deltaTime = 0;
-		averages[count % 10] = newTime - currentTime;;
-		
-		currentTime = newTime;
-		for (int i = 0; i < 10; i++)
-			deltaTime += averages[i];
-		deltaTime = deltaTime / 10 / 1000;
-		std::cout << "Delta: " << deltaTime << "\n";
 
-		if (deltaTime < 0.06)
-			SDL_Delay(100);
+		calculateDelta();
 
 		update();
 		render();
@@ -112,7 +103,20 @@ void LengineCore::subWindow(){
 }
 
 
+void LengineCore::calculateDelta() {
+	newTime = SDL_GetTicks();
+	deltaTime = 0;
+	averages[count % 10] = newTime - currentTime;;
 
+	currentTime = newTime;
+	for (int i = 0; i < 10; i++)
+		deltaTime += averages[i];
+	deltaTime = deltaTime / 10 / 1000;
+	std::cout << "Delta: " << deltaTime << "\n";
+
+	if (deltaTime < maxCap)
+		SDL_Delay(100);
+}
 
 
 LengineCore::~LengineCore(){

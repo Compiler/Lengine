@@ -11,6 +11,7 @@ namespace lml {
 		void dot();
 		void add();
 		void transpose();
+
 		
 		int getRows();
 		int getColumns();

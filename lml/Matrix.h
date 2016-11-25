@@ -8,6 +8,13 @@ namespace lml {
 
 	public:
 
+		void dot();
+		void add();
+		void transpose();
+		
+		int getRows();
+		int getColumns();
+
 
 
 	};

@@ -10,7 +10,7 @@
         - [ ] Orthographic
       - [ ] Matrices and functions
         - [ ] Matrices
-          - [x] Matrix 4x4 operations
+          - [] Matrix 4x4 operations
           - [ ] Matrix 4x3 operations
           - [ ] Matrix 4x2 operations
           - [ ] Matrix 3x3 operations

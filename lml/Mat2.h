@@ -7,8 +7,8 @@ namespace lml {
 	public:
 		Mat2(float topLeft, float topRight, float bottomLeft, float bottomRight);
 
-		float mat[2][2];
-
+		
+		void transpose();
 		void dot(Mat2 matrix);
 		Mat2 getDot(Mat2 matrix);
 		float elementAt(int x, int y);
@@ -19,8 +19,8 @@ namespace lml {
 
 	private:
 
-	
-
+		float mat[2][2];
+		
 	};
 
 }

@@ -80,6 +80,16 @@ namespace lml {
 	}
 
 
+	/*
+		Transposes the current matrice
+	*/
+	void Mat2::transpose() {
+		float tmpBottomLeft = mat[0][1];
+		mat[0][1] = mat[1][0];
+		mat[1][0] = tmpBottomLeft;
+	}
+
+
 
 	Mat2::~Mat2() {
 	}

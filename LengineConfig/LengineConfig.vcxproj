@@ -124,6 +124,7 @@
     <ClCompile Include="mat4.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="OrthographicCamera.cpp" />
+    <ClCompile Include="picoPNG.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelVertex.h" />
     <ClInclude Include="OrthographicCamera.h" />
+    <ClInclude Include="picoPNG.h" />
     <ClInclude Include="ScreenHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Sprite.h" />

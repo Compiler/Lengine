@@ -1,5 +1,5 @@
 #include "ShaderProgram.h"
-
+#include "IOManager.h"
 
 
 ShaderProgram::ShaderProgram() : programID(0), vertexID(0), fragmentID(0)
@@ -29,19 +29,8 @@ void ShaderProgram::compile(std::string vertex, std::string fragment) {
 */
 void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 		
-	std::ifstream file(filePath);
-	if (file.fail()) {
-		perror(filePath.c_str());
-		Error::throwException(Error::ExceptionType::GENERAL, "couldn't load file", true);
-	}
-	std::string fileContents = "";
-	std::string line;
-
-	while (std::getline(file, line)) {
-		fileContents += line + "\n";
-	}
-	file.close();
-	//std::cout << "hello" << fileContents;
+	std::string fileContents;
+	IOManager::loadFileToString(filePath, fileContents);
 	const char* contentsPointer = fileContents.c_str();
 	glShaderSource(shaderID, 1, &contentsPointer, nullptr);
 

@@ -9,7 +9,6 @@ LengineCore::LengineCore(){
 	newTime = 0.0f;
 	currentTime = 0.0f;
 	deltaTime = 0.0f;
-	//averages = {};
 	count = 0;
 	maxCap = 0.06f;
 }
@@ -42,8 +41,6 @@ void LengineCore::render(){
 
 	 
 	camera.translate(100.1f, 1);
-	
-	//sprite.translate(newX, 0.0f);
 
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
@@ -112,7 +109,6 @@ void LengineCore::calculateDelta() {
 	for (int i = 0; i < 10; i++)
 		deltaTime += averages[i];
 	deltaTime = deltaTime / 10 / 1000;
-	std::cout << "Delta: " << deltaTime << "\n";
 
 	if (deltaTime < maxCap)
 		SDL_Delay(100);

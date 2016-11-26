@@ -26,5 +26,13 @@ public:
 		}
 	}
 
+	static void throwAndClose(std::string error) {
+		std::cout << error << std::endl;
+		std::cout << "Forcing exit...\n";
+
+		SDL_Delay(10000);
+		exit(-1);
+	}
+
 
 };

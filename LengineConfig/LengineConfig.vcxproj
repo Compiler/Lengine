@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="InputListener.cpp" />
+    <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mat4.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputListener.h" />
+    <ClInclude Include="IOManager.h" />
     <ClInclude Include="LengineCore.h" />
     <ClInclude Include="mat4.h" />
     <ClInclude Include="Model.h" />

@@ -39,5 +39,14 @@ bool IOManager::loadFileToBuffer(std::string filePath, std::vector<unsigned char
 
 
 bool IOManager::loadFileToString(std::string filePath, std::string& stringBuffer) {
+	std::vector<unsigned char> tmp;
+	if (!(IOManager::loadFileToBuffer(filePath, tmp))) {
+		return false;
+	}
+	
+	for (int i = 0; i < tmp.size(); i++)
+		stringBuffer += tmp[i];
 
+
+	return true;
 }

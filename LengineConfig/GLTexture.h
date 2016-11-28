@@ -4,7 +4,7 @@
 
 struct GLTexture{
 
-	GLint id;
+	GLuint id;
 	unsigned int width, height;
 
 };

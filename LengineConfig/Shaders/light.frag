@@ -5,24 +5,25 @@
 in vec4 fragmentColor;	
 in vec2 fragmentPosition;
 in vec2 fragmentUV;
+in mat4 myMat;
 
 out vec4 color;
 
 uniform sampler2D samp;
 uniform vec3 light0;
 uniform vec2 uResolution;
-uniform vec2 mouse;
+
 
 void main(){
 
-	vec2 position = fragmentPosition.xy / uResolution.xy;
-	vec2 mousePos = vec2(mouse.x / uResolution.x, 1.0 - mouse.y / uResolution.y);//mouse.xy / uResolution.xy;
+	vec2 position = vec2(fragmentPosition.x / uResolution.x, fragmentPosition.y / uResolution.y);
 	
-	float dist = distance(mousePos.xy, light0.xy);
-	position.y = 1.0 - position.y;
+	float dist = distance(position.xy, light0.xy);
 	
-	float radius = light0.z / uResolution.x;
-	vec4 texCol = texture2D(samp, fragmentUV);
+	
+	float radius = (light0.z / uResolution.x);
+	
+	vec4 texCol = texture(samp, fragmentUV);
 	vec4 col = texCol * fragmentColor;
 	
 	if(dist < radius)
@@ -30,10 +31,7 @@ void main(){
 	else
 		col = vec4(0.0);
 		
+		
 	color = col;
-	
-	color = vec4(0.0);
-	color.r = mousePos.y;
-	
 
 }

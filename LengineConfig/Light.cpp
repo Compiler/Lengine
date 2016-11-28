@@ -27,10 +27,10 @@ void Light::init(lml::Vector2f position, GLfloat radius) {
 
 }
 
-void Light::set(GLint programID) {
+void Light::set(GLint location) {
 
-	GLfloat a[3] = { information.x, information.y, information.z };
-	glUniform3fv(programID, 1, a);
+	GLfloat info[3] = { information.x, information.y, information.z };
+	glUniform3fv(location, 1, info);
 }
 
 

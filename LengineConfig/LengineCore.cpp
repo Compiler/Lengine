@@ -21,8 +21,9 @@ void LengineCore::run(){
 
 	//init sub systems before looping
 	initSubSystems();
-
 	light.init(0.0f, 0.0f, 50.0f);
+
+	
 
 	while(currentState != GameState::EXIT){
 
@@ -43,16 +44,12 @@ void LengineCore::render(){
 	
 
 	 
-	camera.translate(100.1f, 1);
+	//camera.translate(100.1f, 1);
 
-	glUniform1i(program.getUniformLocation("samp"), sprite.getTextureID());
+	glUniform1i(program.getUniformLocation("samp"), 0);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	
 	glUniform2fv(program.getUniformLocation("uResolution"), 1, (window.dimensions.vals));
-	glUniform2fv(program.getUniformLocation("mouse"), 1, listener.position.vals);
-	std::cout << "\n(" << listener.position.x << ", " << listener.position.y / window.dimensions.vals[1] << ")";
-
-
 	light.set(program.getUniformLocation("light0"));
 
 	sprite.render();

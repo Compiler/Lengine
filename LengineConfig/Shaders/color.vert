@@ -9,9 +9,10 @@ in vec2 vertexUV;
 out vec4 fragmentColor;
 out vec2 fragmentPosition;
 out vec2 fragmentUV;
+out mat4 myMat;
 
 uniform mat4 cameraMatrix;
-uniform mat2 transform;
+//uniform mat2 transform;
 
 mat4 getMat(){
 	
@@ -25,7 +26,7 @@ mat4 getMat(){
 }
 
 void main(){
-
+	myMat = cameraMatrix;
 	vec2 orig = (getMat() * vec4(vertexPosition, 0.0, 1.0)).xy;
 	
 	gl_Position = (cameraMatrix * vec4(vertexPosition.x, -vertexPosition.y, 0.0, 1.0));
@@ -40,7 +41,7 @@ void main(){
 	
 	fragmentColor = vertexColor;
 	
-	fragmentUV = vec2(vertexUV.x, 1 - vertexUV.y);
+	fragmentUV = vec2(vertexUV.x, 1.0 - vertexUV.y);
 	
 	
 }

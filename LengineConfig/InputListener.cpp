@@ -12,8 +12,7 @@ void InputListener::update(GameState& currentState){
 	
 	SDL_Event event;
 	while(SDL_PollEvent(&event)){
-		position.x = event.motion.x;
-		position.y = event.motion.y;
+		position.set(event.motion.x, event.motion.y);
 		switch(event.type){
 		
 			case SDL_QUIT: {

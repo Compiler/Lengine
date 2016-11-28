@@ -38,6 +38,8 @@ namespace lml {
 	*/
 	void Vector2f::set(Vector2f vec) {
 		set(vec.x, vec.y);
+		vals[0] = vec.x;
+		vals[1] = vec.y;
 	}
 
 
@@ -66,6 +68,8 @@ namespace lml {
 		GLfloat projScalar = dot(*this, vec) / dot(*this, *this);
 		x = x * projScalar;
 		y = y * projScalar;
+		vals[0] = x;
+		vals[1] = y;
 	}
 
 
@@ -77,6 +81,8 @@ namespace lml {
 		GLfloat tmp = magnitude();
 		x = x / tmp;
 		y = y / tmp;
+		vals[0] = x;
+		vals[1] = y;
 	}
 
 	/*

@@ -93,6 +93,11 @@ void Sprite::rotateBy() {
 
 }
 
+GLint Sprite::getTextureID() {
+	return texture.id;
+}
+
+
 void Sprite::translate(GLfloat x, GLfloat y) {
 
 	for (int i = 0; i < 6; i++) {

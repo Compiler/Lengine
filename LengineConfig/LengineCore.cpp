@@ -45,7 +45,7 @@ void LengineCore::render(){
 	 
 	camera.translate(100.1f, 1);
 
-	glUniform1i(program.getUniformLocation("samp"), 0);
+	glUniform1i(program.getUniformLocation("samp"), sprite.getTextureID());
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	
 	glUniform2fv(program.getUniformLocation("uResolution"), 1, (window.dimensions.vals));

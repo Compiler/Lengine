@@ -18,6 +18,8 @@ public:
 	void rotateBy();
 	void translate(GLfloat x, GLfloat y);
 
+	GLint getTextureID();
+
 	~Sprite();
 
 private:

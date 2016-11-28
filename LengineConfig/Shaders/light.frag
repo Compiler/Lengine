@@ -12,6 +12,7 @@ uniform sampler2D samp;
 uniform vec3 light0;
 uniform vec2 uResolution;
 uniform vec2 mouse;
+
 void main(){
 
 	vec2 position = fragmentPosition.xy / uResolution.xy;
@@ -21,7 +22,7 @@ void main(){
 	position.y = 1.0 - position.y;
 	
 	float radius = light0.z / uResolution.x;
-	vec4 texCol = texture(samp, fragmentUV);
+	vec4 texCol = texture2D(samp, fragmentUV);
 	vec4 col = texCol * fragmentColor;
 	
 	if(dist < radius)

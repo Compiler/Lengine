@@ -142,7 +142,7 @@ void ShaderProgram::unuse() {
 GLint ShaderProgram::getUniformLocation(std::string name) {
 	GLint code = glGetUniformLocation(programID, name.c_str());
 	if (code == -1)
-		Error::throwException(Error::ExceptionType::GENERAL, "Couldn't find '" + name + "' uniform", true);
+		Error::throwException(Error::ExceptionType::GENERAL, "\nCouldn't find '" + name + "' uniform or is optimizing it out...\n", false);
 	
 	return code;
 	

@@ -8,6 +8,9 @@ Light::Light()
 
 void Light::init(GLfloat positionX, GLfloat positionY, GLfloat radius) {
 	
+	information.x = positionX;
+	information.y = positionY;
+	information.z = radius;
 
 
 }
@@ -26,8 +29,8 @@ void Light::init(lml::Vector2f position, GLfloat radius) {
 
 void Light::set(GLint programID) {
 
-	
-	glUniform3fv(glGetUniformLocation(programID, "light0"), 1, information);
+	GLfloat a[3] = { information.x, information.y, information.z };
+	glUniform3fv(glGetUniformLocation(programID, "light0"), 1, a);
 }
 
 

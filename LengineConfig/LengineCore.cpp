@@ -49,7 +49,7 @@ void LengineCore::render(){
 	
 	glUniform2fv(program.getUniformLocation("uResolution"), 1, (window.dimensions.vals));
 	Light light;
-	light.init(0.0f, 0.0f, 50.0f);
+	light.init(0.0f, 0.0f, 300.0f);
 	light.set(program.getUniformLocation("light0"));
 
 	sprite.render();

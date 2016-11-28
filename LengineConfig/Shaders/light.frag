@@ -16,17 +16,18 @@ void main(){
 
 	vec2 position = fragmentPosition.xy / uResolution.xy;
 	float dist = distance(position.xy, light0.xy);
+	position.y = 1.0 - position.y;
 	
-	
-	
+	float radius = light0.z / uResolution.x;
 	vec4 texCol = texture(samp, fragmentUV);
-	color = texCol * fragmentColor;
+	vec4 col = texCol * fragmentColor;
 	
-	if(dist > light0.z / uResolution.x)
-		color = vec4(0.0f, 0.0f, 0.0f, 1.0f);
-	
+	if(dist < radius)
+		col = col * (1.0-(dist / radius));
+	else
+		col = vec4(0.0);
 		
-	
+	color = col;
 	
 
 }

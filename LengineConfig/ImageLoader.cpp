@@ -20,12 +20,12 @@ GLTexture ImageLoader::loadPNG(std::string filePath) {
 
 
 	if (!(IOManager::loadFileToBuffer(filePath, inputData))) {
-		//Error::throwException("Failed to read file to buffer in ImageLoader", -1, true);
+		Error::throwAndClose("Failed to read file to buffer in ImageLoader");
 	}
 
 	int errorCode = decodePNG(output, width, height, &(inputData[0]), inputData.size(), true);
 	if (errorCode != 0) {
-		//Error::throwException("PICO couldnt decode PNG in ImageLoader with error " + std::to_string(errorCode), errorCode, true);
+		Error::throwAndClose("PICOPNG didn't decode PNG correctly");
 	}
 
 	glGenTextures(1, &(texture.id));

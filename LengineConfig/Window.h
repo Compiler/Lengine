@@ -4,6 +4,7 @@
 #include <SDL\SDL.h>
 #include <GL\glew.h>
 #include <string>
+#include <lml\Vector2f.h>
 
 //flags consist of the allowed properties supported by Lengine
 enum WindowFlags{
@@ -26,7 +27,7 @@ public:
 
 	int getWidth(){ return screenWidth; }
 	int getHeight(){ return screenHeight; }
-	
+	lml::Vector2f dimensions;
 	~Window();
 
 

@@ -47,7 +47,7 @@ void LengineCore::render(){
 	glUniform1i(program.getUniformLocation("samp"), 0);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	
-	glUniform2fv(program.getUniformLocation("uResolution"), 1, );
+	glUniform2fv(program.getUniformLocation("uResolution"), 1, (window.dimensions.vals));
 	Light light;
 	light.init(0.0f, 0.0f, 50.0f);
 	light.set(program.getUniformLocation("light0"));

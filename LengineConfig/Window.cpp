@@ -12,6 +12,7 @@ Window::Window(): screenWidth(640), screenHeight(480){
 	screenWidth = screenWidth / 3;
 	screenHeight = screenHeight / 2.25;
 	std::cout << "New Width: " << screenWidth << ", New Height: " << screenHeight << std::endl;
+	dimensions.set(screenWidth, screenHeight);
 }
 
 

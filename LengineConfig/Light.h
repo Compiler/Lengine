@@ -11,10 +11,11 @@ public:
 
 	void init(GLfloat positionX, GLfloat positionY, GLfloat radius);
 	void init(lml::Vector2f position, GLfloat radius);
-
+	void set(GLint programID);
 	~Light();
 
 private:
 	lml::Vector3f information;
+	static int count;
 };
 

@@ -43,6 +43,7 @@ void LengineCore::render(){
 	 
 	camera.translate(100.1f, 1);
 
+	glUniform1i(program.getUniformLocation("samp"), 0);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	sprite.render();
 	//model.render();
@@ -66,7 +67,7 @@ void LengineCore::initSubSystems(){
 
 	sprite.init("Textures/brick.png", -50.0f, -50.0f, 100.0f, 100.0f);
 	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
-	program.compile("Shaders/color.vert", "Shaders/color.frag");
+	program.compile("Shaders/color.vert", "Shaders/imagePass.frag");
 	program.bindAttrib("vertexPosition", 0);
 	program.bindAttrib("vertexColor", 1);
 	program.bindAttrib("vertexUV", 2);

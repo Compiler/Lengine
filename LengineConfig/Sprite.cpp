@@ -11,7 +11,7 @@ Sprite::Sprite(): vbo(0){
 void Sprite::init(std::string filePath, GLfloat x, GLfloat y, GLfloat width, GLfloat height){
 
 	texture = ImageLoader::loadPNG(filePath);
-
+	std::cout << "~~" << texture.id << "~~";
 
 	position.set(x, y);
 	this->width = width;

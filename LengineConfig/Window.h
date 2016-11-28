@@ -26,7 +26,7 @@ public:
 
 	int getWidth(){ return screenWidth; }
 	int getHeight(){ return screenHeight; }
-
+	
 	~Window();
 
 

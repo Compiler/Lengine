@@ -1,6 +1,7 @@
 #include "LengineCore.h"
 #include "Error.h"
 #include <GL\glew.h>
+#include "Light.h"
 
 //grabs the desktop res to auto the stand
 LengineCore::LengineCore(){
@@ -45,6 +46,12 @@ void LengineCore::render(){
 
 	glUniform1i(program.getUniformLocation("samp"), 0);
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
+	
+	glUniform2fv(program.getUniformLocation("uResolution"), 1, );
+	Light light;
+	light.init(0.0f, 0.0f, 50.0f);
+	light.set(program.getUniformLocation("light0"));
+
 	sprite.render();
 	//model.render();
 
@@ -67,10 +74,11 @@ void LengineCore::initSubSystems(){
 
 	sprite.init("Textures/brick.png", -320.0f, -240.0f, 640.0f, 480.0f);
 	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
-	program.compile("Shaders/color.vert", "Shaders/imagePass.frag");
+	program.compile("Shaders/color.vert", "Shaders/light.frag");
 	program.bindAttrib("vertexPosition", 0);
 	program.bindAttrib("vertexColor", 1);
 	program.bindAttrib("vertexUV", 2);
+	
 	
 	camera.init(640, 480);
 	program.linkShaders();

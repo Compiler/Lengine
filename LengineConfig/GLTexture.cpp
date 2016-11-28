@@ -5,6 +5,6 @@
 struct {
 
 	GLint id;
-	GLint width, height;
+	unsigned int width, height;
 
 };

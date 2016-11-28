@@ -1,10 +1,4 @@
-﻿  Sprite.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\sprite.cpp(46): warning C4244: 'argument': conversion from 'double' to 'GLubyte', possible loss of data
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\sprite.cpp(48): warning C4244: 'argument': conversion from 'double' to 'GLubyte', possible loss of data
-  Generating Code...
-  Compiling...
-  main.cpp
-  LengineCore.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(67): error C2660: 'Sprite::init': function does not take 4 arguments
+﻿  LengineCore.cpp
 c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(104): warning C4244: '=': conversion from 'Uint32' to 'GLfloat', possible loss of data
-  Generating Code...
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

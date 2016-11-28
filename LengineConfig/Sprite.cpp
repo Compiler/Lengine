@@ -11,7 +11,7 @@ Sprite::Sprite(): vbo(0){
 void Sprite::init(std::string filePath, GLfloat x, GLfloat y, GLfloat width, GLfloat height){
 
 	texture = ImageLoader::loadPNG(filePath);
-	std::cout << "~~" << texture.id << "~~";
+	
 
 	position.set(x, y);
 	this->width = width;
@@ -43,9 +43,9 @@ void Sprite::init(std::string filePath, GLfloat x, GLfloat y, GLfloat width, GLf
 	vertex[5].setUV(1, 1);
 
 	for (int i = 0; i < 3; i++)
-		vertex[i].setColor(0.0, 0.0, 255.0, 1.0);
+		vertex[i].setColor(255.0, 255.0, 255.0, 1.0);
 	for (int i = 3; i < 6; i++)
-		vertex[i].setColor(255.0, 0.0, 0.0, 1.0);
+		vertex[i].setColor(255.0, 255.0, 255.0, 1.0);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_DYNAMIC_DRAW);

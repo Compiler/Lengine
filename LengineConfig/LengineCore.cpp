@@ -65,7 +65,7 @@ void LengineCore::initSubSystems(){
 	subWindow();
 
 
-	sprite.init("Textures/brick.png", -50.0f, -50.0f, 100.0f, 100.0f);
+	sprite.init("Textures/brick.png", -320.0f, -240.0f, 640.0f, 480.0f);
 	//model.init(-0.5, -0.5, 0.0, 1.0, 1.0);
 	program.compile("Shaders/color.vert", "Shaders/imagePass.frag");
 	program.bindAttrib("vertexPosition", 0);

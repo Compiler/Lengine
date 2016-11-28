@@ -123,6 +123,7 @@
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="LengineCore.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mat4.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="IOManager.h" />
     <ClInclude Include="LengineCore.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="mat4.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelVertex.h" />

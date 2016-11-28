@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="LengineCore.cpp" />

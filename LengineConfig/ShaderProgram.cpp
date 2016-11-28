@@ -31,6 +31,8 @@ void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 		
 	std::string fileContents;
 	IOManager::loadFileToString(filePath, fileContents);
+
+
 	const char* contentsPointer = fileContents.c_str();
 	glShaderSource(shaderID, 1, &contentsPointer, nullptr);
 
@@ -54,6 +56,7 @@ void ShaderProgram::compileShader(std::string filePath, GLuint shaderID) {
 		std::printf("%s\n", &(errorLog[0]));
 		Error::throwException(Error::ExceptionType::GENERAL, "Shader failed to compile", true);
 	}
+
 
 
 }

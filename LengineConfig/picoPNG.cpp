@@ -1,6 +1,4 @@
 #include <vector>
-namespace Lengine {
-
 	//I, LUKE, DID NOT CODE THIS CLASS
 
 	/*
@@ -490,4 +488,3 @@ namespace Lengine {
 		image_width = decoder.info.width; image_height = decoder.info.height;
 		return decoder.error;
 	}
-}

@@ -118,7 +118,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GLTexture.cpp" />
+    <ClCompile Include="GLTexture.h" />
+    <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="InputListener.cpp" />
     <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="LengineCore.cpp" />
@@ -134,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="IOManager.h" />
     <ClInclude Include="LengineCore.h" />

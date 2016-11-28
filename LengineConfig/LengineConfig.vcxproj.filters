@@ -48,7 +48,10 @@
     <ClCompile Include="IOManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GLTexture.cpp">
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GLTexture.h">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IOManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

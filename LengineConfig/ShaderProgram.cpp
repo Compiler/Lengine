@@ -96,6 +96,10 @@ void ShaderProgram::linkShaders() {
 	glDetachShader(programID, fragmentID);
 	glDeleteShader(vertexID);
 	glDeleteShader(fragmentID);
+
+
+	
+};
 }
 
 

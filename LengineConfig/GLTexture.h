@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 
-struct {
+struct GLTexture{
 
 	GLint id;
 	unsigned int width, height;

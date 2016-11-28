@@ -8,6 +8,7 @@
 #include "ShaderProgram.h"
 #include "Model.h"
 #include "OrthographicCamera.h"
+#include "Light.h"
 class LengineCore{
 
 public:
@@ -51,6 +52,6 @@ private:
 	GLint count;
 	GLfloat newTime, currentTime, deltaTime, maxCap;
 	
-
+	Light light;
 };
 

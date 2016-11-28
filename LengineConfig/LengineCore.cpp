@@ -22,6 +22,7 @@ void LengineCore::run(){
 	//init sub systems before looping
 	initSubSystems();
 
+	light.init(0.0f, 0.0f, 50.0f);
 
 	while(currentState != GameState::EXIT){
 
@@ -38,8 +39,8 @@ void LengineCore::run(){
 
 void LengineCore::render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
 	program.use();
+	
 
 	 
 	camera.translate(100.1f, 1);
@@ -48,8 +49,10 @@ void LengineCore::render(){
 	glUniformMatrix4fv(program.getUniformLocation("cameraMatrix"), 1, GL_FALSE, camera.getUniformVal());
 	
 	glUniform2fv(program.getUniformLocation("uResolution"), 1, (window.dimensions.vals));
-	Light light;
-	light.init(0.0f, 0.0f, 300.0f);
+	glUniform2fv(program.getUniformLocation("mouse"), 1, listener.position.vals);
+	std::cout << "\n(" << listener.position.x << ", " << listener.position.y / window.dimensions.vals[1] << ")";
+
+
 	light.set(program.getUniformLocation("light0"));
 
 	sprite.render();
@@ -64,6 +67,9 @@ void LengineCore::update(){
 
 	listener.update(currentState);
 
+
+	
+	
 }
 
 //wrapper for calling class

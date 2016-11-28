@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "GameState.h"
+#include <lml\Vector2f.h>
 
 
 class InputListener{
@@ -46,7 +47,7 @@ public:
 
 	static bool isKeyDown(unsigned int key);
 	static bool isKeyUp(unsigned int key);
-
+	lml::Vector2f position;
 
 
 

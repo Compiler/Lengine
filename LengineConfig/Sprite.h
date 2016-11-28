@@ -5,13 +5,14 @@
 #include <GL\glew.h>
 #include "Vertex.h"
 #include <lml\Vector2f.h>
+#include "GLTexture.h"
 
 class Sprite{
 public:
 	Sprite();
 
 
-	void init(GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+	void init(std::string filePath, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
 	void update();
 	void render();
 	void rotateBy();
@@ -24,6 +25,6 @@ private:
 	GLfloat width, height;
 	lml::Vector2f position;
 	GLuint vbo;
-
+	GLTexture texture;
 };
 

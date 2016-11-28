@@ -1,13 +1,17 @@
 #include "Sprite.h"
 #include <cstddef>
 #include <iostream>
+#include "ImageLoader.h"
 
 
 Sprite::Sprite(): vbo(0){
 }
 
 
-void Sprite::init(GLfloat x, GLfloat y, GLfloat width, GLfloat height){
+void Sprite::init(std::string filePath, GLfloat x, GLfloat y, GLfloat width, GLfloat height){
+
+	texture = ImageLoader::loadPNG(filePath);
+
 
 	position.set(x, y);
 	this->width = width;
@@ -55,6 +59,8 @@ void Sprite::init(GLfloat x, GLfloat y, GLfloat width, GLfloat height){
 
 void Sprite::render(){
 	
+	glBindTexture(GL_TEXTURE_2D, texture.id);
+
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	glEnableVertexAttribArray(0);

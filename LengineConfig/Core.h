@@ -20,6 +20,7 @@ private:
 	void render();
 	void update();
 	
+	void checkSupport();
 	GLint width, height;
 	GameState currentState;
 	InputListener listener;

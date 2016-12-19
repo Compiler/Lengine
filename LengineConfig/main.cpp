@@ -5,7 +5,6 @@
 
 //start of app
 int main(int argc, char** argv){
-
 	Core game;
 	game.run();
 

@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="InputListener.cpp" />
+    <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="picoPNG.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="Error.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputListener.h" />
+    <ClInclude Include="IOManager.h" />
     <ClInclude Include="picoPNG.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Window.h" />

@@ -2,8 +2,11 @@
 
 
 
-Core::Core()
+Core::Core(): currentState(GameState::PLAY)
 {
+
+	
+
 }
 
 
@@ -14,8 +17,9 @@ void inline Core::init() {
 		Error::throwAndClose("SDL could not initialize");
 	}
 
-
-	window.create("Engine", 640, 480);
+	width = 640;
+	height = 480;
+	window.create("Engine", width, height);
 
 
 	glewExperimental = true;
@@ -33,7 +37,7 @@ void Core::run() {
 	init();
 
 
-	while (true) {
+	while (currentState != GameState::EXIT) {
 
 		update();
 
@@ -46,7 +50,7 @@ void Core::run() {
 
 
 void Core::render() {
-	glViewport(0, 0, window.getWidth(), window.getHeight());
+	glViewport(0, 0, width, height);
 	glClearColor(.2, .2, .2, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -65,6 +69,7 @@ void Core::render() {
 
 void Core::update() {
 
+	listener.update(currentState);
 
 
 }

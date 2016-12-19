@@ -3,6 +3,8 @@
 #include <SDL\SDL.h>
 #include "Error.h"
 #include "Window.h"
+#include "GameState.h"
+#include "InputListener.h"
 
 class Core
 {
@@ -17,6 +19,11 @@ private:
 	void inline init();
 	void render();
 	void update();
+	
+	GLint width, height;
+	GameState currentState;
+	InputListener listener;
+
 
 	Window window;
 	

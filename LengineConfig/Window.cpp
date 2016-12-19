@@ -17,15 +17,15 @@ void Window::create(std::string name, int width, int height) {
 }
 
 void Window::setTitle(std::string name) {
-
+	SDL_SetWindowTitle(window, name.c_str());
 }
 
 void Window::changeSize(int width, int height) {
-		
+	SDL_SetWindowSize(window, width, height);
 }
 
 void Window::swapBuffer() {
-	
+	SDL_GL_SwapWindow(window);
 }
 
 

@@ -118,38 +118,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GLTexture.h" />
-    <ClCompile Include="ImageLoader.cpp" />
-    <ClCompile Include="InputListener.cpp" />
-    <ClCompile Include="IOManager.cpp" />
-    <ClCompile Include="LengineCore.cpp" />
-    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="Core.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mat4.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="OrthographicCamera.cpp" />
     <ClCompile Include="picoPNG.cpp" />
-    <ClCompile Include="ShaderProgram.cpp" />
-    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core.h" />
     <ClInclude Include="Error.h" />
-    <ClInclude Include="GameState.h" />
-    <ClInclude Include="ImageLoader.h" />
-    <ClInclude Include="InputListener.h" />
-    <ClInclude Include="IOManager.h" />
-    <ClInclude Include="LengineCore.h" />
-    <ClInclude Include="Light.h" />
-    <ClInclude Include="mat4.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="ModelVertex.h" />
-    <ClInclude Include="OrthographicCamera.h" />
     <ClInclude Include="picoPNG.h" />
-    <ClInclude Include="ScreenHelper.h" />
-    <ClInclude Include="ShaderProgram.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

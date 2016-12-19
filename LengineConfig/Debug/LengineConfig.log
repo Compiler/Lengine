@@ -1,5 +1,9 @@
-﻿  main.cpp
+﻿  ShaderProgram.cpp
+  Generating Code...
+  Compiling...
   IOManager.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

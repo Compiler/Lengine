@@ -1,5 +1,7 @@
 #include "ShaderProgram.h"
+#include "IOManager.h"
 #include <iostream>
+
 
 
 ShaderProgram::ShaderProgram()
@@ -42,8 +44,10 @@ void ShaderProgram::createShaderProgram(std::string vertexFilePath, std::string 
 }
 
 void ShaderProgram::compileShader(GLint id, std::string filePath) {
-
-
+	std::string sourceCode;
+	IOManager::readToString(filePath, sourceCode);
+	const char* temp= sourceCode.c_str();
+	glShaderSource(id, 1, &temp, nullptr);
 }
 
 

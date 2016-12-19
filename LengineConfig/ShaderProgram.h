@@ -10,7 +10,8 @@ public:
 
 	void createShaderProgram(const char* vertexShader, const char* fragmentShader);
 	void createShaderProgram(std::string vertexFilePath, std::string fragmentFilePath);
-
+	void use();
+	void unuse();
 	~ShaderProgram();
 
 private:
@@ -19,8 +20,7 @@ private:
 	void attachShaders();
 	void linkProgram();
 	void checkLinkingStatus();
-	void use();
-	void unuse();
+
 
 
 	GLuint programID, vertexID, fragmentID;

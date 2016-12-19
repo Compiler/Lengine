@@ -73,6 +73,9 @@ void Core::run() {
 
 	glLineWidth(3);
 	
+	
+	prog.createShaderProgram("Shader/color.vert", "Shader/color.frag");
+
 	while (currentState != GameState::EXIT) {
 
 		update();
@@ -86,21 +89,16 @@ void Core::run() {
 
 
 void Core::render() {
+	
 	glViewport(0, 0, width, height);
 	glClearColor(.2, .2, .2, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glBegin(GL_TRIANGLES);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex2f(-1.0f, -0.5f);
-
-	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(1.0f, -0.5f);
-
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex2f(0.0f, 0.5f);
-	glEnd();
+	
+	prog.use();
+	
 	window.swapBuffer();
+
+	prog.unuse();
 }
 
 void Core::update() {

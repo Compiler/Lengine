@@ -1,9 +1,6 @@
-﻿  ShaderProgram.cpp
+﻿  main.cpp
+  Core.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\core.cpp(94): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
   Generating Code...
-  Compiling...
-  IOManager.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

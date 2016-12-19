@@ -5,7 +5,7 @@
 #include "Window.h"
 #include "GameState.h"
 #include "InputListener.h"
-
+#include "ShaderProgram.h"
 class Core
 {
 public:
@@ -25,7 +25,7 @@ private:
 	GameState currentState;
 	InputListener listener;
 
-
+	ShaderProgram prog;
 	Window window;
 	
 

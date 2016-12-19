@@ -1,16 +1,19 @@
 #pragma once
 
 #include <SDL\SDL.h>
-
+#include <GL\glew.h>
 #include <string>
 class Window
 {
 public:
 	Window();
 
-	void create(std::string name, int width, int height);
+	void create(std::string name, GLint width, GLint height);
 	void setTitle(std::string name);
-	void changeSize(int width, int height);
+	void changeSize(GLint width, GLint height);
+
+	GLint getWidth() { return width; }
+	GLint getHeight() { return height; }
 
 	void swapBuffer();
 
@@ -19,7 +22,7 @@ public:
 private:
 
 	SDL_Window* window;
-	
+	GLint width, height;
 
 };
 

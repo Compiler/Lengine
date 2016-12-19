@@ -1,11 +1,13 @@
 
 #include <iostream>
-#include <SDL\SDL.h>
-#include <GL\glew.h>
+
+#include "Core.h"
+
 //start of app
 int main(int argc, char** argv){
 
-	
+	Core game;
+	game.run();
 
 	return 0;
 }

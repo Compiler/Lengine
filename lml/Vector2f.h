@@ -33,7 +33,7 @@ namespace lml {
 		void set(Vector2f vec);
 		//x and y components
 		GLfloat x, y;
-		GLfloat vals[2];
+	
 
 		~Vector2f();
 

@@ -30,7 +30,7 @@ namespace lml {
 		void projectOnto(Vector3f vec);
 		void set(GLfloat x, GLfloat y, GLfloat z);
 		void set(lml::Vector3f vec);
-		//x and y components
+		//x and y and z components
 		GLfloat x, y, z;
 
 

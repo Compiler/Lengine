@@ -6,6 +6,7 @@
 #include "GameState.h"
 #include "InputListener.h"
 #include "ShaderProgram.h"
+#include "Shape.h"
 class Core
 {
 public:
@@ -28,8 +29,8 @@ private:
 	ShaderProgram prog;
 	Window window;
 
-
-	GLuint arrayID, bufferID;
+	Triangle tri;
+	
 	
 
 };

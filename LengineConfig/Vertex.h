@@ -10,6 +10,14 @@ struct color {
 		b = blue;
 		a = alpha;
 	}
+
+	void set(color color) {
+		r = color.r;
+		g = color.g;
+		b = color.b;
+		a = color.a;
+	}
+
 };
 
 

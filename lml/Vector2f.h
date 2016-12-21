@@ -7,7 +7,7 @@ namespace lml {
 	public:
 		Vector2f();
 		Vector2f(GLfloat xd, GLfloat yd);
-
+		template<typename T> Vector2f operator=(const T& num) { x = (GLfloat)num; y = (GLfloat)num; return *this; }
 
 
 

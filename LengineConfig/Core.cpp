@@ -76,9 +76,10 @@ void Core::run() {
 	
 	prog.createShaderProgram("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
-	prog.use();
+	///prog.use();
 	GLint attrib = prog.getAttribLocation("position");
-	prog.unuse();
+	GLint at = prog.getAttribLocation("color");
+	///prog.unuse();
 
 
 	arrayID = 0;
@@ -91,12 +92,14 @@ void Core::run() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat floats[6] = {0.0f, 0.0f, 1.0f, 0.0f, 0.5f, 0.5f};
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6, floats, GL_STATIC_DRAW);
+	GLfloat floats[6 + 3*4] = {-1.0f, 0.0f,   1.0f,0.0f,0.0f,1.0f,     1.0f, 0.0f,   0.0f,1.0f,0.0f,1.0f,       0.0f, 1.0f,    0.0f, 0.0f, 1.0f, 1.0f, };
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * (6 + 3*4), floats, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(attrib);
-	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, 8, 0);
+	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*2, 0);
 	
+	glEnableVertexAttribArray(at);
+	glVertexAttribPointer(at, 4, GL_FLOAT, GL_TRUE, sizeof(GLfloat)*4, (GLvoid *)(sizeof(GLfloat) * 2));
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

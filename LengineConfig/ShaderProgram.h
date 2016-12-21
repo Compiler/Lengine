@@ -8,10 +8,12 @@ class ShaderProgram
 public:
 	ShaderProgram();
 
-	void createShaderProgram(const char* vertexShader, const char* fragmentShader);
+	//void createShaderProgram(const char* vertexShader, const char* fragmentShader);
 	void createShaderProgram(std::string vertexFilePath, std::string fragmentFilePath);
 	void use();
 	void unuse();
+	GLint getAttribLocation(std::string name);
+	GLuint id() const { return programID; }
 	~ShaderProgram();
 
 private:

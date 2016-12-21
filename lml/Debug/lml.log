@@ -1,5 +1,13 @@
-﻿  Vector2f.cpp
+﻿  Vector3f.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3f.cpp(87): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+  Vector2f.cpp
 c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector2f.cpp(102): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+  Mat4x4.cpp
+  Mat4x3.cpp
+  Mat4x2.cpp
+  Mat3x3.cpp
+  Mat2.cpp
+  Generating Code...
 glew32.lib(glew32.dll) : warning LNK4006: _wglewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
 glew32.lib(glew32.dll) : warning LNK4006: _wglewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
 glew32.lib(glew32.dll) : warning LNK4006: _wglewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored

@@ -27,6 +27,9 @@ private:
 
 	ShaderProgram prog;
 	Window window;
+
+
+	GLuint arrayID, bufferID;
 	
 
 };

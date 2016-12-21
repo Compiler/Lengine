@@ -1,7 +1,7 @@
 #include "ShaderProgram.h"
 #include "IOManager.h"
 #include <iostream>
-
+#include <vector>
 
 
 ShaderProgram::ShaderProgram()
@@ -10,7 +10,7 @@ ShaderProgram::ShaderProgram()
 
 
 
-void ShaderProgram::createShaderProgram(const char* vertexShader, const char* fragmentShader) {
+/*void ShaderProgram::createShaderProgram(const char* vertexShader, const char* fragmentShader) {
 	programID = glCreateProgram();
 	vertexID = glCreateShader(GL_VERTEX_SHADER);
 	fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
@@ -21,12 +21,15 @@ void ShaderProgram::createShaderProgram(const char* vertexShader, const char* fr
 	glCompileShader(vertexID);
 	glCompileShader(fragmentID);
 
+	checkCompilationStatus();
 
 	attachShaders();
 
 	linkProgram();
 
-}
+	checkLinkingStatus();
+
+}*/
 
 void ShaderProgram::createShaderProgram(std::string vertexFilePath, std::string fragmentFilePath) {
 	programID = glCreateProgram();
@@ -41,6 +44,8 @@ void ShaderProgram::createShaderProgram(std::string vertexFilePath, std::string 
 	attachShaders();
 
 	linkProgram();
+
+	checkLinkingStatus();
 }
 
 void ShaderProgram::compileShader(GLint id, std::string filePath) {
@@ -52,13 +57,18 @@ void ShaderProgram::compileShader(GLint id, std::string filePath) {
 
 
 void ShaderProgram::checkCompilationStatus() {
-	GLint outcome = 0;
+	GLint outcome;
 	glGetShaderiv(programID, GL_COMPILE_STATUS, &outcome);
 
 	if (outcome == GL_FALSE) {
+
+		GLint maxLength = 0;
+		glGetShaderiv(programID, GL_INFO_LOG_LENGTH, &maxLength);
+
 		GLchar message[256];
 		glGetShaderInfoLog(programID, sizeof(message), 0, &message[0]);
 		std::cout << "Shader Compilation FAILED\n" << message;
+	
 	}
 
 }
@@ -93,12 +103,17 @@ void ShaderProgram::checkLinkingStatus() {
 	glValidateProgram(programID);
 	glGetProgramiv(programID, GL_VALIDATE_STATUS, &validateStatus);
 
+
 	if (validateStatus == GL_FALSE) {
 		GLchar message[256];
 		glGetProgramInfoLog(programID, sizeof(message), 0, &message[0]);
 		std::cout << "Validation of program FAILED\n" << message;
 	}//End of Checking Validation Status
 
+
+
+	glDetachShader(programID, vertexID);
+	glDetachShader(programID, fragmentID);
 
 
 }
@@ -108,6 +123,15 @@ void ShaderProgram::use() {
 }
 void ShaderProgram::unuse() {
 	glUseProgram(0);
+}
+
+
+GLint ShaderProgram::getAttribLocation(std::string name) {
+	if (glGetAttribLocation(programID, name.c_str()) == -1)
+		std::cout << "Couldn't find '" << name << "' in shader\n";
+	else
+		std::cout << "Found '" << name << "' in shader\n";
+	return glGetAttribLocation(programID, name.c_str());
 }
 
 ShaderProgram::~ShaderProgram()

@@ -74,8 +74,32 @@ void Core::run() {
 	glLineWidth(3);
 	
 	
-	prog.createShaderProgram("Shader/color.vert", "Shader/color.frag");
+	prog.createShaderProgram("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
+	prog.use();
+	GLint attrib = prog.getAttribLocation("position");
+	prog.unuse();
+
+
+	arrayID = 0;
+	bufferID = 0;
+
+	glGenVertexArrays(1, &arrayID);
+	glBindVertexArray(arrayID);
+
+	glGenBuffers(1, &bufferID);
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+
+
+	GLfloat floats[6] = {0.0f, 0.0f, 1.0f, 0.0f, 0.5f, 0.5f};
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6, floats, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(attrib);
+	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, 8, 0);
+	
+
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	while (currentState != GameState::EXIT) {
 
 		update();
@@ -95,10 +119,16 @@ void Core::render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	prog.use();
-	
-	window.swapBuffer();
+
+	glBindVertexArray(arrayID);
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	glBindVertexArray(0);
 
 	prog.unuse();
+
+	window.swapBuffer();
 }
 
 void Core::update() {

@@ -93,22 +93,22 @@ void Core::run() {
 
 
 	Vertex vertices[3];
-	vertices[0].position.set(-0.5f, -0.5f);
+	vertices[0].setPosition(-.5f, -.5f);
 	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
 
-	vertices[1].position.set(0.5f, -0.5f);
-	vertices[1].color.set(.0f, 1.0f, 0.0f, 1.0f);
+	vertices[1].setPosition(0.5f, -0.5f);
+	vertices[1].color.set(0.0f, 1.0f, 0.0f, 1.0f);
 
-	vertices[2].position.set(0.f, 0.5f);
-	vertices[2].color.set(.0f, 0.0f, 1.0f, 1.0f);
+	vertices[2].setPosition(0.0f, 0.5f);
+	vertices[2].color.set(0.0f, 0.0f, 1.0f, 1.0f);
 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 3, &vertices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(attrib);
-	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, position));
 	
 	glEnableVertexAttribArray(at);
-	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(8));
+	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, color));
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

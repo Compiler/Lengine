@@ -17,4 +17,10 @@ struct color {
 struct Vertex {
 	color color;
 	lml::Vector2f position;
+
+	template <typename T> void setPosition(T x, T y) {
+		position.x = (GLfloat)x;
+		position.y = (GLfloat)y;
+	}
+
 };

@@ -8,8 +8,7 @@ namespace lml {
 		Defaults current Vector2f object to 0 0
 	*/
 	Vector2f::Vector2f() : x(0), y(0) {
-		vals[0] = x;
-		vals[1] = y;
+		
 
 	}
 	/*
@@ -18,8 +17,7 @@ namespace lml {
 	Vector2f::Vector2f(GLfloat xd, GLfloat yd) {
 		x = xd;
 		y = yd;
-		vals[0] = x;
-		vals[1] = y;
+		
 
 	}
 
@@ -29,8 +27,7 @@ namespace lml {
 	void Vector2f::set(GLfloat x, GLfloat y) {
 		this->x = x;
 		this->y = y;
-		vals[0] = x;
-		vals[1] = y;
+		
 	}
 
 	/*
@@ -38,8 +35,7 @@ namespace lml {
 	*/
 	void Vector2f::set(Vector2f vec) {
 		set(vec.x, vec.y);
-		vals[0] = vec.x;
-		vals[1] = vec.y;
+	
 	}
 
 
@@ -68,8 +64,7 @@ namespace lml {
 		GLfloat projScalar = dot(*this, vec) / dot(*this, *this);
 		x = x * projScalar;
 		y = y * projScalar;
-		vals[0] = x;
-		vals[1] = y;
+	
 	}
 
 
@@ -81,8 +76,7 @@ namespace lml {
 		GLfloat tmp = magnitude();
 		x = x / tmp;
 		y = y / tmp;
-		vals[0] = x;
-		vals[1] = y;
+	
 	}
 
 	/*

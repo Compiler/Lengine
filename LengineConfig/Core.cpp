@@ -1,6 +1,6 @@
 #include "Core.h"
 
-
+#include "Vertex.h"
 
 Core::Core(): currentState(GameState::PLAY)
 {
@@ -92,14 +92,23 @@ void Core::run() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat floats[6 + 3*4] = {-1.0f, 0.0f,   1.0f,0.0f,0.0f,1.0f,     1.0f, 0.0f,   0.0f,1.0f,0.0f,1.0f,       0.0f, 1.0f,    0.0f, 0.0f, 1.0f, 1.0f};
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * (6 + 3*4), &floats[0], GL_STATIC_DRAW);
+	Vertex vertices[3];
+	vertices[0].position.set(-0.5f, -0.5f);
+	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
+
+	vertices[1].position.set(0.5f, -0.5f);
+	vertices[1].color.set(.0f, 1.0f, 0.0f, 1.0f);
+
+	vertices[2].position.set(0.f, 0.5f);
+	vertices[2].color.set(.0f, 0.0f, 1.0f, 1.0f);
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 3, &vertices[0], GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(attrib);
-	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*6, 0);
+	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 	
 	glEnableVertexAttribArray(at);
-	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*6, (GLvoid *)(sizeof(GLfloat) * 2));
+	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(8));
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

@@ -2,6 +2,7 @@
 #include <GL\glew.h>
 #include "ShaderProgram.h"
 #include "Vertex.h"
+
 class Shape {
 
 public:
@@ -20,7 +21,6 @@ public:
 		
 		GLint positionAttribute = program.getAttribLocation("position");
 		GLint colorAttribute = program.getAttribLocation("color");
-
 		glGenVertexArrays(1, &arrayID);
 		glBindVertexArray(arrayID);
 
@@ -54,10 +54,9 @@ public:
 
 	void draw() {
 		program.use();
-
 		glBindVertexArray(arrayID);
-		
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		glBindVertexArray(0);
 

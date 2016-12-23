@@ -10,8 +10,7 @@ Window::Window()
 void Window::create(std::string name, GLint width, GLint height) {
 	this->width = width;
 	this->height = height;
-	window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
-	
+	window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 	if (window == nullptr) {
 		Error::throwAndClose("Couldn't initialize SDL_Window");
 	}
@@ -42,6 +41,20 @@ void Window::swapBuffer() {
 	SDL_GL_SwapWindow(window);
 }
 
+GLint Window::getWidth() {
+	SDL_GetWindowSize(window, &width, &height);
+	return width;
+
+}
+GLint Window::getHeight() {
+	SDL_GetWindowSize(window, &width, &height);
+	return height;
+}
+
+GLfloat Window::getRatio() {
+	SDL_GetWindowSize(window, &width, &height);
+	return (GLfloat)width / height;
+}
 
 Window::~Window()
 {

@@ -2,6 +2,10 @@
 
 #include "Vertex.h"
 
+#include "glm/gtc/matrix_transform.hpp"  
+#include "glm/gtc/type_ptr.hpp" 
+#include <glm\glm.hpp>
+
 Core::Core(): currentState(GameState::PLAY)
 {
 
@@ -77,9 +81,9 @@ void Core::run() {
 	prog.createShaderProgram("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	/*GLint attrib = prog.getAttribLocation("position");
+	GLint attrib = prog.getAttribLocation("position");
 	GLint at = prog.getAttribLocation("color");
-
+	orthoID = glGetUniformLocation(prog.id(), "ortho");
 
 	glGenVertexArrays(1, &arrayID);
 	glBindVertexArray(arrayID);
@@ -107,10 +111,8 @@ void Core::run() {
 	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, color));
 
 	glBindVertexArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);*/
-	color col;
-	col.set(1, 0, 0, 1);
-	tri.create(-0.5, -0.5, 1.0f, 1.0f, col);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	
 	while (currentState != GameState::EXIT) {
 
 		update();
@@ -125,21 +127,26 @@ void Core::run() {
 
 void Core::render() {
 	
-	glViewport(0, 0, width, height);
+	glViewport(0, 0, window.getWidth(), window.getHeight());
 	glClearColor(.2, .2, .2, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	//prog.use();
+	prog.use();
 
-	//glBindVertexArray(arrayID);
+	
+	glm::mat4 ortho = glm::ortho(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
+	glUniformMatrix4fv(orthoID, 1, GL_FALSE, glm::value_ptr(ortho));
 
-	//glDrawArrays(GL_TRIANGLES, 0, 3);
+	glBindVertexArray(arrayID);
 
-	//glBindVertexArray(0);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 
-	//prog.unuse();
+	glBindVertexArray(0);
+	prog.unuse();
 
-	tri.draw();
+	//glm is picky about using floats: use .f!
+	//set uniform in shader
+
 
 	window.swapBuffer();
 }

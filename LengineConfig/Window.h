@@ -12,9 +12,9 @@ public:
 	void setTitle(std::string name);
 	void changeSize(GLint width, GLint height);
 
-	GLint getWidth() { return width; }
-	GLint getHeight() { return height; }
-
+	GLint getWidth();
+	GLint getHeight();
+	GLfloat getRatio();
 	void swapBuffer();
 
 	~Window();

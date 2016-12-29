@@ -20,19 +20,20 @@ namespace lml {
 	}
 
 	void Mat4x4::set(GLfloat **newMatrix) {
-
 		matrix = newMatrix;
 	}
 	Mat4x4 Mat4x4::operator* (Mat4x4 other) {
-		GLfloat **newMatrix = {};
+		GLfloat **newMatrix = new GLfloat*[4];
+		for (int i = 0; i < 4; i++)
+			newMatrix[i] = new float[4];
 		for (int i = 0; i < 4; ++i)
 			for (int j = 0; j < 4; ++j)
 				for (int k = 0; k < 4; ++k)
 				{
 					newMatrix[i][j] += matrix[i][k] * other.get(k, j);
 				}
-
-		return Mat4x4(newMatrix);
+		Mat4x4 next(newMatrix);
+		return next;
 	}
 
 
@@ -49,10 +50,11 @@ namespace lml {
 		for (int i = 0; i < 4; i++) {
 			std::cout << "[ ";
 			for (int k = 0; k < 4; k++) {
-				std::cout << matrix[i][k] << " ";
+				std::cout << matrix[i][k] << ", ";
 			}
-			std::cout << " ]\n";
+			std::cout << "]\n";
 		}
+		std::cout << "\n";
 	}
 
 }

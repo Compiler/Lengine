@@ -29,6 +29,7 @@ namespace lml {
 
 	void Mat4::addElement(int row, int column, GLfloat value) {
 		matrix[row][column] += value;
+		std::cout << matrix[row][column] << " + " << value << "\n";
 	}
 
 

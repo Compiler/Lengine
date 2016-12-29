@@ -29,7 +29,7 @@ private:
 
 
 	lml::Mat4 orthographicMatrix, translationMatrix, scaleMatrix, rotationMatrix;
-
+	GLfloat x, y;
 
 
 };

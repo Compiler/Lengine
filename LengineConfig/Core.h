@@ -6,6 +6,9 @@
 #include "GameState.h"
 #include "InputListener.h"
 #include "ShaderProgram.h"
+
+
+#include "OrthographicCamera.h"
 class Core
 {
 public:
@@ -28,6 +31,8 @@ private:
 	ShaderProgram prog;
 	Window window;
 
+
+	OrthographicCamera cam;
 
 	GLuint arrayID, bufferID, orthoID;
 	

@@ -5,21 +5,25 @@
 namespace lml {
 
 
-	class Mat4x4
+	class Mat4
 	{
 	public:
-		Mat4x4();
-		Mat4x4(GLfloat matrix[4][4]);
+		Mat4();
+		Mat4(GLfloat matrix[4][4]);
 		void set(GLfloat matrix[4][4]);
 		void setElement(int row, int column, GLfloat value);
 
 		GLfloat get(int row, int column);
 
-		~Mat4x4();
+		~Mat4();
 
-		Mat4x4 operator* (Mat4x4 other);
-		Mat4x4 operator+ (Mat4x4 other);
+		Mat4 operator* (Mat4 other);
+		Mat4 operator+ (Mat4 other);
 
+
+		GLfloat* valuePointer() {
+			return matrix[0];
+		}
 
 		//for testing
 		void print();

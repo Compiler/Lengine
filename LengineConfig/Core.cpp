@@ -6,6 +6,8 @@
 #include "glm/gtc/type_ptr.hpp" 
 #include <glm\glm.hpp>
 
+
+
 Core::Core(): currentState(GameState::PLAY)
 {
 
@@ -15,7 +17,7 @@ Core::Core(): currentState(GameState::PLAY)
 
 
 void inline Core::init() {
-
+	
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		Error::throwAndClose("SDL could not initialize");
@@ -34,6 +36,9 @@ void inline Core::init() {
 	
 
 	checkSupport();
+
+
+	cam.init(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
 
 }
 
@@ -135,7 +140,9 @@ void Core::render() {
 
 	
 	glm::mat4 ortho = glm::ortho(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
-	glUniformMatrix4fv(orthoID, 1, GL_FALSE, glm::value_ptr(ortho));
+	
+	
+	glUniformMatrix4fv(orthoID, 1, GL_FALSE, cam.getValuePointer());//glm::value_ptr(ortho));
 
 	glBindVertexArray(arrayID);
 

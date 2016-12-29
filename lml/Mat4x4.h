@@ -19,6 +19,8 @@ namespace lml {
 		Mat4x4 operator* (Mat4x4 other);
 
 
+		//for testing
+		void print();
 	private:
 		GLfloat **matrix;
 

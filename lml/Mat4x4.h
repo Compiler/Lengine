@@ -9,8 +9,8 @@ namespace lml {
 	{
 	public:
 		Mat4x4();
-		Mat4x4(GLfloat **matrix);
-		void set(GLfloat **newMatrix);
+		Mat4x4(GLfloat matrix[4][4]);
+		void set(GLfloat matrix[4][4]);
 
 		GLfloat get(int c, int r);
 
@@ -22,7 +22,7 @@ namespace lml {
 		//for testing
 		void print();
 	private:
-		GLfloat **matrix;
+		GLfloat matrix[4][4];
 
 	};
 

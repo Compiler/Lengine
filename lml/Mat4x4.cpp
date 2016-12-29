@@ -7,8 +7,8 @@ namespace lml {
 	Mat4x4::Mat4x4() {
 	}
 
-	Mat4x4::Mat4x4(GLfloat **matrix) {
-		this->matrix = matrix;
+	Mat4x4::Mat4x4(GLfloat matrix[4][4]) {
+		memcpy(this->matrix, matrix, sizeof(this->matrix));
 	}
 
 
@@ -19,13 +19,11 @@ namespace lml {
 		return matrix[c][r];
 	}
 
-	void Mat4x4::set(GLfloat **newMatrix) {
-		matrix = newMatrix;
+	void Mat4x4::set(GLfloat newMatrix[4][4]) {
+		memcpy(this->matrix, newMatrix, sizeof(this->matrix));
 	}
 	Mat4x4 Mat4x4::operator* (Mat4x4 other) {
-		GLfloat **newMatrix = new GLfloat*[4];
-		for (int i = 0; i < 4; i++)
-			newMatrix[i] = new float[4];
+		GLfloat newMatrix[4][4] = {};
 		for (int i = 0; i < 4; ++i)
 			for (int j = 0; j < 4; ++j)
 				for (int k = 0; k < 4; ++k)

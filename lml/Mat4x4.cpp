@@ -27,6 +27,10 @@ namespace lml {
 		matrix[row][column] = value;
 	}
 
+	void Mat4::addElement(int row, int column, GLfloat value) {
+		matrix[row][column] += value;
+	}
+
 
 	//O(n^3)  :(
 	Mat4 Mat4::operator* (Mat4 other) {

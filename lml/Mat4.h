@@ -12,7 +12,7 @@ namespace lml {
 		Mat4(GLfloat matrix[4][4]);
 		void set(GLfloat matrix[4][4]);
 		void setElement(int row, int column, GLfloat value);
-
+		void addElement(int row, int column, GLfloat value);
 		GLfloat get(int row, int column);
 
 		~Mat4();

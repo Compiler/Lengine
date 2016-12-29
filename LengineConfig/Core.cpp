@@ -140,7 +140,7 @@ void Core::render() {
 
 	
 	glm::mat4 ortho = glm::ortho(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
-	
+	cam.translate(0.1f, 0, 0);
 	
 	glUniformMatrix4fv(orthoID, 1, GL_FALSE, cam.getValuePointer());//glm::value_ptr(ortho));
 

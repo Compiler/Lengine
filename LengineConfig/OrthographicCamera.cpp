@@ -48,7 +48,13 @@ void OrthographicCamera::init(GLfloat left, GLfloat right, GLfloat bottom, GLflo
 
 
 
+void OrthographicCamera::translate(GLfloat xAmount, GLfloat yAmount, GLfloat zAmount) {
+	translationMatrix.setElement(0, 3, xAmount);
+	translationMatrix.setElement(1, 3, yAmount);
+	translationMatrix.setElement(2, 3, zAmount);
 
+	orthographicMatrix = (translationMatrix * scaleMatrix);
+}
 
 void OrthographicCamera::scale(GLfloat amount) {}
 void OrthographicCamera::scale(GLfloat xAmount, GLfloat yAmount) {}

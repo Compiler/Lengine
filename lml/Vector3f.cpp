@@ -4,7 +4,7 @@ namespace lml {
 	/*
 	Defaults current Vector3f object to 0 0
 	*/
-	Vector3f::Vector3f() : x(0), y(0) {
+	Vector3f::Vector3f() : x(0), y(0), z(0) {
 
 
 	}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lml\Mat4.h>
+#include <lml\Vector2f.h>
 
 class OrthographicCamera
 {
@@ -28,9 +29,8 @@ public:
 private:
 
 
-	lml::Mat4 orthographicMatrix, translationMatrix, scaleMatrix, rotationMatrix;
-	GLfloat x, y;
-
+	lml::Mat4 orthographicMatrix, cameraMatrix;
+	lml::Vector3f
 
 };
 

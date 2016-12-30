@@ -6,11 +6,11 @@
 class OrthographicCamera
 {
 public:
-	OrthographicCamera(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat far, GLfloat near);
+	OrthographicCamera(GLfloat width, GLfloat height);
 	OrthographicCamera();
 
 
-	void init(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat far, GLfloat near);
+	void init(GLfloat width, GLfloat height);
 
 
 	void translate(GLfloat xAmount, GLfloat yAmount, GLfloat zAmount);
@@ -30,7 +30,7 @@ private:
 
 
 	lml::Mat4 orthographicMatrix, cameraMatrix;
-	lml::Vector3f
+	lml::Vector2f position, viewport;
 
 };
 

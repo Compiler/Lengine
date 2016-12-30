@@ -38,7 +38,7 @@ void inline Core::init() {
 	checkSupport();
 
 
-	cam.init(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
+	cam.init(width, height);
 
 }
 
@@ -98,10 +98,10 @@ void Core::run() {
 
 
 	Vertex vertices[3];
-	vertices[0].setPosition(-.5f, -.5f);
+	vertices[0].setPosition(-0.5f, 0.0f);
 	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
 
-	vertices[1].setPosition(0.5f, -0.5f);
+	vertices[1].setPosition(0.5f, 0.0f);
 	vertices[1].color.set(0.0f, 1.0f, 0.0f, 1.0f);
 
 	vertices[2].setPosition(0.0f, 0.5f);

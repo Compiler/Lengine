@@ -2,10 +2,16 @@
 #include <iostream>
 
 
-OrthographicCamera::OrthographicCamera(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat far, GLfloat near)
+OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height)
 {
 
+	GLfloat ortho[4][4] =
+	{ { 2.0f / width, 0, 0, -1 },
+	{ 0, 2.0f / height, 0, -1 },
+	{ 0, 0, -1, 0 },
+	{ 0, 0, 0, 1 } };
 
+	orthographicMatrix.set(ortho);
 
 
 }
@@ -13,12 +19,16 @@ OrthographicCamera::OrthographicCamera(GLfloat left, GLfloat right, GLfloat bott
 OrthographicCamera::OrthographicCamera() {}
 
 
-void OrthographicCamera::init(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat far, GLfloat near) {
+void OrthographicCamera::init(GLfloat width, GLfloat height) {
 
+	GLfloat ortho[4][4] =
+	{ { 2.0f / width, 0, 0, -(width + 0) / (width - 0) },
+	{ 0, 2.0f / height, 0, -1 },
+	{ 0, 0, 2.0f / (-1 - 1), 0 },
+	{ 0, 0, 0, 1 } };
+
+	orthographicMatrix.set(ortho);
 	
-
-
-
 }
 
 
@@ -26,7 +36,7 @@ void OrthographicCamera::init(GLfloat left, GLfloat right, GLfloat bottom, GLflo
 void OrthographicCamera::translate(GLfloat xAmount, GLfloat yAmount, GLfloat zAmount) {
 	
 	
-	orthographicMatrix.print();
+	//orthographicMatrix.print();
 }
 
 void OrthographicCamera::scale(GLfloat amount) {}

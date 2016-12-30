@@ -98,13 +98,13 @@ void Core::run() {
 
 
 	Vertex vertices[3];
-	vertices[0].setPosition(-0.5f, 0.0f);
+	vertices[0].setPosition(-50.5f, 0.0f);
 	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
 
-	vertices[1].setPosition(0.5f, 0.0f);
+	vertices[1].setPosition(50.5f, 0.0f);
 	vertices[1].color.set(0.0f, 1.0f, 0.0f, 1.0f);
 
-	vertices[2].setPosition(0.0f, 0.5f);
+	vertices[2].setPosition(0.0f, 50.5f);
 	vertices[2].color.set(0.0f, 0.0f, 1.0f, 1.0f);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -140,9 +140,9 @@ void Core::render() {
 
 	
 	glm::mat4 ortho = glm::ortho(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
-	cam.translate(0.01f, 0, 0);
+	//cam.translate(0.01f, 0, 0);
 	
-	glUniformMatrix4fv(orthoID, 1, GL_FALSE, cam.getValuePointer());//glm::value_ptr(ortho));
+	glUniformMatrix4fv(orthoID, 1, GL_FALSE, glm::value_ptr(cam.getMat()));
 
 	glBindVertexArray(arrayID);
 
@@ -160,6 +160,8 @@ void Core::render() {
 
 void Core::update() {
 
+
+	cam.update();
 	listener.update(currentState);
 
 

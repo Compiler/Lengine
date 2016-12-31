@@ -98,13 +98,13 @@ void Core::run() {
 
 
 	Vertex vertices[3];
-	vertices[0].setPosition(-50.5f, 0.0f);
+	vertices[0].setPosition(0.0f, 0.0f);
 	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
 
-	vertices[1].setPosition(50.5f, 0.0f);
+	vertices[1].setPosition((GLfloat)width, 0.0f);
 	vertices[1].color.set(0.0f, 1.0f, 0.0f, 1.0f);
 
-	vertices[2].setPosition(0.0f, 50.5f);
+	vertices[2].setPosition((GLfloat)width / 2.0f, GLfloat(height));
 	vertices[2].color.set(0.0f, 0.0f, 1.0f, 1.0f);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -150,9 +150,6 @@ void Core::render() {
 
 	glBindVertexArray(0);
 	prog.unuse();
-
-	//glm is picky about using floats: use .f!
-	//set uniform in shader
 
 
 	window.swapBuffer();

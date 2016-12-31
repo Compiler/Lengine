@@ -6,7 +6,7 @@
 #include "GameState.h"
 #include "InputListener.h"
 #include "ShaderProgram.h"
-
+#include "Shape.h"
 
 #include "OrthographicCamera.h"
 class Core
@@ -33,7 +33,7 @@ private:
 
 
 	OrthographicCamera cam;
-
+	Triangle triangle;
 	GLuint arrayID, bufferID, orthoID;
 	
 

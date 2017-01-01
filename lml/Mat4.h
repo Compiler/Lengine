@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GL\glew.h>
+#include "Vector3f.h"
 
 namespace lml {
 
@@ -17,6 +18,7 @@ namespace lml {
 
 		~Mat4();
 
+		Mat4 operator* (Mat4 other);
 		Mat4 operator* (Mat4 other);
 		Mat4 operator+ (Mat4 other);
 

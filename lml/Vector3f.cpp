@@ -1,22 +1,16 @@
 #include "Vector3f.h"
-#define TO_DEG 180/3.14159265359
+
 namespace lml {
 	/*
 	Defaults current Vector3f object to 0 0
 	*/
-	Vector3f::Vector3f() : x(0), y(0), z(0) {
-
-
-	}
+	Vector3f::Vector3f() : x(0), y(0), z(0) {}
 	/*
 	Gives current Vector3f object GLfloat components 'xd' and 'yd' and 'zd'
 	*/
-	Vector3f::Vector3f(GLfloat xd, GLfloat yd, GLfloat zd) {
-		x = xd;
-		y = yd;
-		z = zd;
+	Vector3f::Vector3f(GLfloat xd, GLfloat yd, GLfloat zd): x(xd), y(yd), z(zd) {}
 
-	}
+	Vector3f::Vector3f(GLfloat all): x(all), y(all), z(all) {}
 
 	/*
 		Easier way to set
@@ -79,30 +73,7 @@ namespace lml {
 		return Vector3f(x / tmp, y / tmp, z / tmp);
 	}
 
-	/*
-	returns the angle between the invoked Vector3f object
-	and the given 'vec' Vector3f object
-	*/
-	GLfloat Vector3f::angleBetween(Vector3f vec) {
-		return acosf(dot(*this, vec) / (magnitude() * vec.magnitude())) * TO_DEG;
-	}
 
-
-	/*
-	Returns the magnitude of the currently invoked Vector3f
-	object
-	*/
-	GLfloat Vector3f::magnitude() {
-
-		return sqrtf(powf(x, 2) + powf(y, 2) + powf(z, 3));
-	}
-
-	/*
-	Returns the unit vector version of this vector
-	*/
-	Vector3f Vector3f::getUnitVector() {
-		return Vector3f(this->x / magnitude(), this->y / magnitude(), this->z / magnitude());
-	}
 
 
 	/*

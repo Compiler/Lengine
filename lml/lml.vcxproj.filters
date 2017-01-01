@@ -30,13 +30,13 @@
     <ClCompile Include="Mat3x3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mat4x4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mat4x3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mat4x2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

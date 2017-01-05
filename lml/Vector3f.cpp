@@ -41,6 +41,17 @@ namespace lml {
 
 	}
 
+
+	/*
+	Projects onto and modifies the reference value
+	*/
+	void Vector3f::getProjectionOnto(Vector3f vec, Vector3f &mine){
+
+		GLfloat projScalar = (dot(*this, vec)) / (dot(*this, *this));
+		mine.set(projScalar * x, projScalar * y, projScalar * z);
+
+	}
+
 	/*
 	Modifies the current Vector3f object to be the vector projected onto
 	the given Vector3f 'vec'
@@ -62,15 +73,6 @@ namespace lml {
 		x = x / tmp;
 		y = y / tmp;
 		z = z / tmp;
-	}
-
-	/*
-	Returns a Vector3f object of the normalized current
-	Vector3f object called upon
-	*/
-	Vector3f Vector3f::getNormalized() {
-		GLfloat tmp = magnitude();
-		return Vector3f(x / tmp, y / tmp, z / tmp);
 	}
 
 

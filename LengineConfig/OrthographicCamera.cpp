@@ -36,9 +36,9 @@ void OrthographicCamera::update() {
 
 }
 void OrthographicCamera::translate(GLfloat xAmount, GLfloat yAmount, GLfloat zAmount) {
-	
-	
-	//orthographicMatrix.print();
+	position.x -= xAmount;
+	position.y -= yAmount;
+	updateCam = true;
 }
 
 //void OrthographicCamera::scale(GLfloat amount) {}

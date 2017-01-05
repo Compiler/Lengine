@@ -19,7 +19,7 @@ namespace lml {
 		~Mat4();
 
 		Mat4 operator* (Mat4 other);
-		Mat4 operator* (Mat4 other);
+//		Mat4 operator* (Mat4 other);
 		Mat4 operator+ (Mat4 other);
 
 

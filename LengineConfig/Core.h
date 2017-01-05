@@ -33,7 +33,7 @@ private:
 
 
 	OrthographicCamera cam;
-	Triangle triangle;
+	TriangleOut triangle;
 	GLuint arrayID, bufferID, orthoID;
 	
 

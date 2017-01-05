@@ -86,37 +86,13 @@ void Core::run() {
 	prog.createShaderProgram("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	GLint attrib = prog.getAttribLocation("position");
-	GLint at = prog.getAttribLocation("color");
+
 	orthoID = glGetUniformLocation(prog.id(), "ortho");
 
-	glGenVertexArrays(1, &arrayID);
-	glBindVertexArray(arrayID);
+	color col;
+	col.set(1.0f, 1.0f, 0.0f, 1.0f);
 
-	glGenBuffers(1, &bufferID);
-	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-
-
-	Vertex vertices[3];
-	vertices[0].setPosition(0.0f, 0.0f);
-	vertices[0].color.set(1.0f, 0.0f, 0.0f, 1.0f);
-
-	vertices[1].setPosition((GLfloat)width, 0.0f);
-	vertices[1].color.set(0.0f, 1.0f, 0.0f, 1.0f);
-
-	vertices[2].setPosition((GLfloat)width / 2.0f, GLfloat(height));
-	vertices[2].color.set(0.0f, 0.0f, 1.0f, 1.0f);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(attrib);
-	glVertexAttribPointer(attrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, position));
-	
-	glEnableVertexAttribArray(at);
-	glVertexAttribPointer(at, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, color));
-
-	glBindVertexArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	triangle.create(0, 0, 100, 100, col, prog);
 	
 	while (currentState != GameState::EXIT) {
 
@@ -137,18 +113,18 @@ void Core::render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	prog.use();
-
+	
 	
 	glm::mat4 ortho = glm::ortho(-window.getRatio(), window.getRatio(), -1.f, 1.f, -1.f, 1.f);
 	//cam.translate(0.01f, 0, 0);
 	cam.translate(.5f, 0.0f,0);
 	glUniformMatrix4fv(orthoID, 1, GL_FALSE, glm::value_ptr(cam.getMat()));
 
-	glBindVertexArray(arrayID);
+	//glBindVertexArray(arrayID);
+	triangle.draw();
+	//glDrawArrays(GL_TRIANGLES, 0, 3);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
-	glBindVertexArray(0);
+	//glBindVertexArray(0);
 	prog.unuse();
 
 

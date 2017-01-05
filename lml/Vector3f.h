@@ -25,11 +25,12 @@ namespace lml {
 
 		Vector3f getProjectionOnto(Vector3f vec);
 		void getProjectionOnto(Vector3f vec, Vector3f &mine);
+
 		inline Vector3f getNormalized() const { return Vector3f(x / magnitude(), y / magnitude(), z / magnitude()); }
 		inline void getNormalized(Vector3f &mine) const { mine.set(x / magnitude(), y / magnitude(), z / magnitude()); }
-
-
 		void normalize();
+
+
 		void projectOnto(Vector3f vec);
 		void set(GLfloat x, GLfloat y, GLfloat z);
 		void set(lml::Vector3f vec);

@@ -12,21 +12,6 @@ namespace lml {
 	}
 
 
-	Mat4::~Mat4() {
-	}
-
-	GLfloat Mat4::get(int c, int r) {
-		return matrix[c][r];
-	}
-
-	void Mat4::set(GLfloat newMatrix[4][4]) {
-		memcpy(this->matrix, newMatrix, sizeof(this->matrix));
-	}
-
-	void Mat4::setElement(int row, int column, GLfloat value) {
-		matrix[row][column] = value;
-	}
-
 	void Mat4::addElement(int row, int column, GLfloat value) {
 		matrix[row][column] += value;
 		std::cout << matrix[row][column] << " + " << value << "\n";
@@ -78,5 +63,9 @@ namespace lml {
 		}
 		std::cout << "\n";
 	}
+
+	Mat4::~Mat4() {
+	}
+
 
 }

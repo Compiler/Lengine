@@ -11,10 +11,10 @@ namespace lml {
 	public:
 		Mat4();
 		Mat4(GLfloat matrix[4][4]);
-		void set(GLfloat matrix[4][4]);
-		void setElement(int row, int column, GLfloat value);
+		inline void set(GLfloat newMatrix[4][4]) { memcpy(this->matrix, newMatrix, sizeof(this->matrix)); }
+		inline void setElement(int row, int column, GLfloat value){matrix[row][column] = value;}
 		void addElement(int row, int column, GLfloat value);
-		GLfloat get(int row, int column);
+		inline GLfloat get(int row, int column)const { return matrix[row][column]; }
 
 		~Mat4();
 

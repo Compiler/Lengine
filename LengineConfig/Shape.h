@@ -64,3 +64,23 @@ public:
 	}
 
 };
+
+class TriangleOut : Shape {
+
+public:
+	void create(GLfloat x, GLfloat y, GLfloat width, GLfloat height, color color) {
+		outer.create(x, y, width, height, color);
+		color.a = 0.0f;
+		inner.create(x - 0.5f, y - 0.5, width - 0.5f, height - 0.5f, color);
+	}
+
+
+	void draw() {
+		outer.draw();
+		inner.draw();
+	}
+
+private:
+	Triangle outer, inner;
+
+};

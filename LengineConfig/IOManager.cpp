@@ -6,6 +6,43 @@ IOManager::IOManager()
 {
 }
 
+
+
+
+
+
+
+
+
+
+
+
+void IOManager::read(const char *filePath, std::string &info) {
+
+	std::fstream file;
+	file.open(filePath);
+
+	if (file.fail()) {
+		std::cout << "Couldn't open: \"" << filePath << "\"\n";
+		return;
+	}
+
+
+	if (!file.eof() && !file.fail())
+	{
+		file.seekg(0, std::ios_base::end);
+		std::streampos fileSize = file.tellg();
+
+
+		file.seekg(0, std::ios_base::beg);
+		file.read(info, fileSize);
+		std::cout << fileSize;
+		info[fileSize] = '\0';
+	}
+}
+
+
+
 /*
 	Users responsablility to allocate enough memory
 */
@@ -36,7 +73,7 @@ void IOManager::read(const char *filePath, char *info) {
 
 
 
-void IOManager::read(const char *filePath, std::vector<char> &vec) {
+void IOManager::read(const char *filePath, std::vector<GLchar> &vec) {
 	std::fstream file;
 	file.open(filePath);
 

@@ -4,9 +4,6 @@
 #include <GL\glew.h>
 #include <SDL\SDL.h>
 
-#include <vector>
-#include "IOManager.h"
-
 
 GLuint vertexID, bufferID;
 
@@ -17,16 +14,6 @@ void initVertexArrayObject(void);
 
 //start of app
 int main(int argc, char** argv){
-	
-	std::vector<char> myVec;
-
-
-	IOManager info;
-
-	info.read("Shaders/passthrough.vert", myVec);
-
-	for (int i = 0; i < myVec.size(); i++)
-		std::cout << myVec[i];
 
 	init();
 	initVertexArrayObject();

@@ -18,17 +18,18 @@ void IOManager::read(const char *filePath, char *info) {
 		std::cout << "Couldn't open: \"" << filePath << "\"\n";
 		return;
 	}
+	
 
-
-	std::vector<char> vec;
 	if (!file.eof() && !file.fail())
 	{
 		file.seekg(0, std::ios_base::end);
 		std::streampos fileSize = file.tellg();
-		vec.resize(fileSize);
+		
 
 		file.seekg(0, std::ios_base::beg);
-		file.read(&vec[0], fileSize);
+		file.read(info, fileSize);
+		std::cout << fileSize;
+		info[fileSize] = '\0';
 	}
 
 }

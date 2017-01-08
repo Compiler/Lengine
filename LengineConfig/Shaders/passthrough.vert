@@ -1,14 +1,8 @@
-#version 330
+#version 430 core
 
-in vec4 position;
-in vec4 color;
-
-out vec4 fColor;
-
-uniform mat4 ortho;
+layout(location = 0) in vec4 vPosition;
 
 void main(){
 
-	gl_Position = ortho * position;
-	fColor = color;
+	gl_Position = vPosition;
 }

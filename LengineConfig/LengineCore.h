@@ -10,5 +10,14 @@ public:
 
 
 	~LengineCore();
+
+
+private:
+
+
+	void init();
+	void update();
+	void render();
+
 };
 

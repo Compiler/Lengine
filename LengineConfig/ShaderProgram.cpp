@@ -1,6 +1,6 @@
 #include "ShaderProgram.h"
 
-
+#include <iostream>
 
 ShaderProgram::ShaderProgram()
 {
@@ -9,35 +9,53 @@ ShaderProgram::ShaderProgram()
 
 void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFilePath) {
 	
-	GLint shader = glCreateProgram();
-	GLuint vert = glCreateShader(GL_VERTEX_SHADER);
-	GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
+	_shaderProgramID = glCreateProgram();
+	_vertexID = glCreateShader(GL_VERTEX_SHADER);
+	_fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
 
 
 	std::string vertInfo, fragInfo;
 
 
-	manager.read(vertexFilePath, vertInfo);
+	_manager.read(vertexFilePath, vertInfo);
 	const GLchar *source = &vertInfo.c_str()[0];
-	manager.read(fragFilePath, fragInfo);
+	_manager.read(fragFilePath, fragInfo);
 	const GLchar *fragSource = &fragInfo.c_str()[0];
 
 
-	glShaderSource(vert, 1, &source, nullptr);
-	glShaderSource(frag, 1, &fragSource, nullptr);
+	glShaderSource(_vertexID, 1, &source, nullptr);
+	glShaderSource(_fragmentID, 1, &fragSource, nullptr);
 
-	glCompileShader(vert);
-	glCompileShader(frag);
+	glCompileShader(_vertexID);
+	glCompileShader(_fragmentID);
 
-	glAttachShader(shader, vert);
-	glAttachShader(shader, frag);
+	GLint compileStatus;
+	glGetShaderiv(_shaderProgramID, GL_COMPILE_STATUS, &compileStatus);
+	if (compileStatus == GL_FALSE) {
+		GLchar message[256];
+		glGetShaderInfoLog(_shaderProgramID, sizeof(message), 0, &message[0]);
+		std::cout << "Couldn't compile shader:\n" << message;
+	}
 
-	glLinkProgram(shader);
+
+	glAttachShader(_shaderProgramID, _vertexID);
+	glAttachShader(_shaderProgramID, _fragmentID);
+
+	glLinkProgram(_shaderProgramID);
 
 
-	glUseProgram(shader);
+	glUseProgram(_shaderProgramID);
 
 
+}
+
+
+void ShaderProgram::useProgram() {
+	glUseProgram(_shaderProgramID);
+}
+
+void ShaderProgram::unuseProgram() {
+	glUseProgram(0);
 }
 
 ShaderProgram::~ShaderProgram()

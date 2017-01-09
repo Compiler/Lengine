@@ -10,13 +10,19 @@ public:
 
 	void create(const GLchar *vertexFilePath, const GLchar *fragFilePath);
 
+
+	void useProgram();
+	void unuseProgram();
+
 	~ShaderProgram();
 
 
 private:
 
-	IOManager manager;
+	IOManager _manager;
 
+	GLint _shaderProgramID;
+	GLuint _vertexID, _fragmentID;
 	
 };
 

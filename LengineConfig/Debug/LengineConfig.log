@@ -1,7 +1,8 @@
-﻿  LengineCore.cpp
+﻿  ShaderProgram.cpp
   Generating Code...
   Compiling...
   main.cpp
+  LengineCore.cpp
   Generating Code...
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

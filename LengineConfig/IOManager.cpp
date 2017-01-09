@@ -27,17 +27,21 @@ void IOManager::read(const char *filePath, std::string &info) {
 		return;
 	}
 
-
+	std::vector<GLchar> vec;
 	if (!file.eof() && !file.fail())
 	{
 		file.seekg(0, std::ios_base::end);
 		std::streampos fileSize = file.tellg();
 
 
+		vec.resize(fileSize);
+
 		file.seekg(0, std::ios_base::beg);
-		file.read(info, fileSize);
+		file.read(&vec[0], fileSize);
 		std::cout << fileSize;
-		info[fileSize] = '\0';
+		info = "";
+		for (int i = 0; i < vec.size(); i++)
+			info += vec[i];
 	}
 }
 

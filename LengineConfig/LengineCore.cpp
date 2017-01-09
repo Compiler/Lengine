@@ -42,7 +42,6 @@ void LengineCore::init() {
 	SDL_GL_SetSwapInterval(1);
 
 
-
 	glGenVertexArrays(1, &vertexID);
 	glBindVertexArray(vertexID);
 
@@ -64,15 +63,15 @@ void LengineCore::init() {
 
 
 
-
 	GLint shader = glCreateProgram();
 	GLuint vert = glCreateShader(GL_VERTEX_SHADER);
 	GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
 
 
-
 	std::string vertInfo, fragInfo;
 	manager.read("Shaders/passthrough.vert", vertInfo);
+	
+
 	const GLchar *source = &vertInfo.c_str()[0];
 	manager.read("Shaders/passthrough.frag", fragInfo);
 	const GLchar *fragSource = &fragInfo.c_str()[0];
@@ -88,8 +87,7 @@ void LengineCore::init() {
 	if (outcome == GL_FALSE) {
 		GLchar message[356];
 		glGetShaderInfoLog(shader, sizeof(message), 0, &message[0]);
-		std::cout << message;
-		SDL_Delay(1000);
+		SDL_Delay(10000);
 	}
 
 	glAttachShader(shader, vert);

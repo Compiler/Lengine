@@ -38,10 +38,12 @@ void IOManager::read(const char *filePath, std::string &info) {
 
 		file.seekg(0, std::ios_base::beg);
 		file.read(&vec[0], fileSize);
-		std::cout << fileSize;
 		info = "";
-		for (int i = 0; i < vec.size(); i++)
+		for(int i = 0; i < vec.size(); i++)
 			info += vec[i];
+
+
+		std::cout << "\n\n" << info;
 	}
 }
 
@@ -69,7 +71,6 @@ void IOManager::read(const char *filePath, char *info) {
 
 		file.seekg(0, std::ios_base::beg);
 		file.read(info, fileSize);
-		std::cout << fileSize;
 		info[fileSize] = '\0';
 	}
 

@@ -42,8 +42,6 @@ void IOManager::read(const char *filePath, std::string &info) {
 		for(int i = 0; i < vec.size(); i++)
 			info += vec[i];
 
-
-		std::cout << "\n\n" << info;
 	}
 }
 

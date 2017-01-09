@@ -35,7 +35,6 @@ void LengineCore::init() {
 	window = SDL_CreateWindow("Temporary", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
 	SDL_GL_CreateContext(window);
 	if (glewInit() != GLEW_OK) std::cout << "Error initializing GLEW\n";
-
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 
@@ -46,11 +45,11 @@ void LengineCore::init() {
 	glBindVertexArray(vertexID);
 
 	glGenBuffers(1, &bufferID);
-	glBindBuffer(GL_VERTEX_ARRAY, bufferID);
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
 	GLfloat verts[6] = { -0.5, -0.5, .5, -.5, 0, .5 };
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), (const void*)verts, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
 
 
 
@@ -69,10 +68,11 @@ void LengineCore::init() {
 
 
 	std::string vertInfo, fragInfo;
-	manager.read("Shaders/passthrough.vert", vertInfo);
 	
-
+	
+	manager.read("Shaders/passthrough.vert", vertInfo);
 	const GLchar *source = &vertInfo.c_str()[0];
+
 	manager.read("Shaders/passthrough.frag", fragInfo);
 	const GLchar *fragSource = &fragInfo.c_str()[0];
 
@@ -82,13 +82,6 @@ void LengineCore::init() {
 
 	glCompileShader(vert);
 	glCompileShader(frag);
-	GLint outcome = 0;
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &outcome);
-	if (outcome == GL_FALSE) {
-		GLchar message[356];
-		glGetShaderInfoLog(shader, sizeof(message), 0, &message[0]);
-		SDL_Delay(10000);
-	}
 
 	glAttachShader(shader, vert);
 	glAttachShader(shader, frag);
@@ -96,12 +89,11 @@ void LengineCore::init() {
 	glLinkProgram(shader);
 
 
-
 	glUseProgram(shader);
 
 
-	glVertexAttribPointer(vertexID, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid *)0);
-	glEnableVertexAttribArray(vertexID);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid *)0);
+	glEnableVertexAttribArray(0);
 }
 
 

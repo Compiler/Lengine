@@ -62,34 +62,7 @@ void LengineCore::init() {
 
 
 
-	GLint shader = glCreateProgram();
-	GLuint vert = glCreateShader(GL_VERTEX_SHADER);
-	GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
-
-
-	std::string vertInfo, fragInfo;
 	
-	
-	manager.read("Shaders/passthrough.vert", vertInfo);
-	const GLchar *source = &vertInfo.c_str()[0];
-
-	manager.read("Shaders/passthrough.frag", fragInfo);
-	const GLchar *fragSource = &fragInfo.c_str()[0];
-
-
-	glShaderSource(vert, 1, &source, nullptr);
-	glShaderSource(frag, 1, &fragSource, nullptr);
-
-	glCompileShader(vert);
-	glCompileShader(frag);
-
-	glAttachShader(shader, vert);
-	glAttachShader(shader, frag);
-
-	glLinkProgram(shader);
-
-
-	glUseProgram(shader);
 
 
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid *)0);

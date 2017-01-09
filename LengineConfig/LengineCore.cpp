@@ -62,7 +62,7 @@ void LengineCore::init() {
 
 
 
-	
+	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid *)0);

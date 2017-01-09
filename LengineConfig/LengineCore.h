@@ -4,7 +4,7 @@
 #include <SDL\SDL.h>
 #include <GL\glew.h>
 
-#include "IOManager.h"
+#include "ShaderProgram.h"
 
 class LengineCore
 {
@@ -27,7 +27,7 @@ private:
 	void render();
 
 
-	IOManager manager;
+	ShaderProgram shader;
 	GLuint vertexID, bufferID;
 };
 

@@ -84,6 +84,11 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 	glUseProgram(_shaderProgramID);
 
 
+
+
+	GLuint uniformID = glGetUniformBlockIndex(_shaderProgramID, "UniformBlock");
+
+
 }
 
 

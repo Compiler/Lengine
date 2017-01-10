@@ -2,7 +2,14 @@
 
 out vec4 color;
 
+
+uniform UniformBlock{
+	vec4 col;
+	vec4 location;
+	bool enabled;
+};
+
 void main(){
 
-	color = vec4(0.0, 0.0, 1.0, 1.0);
+	color = vec4(0.0, 1.0, 0.0, 1.0);
 }

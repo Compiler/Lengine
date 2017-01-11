@@ -90,7 +90,7 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 	GLint bufferSize;
 	glGetActiveUniformBlockiv(_shaderProgramID, uniformID, GL_UNIFORM_BLOCK_DATA_SIZE, &bufferSize);
 
-	GLvoid *buffer = malloc(bufferSize);
+	GLubyte *buffer = (GLubyte *)malloc(bufferSize);
 	if (buffer == NULL) {
 		fprintf(stderr, "Unable to allocate buffer\n");
 		exit(EXIT_FAILURE);
@@ -109,8 +109,26 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 
 		std::cout << "Offsets: \n";
 		for (int i = 0; i < 4; i++) {
-			std::cout << "Number " << i << ": " << offsets[i] << "\n";
+			std::cout << "Number " << i << "~ "<< names[i] << ":" << offsets[i] << "\n";
 		}
+
+		GLfloat cols[4] = {0.0f, 1.0f, 1.0f, 1.0f};
+		GLfloat location[4] = { -0.5f, 0.0f, 0.0f, 0.0f };
+		GLfloat radius = 0.5f;
+		GLboolean enabled = true;
+		memcpy(buffer + offsets[0], cols, sizeof(GLfloat) * 4);
+		memcpy(buffer + offsets[1], location, sizeof(GLfloat) * 4);
+		memcpy(buffer + offsets[2], &radius, sizeof(GLfloat) * 1);
+		memcpy(buffer + offsets[3], &enabled, sizeof(GLboolean) * 1);
+
+
+
+		GLuint ubo;
+		glGenBuffers(1, &ubo);
+		glBindBuffer(GL_UNIFORM_BUFFER, ubo);
+		glBufferData(GL_UNIFORM_BUFFER, bufferSize, buffer, GL_DYNAMIC_DRAW);
+
+		glBindBufferBase(GL_UNIFORM_BUFFER, uniformID, ubo);
 	}
 
 

@@ -80,7 +80,6 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 
 	glLinkProgram(_shaderProgramID);
 
-
 	glUseProgram(_shaderProgramID);
 
 
@@ -97,22 +96,24 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 	}else {
 		
 		const char* names[] = {"col", "location", "radius", "enabled"};
-		GLuint indices[4];
 
-		glGetUniformIndices(_shaderProgramID, 4, names, indices);
+		const GLuint indiceCount = 4;
+		GLuint indices[indiceCount];
+
+		glGetUniformIndices(_shaderProgramID, indiceCount, names, indices);
 		std::cout << "********Uniform Layouts*******\n";
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < indiceCount; i++)
 			std::cout << names[i] << " located at " << indices[i] << "\n";
 
 		GLint offsets[4];
-		glGetActiveUniformsiv(_shaderProgramID, 4, indices, GL_UNIFORM_OFFSET, offsets);
+		glGetActiveUniformsiv(_shaderProgramID, indiceCount, indices, GL_UNIFORM_OFFSET, offsets);
 
 		std::cout << "Offsets: \n";
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < indiceCount; i++) {
 			std::cout << "Number " << i << "~ "<< names[i] << ":" << offsets[i] << "\n";
 		}
 
-		GLfloat cols[4] = {0.0f, 1.0f, 1.0f, 1.0f};
+		GLfloat cols[4] = {0.7f, 0.4f, 0.1f, 1.0f};
 		GLfloat location[4] = { -0.5f, 0.0f, 0.0f, 0.0f };
 		GLfloat radius = 0.5f;
 		GLboolean enabled = true;

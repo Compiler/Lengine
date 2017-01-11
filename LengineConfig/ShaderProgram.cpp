@@ -96,8 +96,21 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 		exit(EXIT_FAILURE);
 	}else {
 		
-		glBindBufferRange(GL_UNIFORM_BUFFER, uniformID, );
+		const char* names[] = {"col", "location", "radius", "enabled"};
+		GLuint indices[4];
 
+		glGetUniformIndices(_shaderProgramID, 4, names, indices);
+		std::cout << "********Uniform Layouts*******\n";
+		for (int i = 0; i < 4; i++)
+			std::cout << names[i] << " located at " << indices[i] << "\n";
+
+		GLint offsets[4];
+		glGetActiveUniformsiv(_shaderProgramID, 4, indices, GL_UNIFORM_OFFSET, offsets);
+
+		std::cout << "Offsets: \n";
+		for (int i = 0; i < 4; i++) {
+			std::cout << "Number " << i << ": " << offsets[i] << "\n";
+		}
 	}
 
 

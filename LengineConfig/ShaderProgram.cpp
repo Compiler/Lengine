@@ -87,6 +87,18 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 
 
 	GLuint uniformID = glGetUniformBlockIndex(_shaderProgramID, "UniformBlock");
+	GLint bufferSize;
+	glGetActiveUniformBlockiv(_shaderProgramID, uniformID, GL_UNIFORM_BLOCK_DATA_SIZE, &bufferSize);
+
+	GLvoid *buffer = malloc(bufferSize);
+	if (buffer == NULL) {
+		fprintf(stderr, "Unable to allocate buffer\n");
+		exit(EXIT_FAILURE);
+	}else {
+		
+		glBindBufferRange(GL_UNIFORM_BUFFER, uniformID, );
+
+	}
 
 
 }

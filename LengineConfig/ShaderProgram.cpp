@@ -95,9 +95,9 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 		exit(EXIT_FAILURE);
 	}else {
 		
-		const char* names[] = {"col", "location", "radius", "enabled"};
+		const char* names[] = {"location", "radius", "enabled"};
 
-		const GLuint indiceCount = 4;
+		const GLuint indiceCount = 3;
 		GLuint indices[indiceCount];
 
 		glGetUniformIndices(_shaderProgramID, indiceCount, names, indices);
@@ -113,14 +113,13 @@ void ShaderProgram::create(const GLchar *vertexFilePath, const GLchar *fragFileP
 			std::cout << "Number " << i << "~ "<< names[i] << ":" << offsets[i] << "\n";
 		}
 
-		GLfloat cols[4] = {0.7f, 0.4f, 0.1f, 1.0f};
 		GLfloat location[4] = { -0.5f, 0.0f, 0.0f, 0.0f };
 		GLfloat radius = 0.5f;
 		GLboolean enabled = true;
-		memcpy(buffer + offsets[0], cols, sizeof(GLfloat) * 4);
-		memcpy(buffer + offsets[1], location, sizeof(GLfloat) * 4);
-		memcpy(buffer + offsets[2], &radius, sizeof(GLfloat) * 1);
-		memcpy(buffer + offsets[3], &enabled, sizeof(GLboolean) * 1);
+		//memcpy(buffer + offsets[0], cols, sizeof(GLfloat) * 4);
+		memcpy(buffer + offsets[0], location, sizeof(GLfloat) * 4);
+		memcpy(buffer + offsets[1], &radius, sizeof(GLfloat) * 1);
+		memcpy(buffer + offsets[2], &enabled, sizeof(GLboolean) * 1);
 
 
 

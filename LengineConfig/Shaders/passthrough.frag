@@ -10,13 +10,15 @@ uniform UniformBlock{
 };
 
 
-in vec4 fColor;
 
-void main(){
-	//vec3 mine = col.xyz;
-	//vec2 p = gl_FragCoord.xy / vec2(640, 480);
-	//vec2 q = p - vec2(0.5, 0.5);
-//	float r = 0.15 + 0.1 * cos(atan(q.x, q.y) * 10.0);
-	//mine *= smoothstep(r, r+ 0.01, length(q));
-	color = fColor;
+in vec4 fColor;
+in vec2 fTexCoord;
+
+
+uniform sampler2D texture1;
+
+void main()
+{
+    color = texture(texture1, fTexCoord);
+	color *= fColor;
 }

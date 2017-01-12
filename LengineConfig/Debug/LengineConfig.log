@@ -1,2 +1,3 @@
-﻿  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)
+﻿  LengineCore.cpp
+LengineCore.obj : error LNK2019: unresolved external symbol _gluBuild2DMipmaps@28 referenced in function "public: unsigned int __thiscall ImageLoader::LoadTexture(char const *)" (?LoadTexture@ImageLoader@@QAEIPBD@Z)
+C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe : fatal error LNK1120: 1 unresolved externals

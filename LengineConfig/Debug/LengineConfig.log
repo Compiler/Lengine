@@ -1,3 +1,7 @@
-﻿  LengineCore.cpp
-LengineCore.obj : error LNK2019: unresolved external symbol _gluBuild2DMipmaps@28 referenced in function "public: unsigned int __thiscall ImageLoader::LoadTexture(char const *)" (?LoadTexture@ImageLoader@@QAEIPBD@Z)
-C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe : fatal error LNK1120: 1 unresolved externals
+﻿  main.cpp
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(22): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  LengineCore.cpp
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

@@ -1,7 +1,5 @@
 #include "LengineCore.h"
 
-#include "ImageLoader.h"
-GLuint tex;
 int state = 0;
 SDL_Window *window;
 

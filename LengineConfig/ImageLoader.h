@@ -9,7 +9,7 @@
 #include <GL\glew.h>
 
 
-void LoadBMP(const char * fileName){
+void LoadBMP(const char * fileName, char * &pixelBuffer){
 
 
 	std::fstream file;
@@ -23,6 +23,7 @@ void LoadBMP(const char * fileName){
 	file.seekg(0, file.beg);
 
 	data = new char[length];
+
 
 	file.read(data, length);
 
@@ -44,6 +45,8 @@ void LoadBMP(const char * fileName){
 	case 'C':std::cout << "OS/2 struct icon"; break;
 	}
 
+	int headerOffset = 50;
+
 	int width = *(int *)&data[18];
 	int height = *(int *)&data[22];
 
@@ -53,12 +56,13 @@ void LoadBMP(const char * fileName){
 
 	std::cout << "\nDimensions: " << width << "x" << height << "\n";
 	std::cout << "Bits per pixel: " << bpp;
-	std::cout << "\nCompression Method: " << compressionMethod;
-	//start of pixel array - 54
-	for(int i = 0; i < 4; i ++)
-	std::cout << *(int *)&data[58 + i] << ", ";
+	std::cout << "\nCompression Method: " << compressionMethod << "\n";
+	//start of pixel array - 50
+	char *pixels = new char[length - headerOffset];
+	file.seekg(headerOffset);
+	file.read((char *)pixels, length - headerOffset);
 
-
+	pixelBuffer = pixels;
 	delete[] data;
 	file.close();
 	std::cout << "\n\n\n";

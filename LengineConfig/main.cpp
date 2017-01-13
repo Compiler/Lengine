@@ -6,7 +6,11 @@
 //start of app
 int main(int argc, char** argv){
 	
-	LoadBMP("Textures/wood.bmp");
+
+
+	char* pixBuf;
+	LoadBMP("Textures/wood.bmp", pixBuf);
+	delete [] pixBuf;
 
 	LengineCore core;
 	core.run();

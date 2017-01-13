@@ -9,20 +9,20 @@
 #include <GL\glew.h>
 
 
-void LoadBMP(const char * fileName, char * &pixelBuffer){
+void LoadBMP(const char * fileName, GLchar * &pixelBuffer, GLuint &width, GLuint &height){
 
 
 	std::fstream file;
 	file.open(fileName, std::fstream::binary | std::fstream::in);
 
 	if (file.fail()) std::cout << "Couldn't open: `" << fileName << "`\n";
-	char * data;
+	GLchar * data;
 
 	file.seekg(0, file.end);
 	int length = file.tellg();
 	file.seekg(0, file.beg);
 
-	data = new char[length];
+	data = new GLchar[length];
 
 
 	file.read(data, length);
@@ -33,7 +33,7 @@ void LoadBMP(const char * fileName, char * &pixelBuffer){
 	else
 		std::cout << "error: only " << file.gcount() << " could be read";
 
-	char sec = data[1];
+	GLchar sec = data[1];
 	
 	std::cout << data[0] << data[1] << "= ";
 
@@ -47,8 +47,8 @@ void LoadBMP(const char * fileName, char * &pixelBuffer){
 
 	int headerOffset = 50;
 
-	int width = *(int *)&data[18];
-	int height = *(int *)&data[22];
+	width = *(GLuint *)&data[18];
+	height = *(GLuint *)&data[22];
 
 	int bpp = *(int *)&data[28];
 
@@ -58,9 +58,9 @@ void LoadBMP(const char * fileName, char * &pixelBuffer){
 	std::cout << "Bits per pixel: " << bpp;
 	std::cout << "\nCompression Method: " << compressionMethod << "\n";
 	//start of pixel array - 50
-	char *pixels = new char[length - headerOffset];
+	GLchar *pixels = new GLchar[length - headerOffset];
 	file.seekg(headerOffset);
-	file.read((char *)pixels, length - headerOffset);
+	file.read((GLchar *)pixels, length - headerOffset);
 
 	pixelBuffer = pixels;
 	delete[] data;

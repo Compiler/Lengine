@@ -1,5 +1,8 @@
 #include "LengineCore.h"
 
+#include "ImageLoader.h"
+#include "pico.h"
+
 int state = 0;
 SDL_Window *window;
 
@@ -25,7 +28,7 @@ void LengineCore::run() {
 }
 
 GLuint ebo;
-
+GLuint texture;
 void LengineCore::init() {
 
 
@@ -54,7 +57,7 @@ void LengineCore::init() {
 							0.5, 0.5, 0.0, 1.0,   // top right
 							.5, -.5, 0.0, 1.0,    // bottom right
 							-.5, .5, 0.0, 1.0,    // top left
-		//0,1,3,2,0
+		//2,0,1,3,
 							};
 	GLfloat color[4 * 3 * 2] = {
 		1.0f, 1.0f, 0.0f, 1.0f,
@@ -64,9 +67,17 @@ void LengineCore::init() {
 		1.0f, 1.0f, 0.0f, 1.0f,
 		1.0f, 1.0f, 0.0f, 1.0f };
 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color), nullptr, GL_STATIC_DRAW);
+	GLfloat tex[8] = {
+	1.0f, 1.0f, 
+	1.0f, 0.0f,
+	0.0f, 0.0f,
+	0.0f, 1.0f
+	};
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color) + sizeof(tex), nullptr, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verts), verts);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts), sizeof(color), color);
+	glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color), sizeof(tex), tex);
 
 
 	glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
@@ -81,22 +92,46 @@ void LengineCore::init() {
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat)* 4, NULL);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4, (const GLvoid *)sizeof(verts));
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, NULL);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, (const GLvoid *)(sizeof(GLfloat) * 4));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, (const GLvoid *)(sizeof(GLfloat) * 8));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 
 	glGenBuffers(1, &ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
-	GLuint indices[4] = {
-		0,1,3,2
+	GLuint indices[6] = {
+		0,1,2,3,4,5
 	};
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
+	
+	unsigned long width, height;
 
+	std::vector<unsigned char> buffer, output;
+	std::string info = "Textures/brick.png";
+	IOManager::readFileToBuffer(info, buffer);
+	int errorCode = decodePNG(output, width, height, &buffer[0], buffer.size());
+	if (errorCode != 0) {
+		std::cout << "error";
+	}
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &output[0]);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 
@@ -118,9 +153,11 @@ void LengineCore::render() {
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	glBindTexture(GL_TEXTURE_2D, texture);
+
 	glBindVertexArray(ebo);
 
-	glDrawElements(GL_LINE_LOOP, 4, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 4, GL_UNSIGNED_INT, 0);
 
 	glFlush();
 	

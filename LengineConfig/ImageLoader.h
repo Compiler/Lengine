@@ -44,6 +44,21 @@ void LoadBMP(const char * fileName){
 	case 'C':std::cout << "OS/2 struct icon"; break;
 	}
 
+	int width = *(int *)&data[18];
+	int height = *(int *)&data[22];
+
+	int bpp = *(int *)&data[28];
+
+	int compressionMethod = *(int *)&data[30];
+
+	std::cout << "\nDimensions: " << width << "x" << height << "\n";
+	std::cout << "Bits per pixel: " << bpp;
+	std::cout << "\nCompression Method: " << compressionMethod;
+	//start of pixel array - 54
+	for(int i = 0; i < 4; i ++)
+	std::cout << *(int *)&data[58 + i] << ", ";
+
+
 	delete[] data;
 	file.close();
 	std::cout << "\n\n\n";

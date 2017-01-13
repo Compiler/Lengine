@@ -50,22 +50,22 @@ void LengineCore::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat verts[3*2*4] = { -0.5, -0.5, 0.0, 1.0,// bottom left
+	GLfloat verts[4 * 2 * 3] = { -0.5, -0.5, 0.0, 1.0,// bottom left
 							.5, -.5, 0.0, 1.0,    // bottom right
 							-.5, .5, 0.0, 1.0,    // top left
+							0.5, 0.5, 0.0, 1.0,
+							.5, -.5, 0.0, 1.0,    // bottom right
+							-.5, .5, 0.0, 1.0,    // top left// top right
 
-							0.5, 0.5, 0.0, 1.0,   // top right
-							.5, -.5, 0.0, 1.0,    // bottom right
-							-.5, .5, 0.0, 1.0,    // top left
-		//2,0,1,3,
+		//
 							};
 	GLfloat color[4 * 3 * 2] = {
-		1.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f, 1.0f, 
-		1.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f, 1.0f };
+		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f, 1.0f, 
+		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f, 1.0f };
 
 	GLfloat tex[8] = {
 	1.0f, 1.0f, 
@@ -92,9 +92,9 @@ void LengineCore::init() {
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, NULL);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, (const GLvoid *)(sizeof(GLfloat) * 4));
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 10, (const GLvoid *)(sizeof(GLfloat) * 8));
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, NULL);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts) + sizeof(color)));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
@@ -103,10 +103,9 @@ void LengineCore::init() {
 	glGenBuffers(1, &ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
-	GLuint indices[6] = {
-		0,1,2,3,4,5
+	GLuint indices[4] = {
+		0,2,1,3
 	};
-
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
 	
@@ -115,10 +114,10 @@ void LengineCore::init() {
 	std::vector<unsigned char> buffer, output;
 	std::string info = "Textures/brick.png";
 	IOManager::readFileToBuffer(info, buffer);
-	int errorCode = decodePNG(output, width, height, &buffer[0], buffer.size());
-	if (errorCode != 0) {
-		std::cout << "error";
-	}
+	//int errorCode = decodePNG(output, width, height, &buffer[0], buffer.size());
+	
+	LoadBMP("Textures/wood.bmp", buffer, width, height);
+
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
 
@@ -154,11 +153,11 @@ void LengineCore::render() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBindTexture(GL_TEXTURE_2D, texture);
+	
+	glBindVertexArray(vertexID);
 
-	glBindVertexArray(ebo);
-
-	glDrawElements(GL_TRIANGLES, 4, GL_UNSIGNED_INT, 0);
-
+	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0);
+	//glDrawArrays(GL_TRIANGLES, 0, 6);
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

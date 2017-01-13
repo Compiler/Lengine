@@ -7,9 +7,10 @@
 #include <fstream>
 #include <string>
 #include <GL\glew.h>
+#include <vector>
 
 
-void LoadBMP(const char * fileName, GLchar * &pixelBuffer, GLuint &width, GLuint &height){
+void LoadBMP(const char * fileName, std::vector<unsigned char> &buffer, unsigned long &width, unsigned long &height){
 
 
 	std::fstream file;
@@ -58,11 +59,16 @@ void LoadBMP(const char * fileName, GLchar * &pixelBuffer, GLuint &width, GLuint
 	std::cout << "Bits per pixel: " << bpp;
 	std::cout << "\nCompression Method: " << compressionMethod << "\n";
 	//start of pixel array - 50
-	GLchar *pixels = new GLchar[length - headerOffset];
+	unsigned char *pixels = new unsigned char[length - headerOffset];
 	file.seekg(headerOffset);
-	file.read((GLchar *)pixels, length - headerOffset);
+	file.read((char *)pixels, length - headerOffset);
 
-	pixelBuffer = pixels;
+	buffer.resize(length - headerOffset + 1);
+	for (int i = 0; i < length - headerOffset; i++)
+		buffer[i] = pixels[i];
+	buffer[length - headerOffset + 1] = '\0';
+
+	delete[] pixels;
 	delete[] data;
 	file.close();
 	std::cout << "\n\n\n";

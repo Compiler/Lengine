@@ -20,5 +20,5 @@ uniform sampler2D texture1;
 void main()
 {
     color = texture(texture1, fTexCoord);
-	color *= fColor;
+	//color *= fColor;
 }

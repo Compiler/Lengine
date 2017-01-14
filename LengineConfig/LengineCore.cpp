@@ -54,13 +54,12 @@ void LengineCore::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat verts[4 * 2 * 3] = { -0.5, -0.5, 0.0, 1.0,// bottom left
+	GLfloat verts[4 * 2 * 2] = { -0.5, -0.5, 0.0, 1.0,// bottom left
 							.5, -.5, 0.0, 1.0,    // bottom right
 							-.5, .5, 0.0, 1.0,    // top left
-							0.5, 0.5, 0.0, 1.0,
-							.5, -.5, 0.0, 1.0,    // bottom right
-							-.5, .5, 0.0, 1.0,    // top left// top right
+							0.5, 0.5, 0.0, 1.0   // top right
 							};
+	
 	GLfloat color[4 * 3 * 2] = {
 		1.0f, 1.0f, 1.0f, 1.0f,
 		1.0f, 1.0f, 1.0f, 1.0f,
@@ -107,6 +106,7 @@ void LengineCore::init() {
 
 	GLuint indices[4] = {
 		3,1,2,0
+		//0,1,2,2,3,4
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
@@ -116,11 +116,11 @@ void LengineCore::init() {
 	LoadBMP("Textures/RGB.bmp", width, height, texture);
 
 
+	glm::mat4 model;
+	model = glm::rotate(model, 90.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 
-	glm::mat4 proj = glm::perspective(45.0f, (float)1 / (float)1, 0.1f, 100.0f);
-
-	GLint loc = glGetUniformLocation(shader.getProgramID(), "transform");
-	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(proj));
+	GLint loc = glGetUniformLocation(shader.getProgramID(), "model");
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(model));
 }
 
 
@@ -147,7 +147,7 @@ void LengineCore::render() {
 	glBindVertexArray(vertexID);
 
 	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0);
-	//glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

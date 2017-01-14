@@ -13,6 +13,7 @@ public:
 
 	void useProgram();
 	void unuseProgram();
+	inline GLint getProgramID() const { return _shaderProgramID; };
 
 	~ShaderProgram();
 

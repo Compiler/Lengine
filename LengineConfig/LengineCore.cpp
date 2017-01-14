@@ -3,6 +3,10 @@
 #include "ImageLoader.h"
 #include "pico.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 int state = 0;
 SDL_Window *window;
 
@@ -56,8 +60,6 @@ void LengineCore::init() {
 							0.5, 0.5, 0.0, 1.0,
 							.5, -.5, 0.0, 1.0,    // bottom right
 							-.5, .5, 0.0, 1.0,    // top left// top right
-
-		//
 							};
 	GLfloat color[4 * 3 * 2] = {
 		1.0f, 1.0f, 1.0f, 1.0f,
@@ -112,6 +114,15 @@ void LengineCore::init() {
 	unsigned long width, height;
 	
 	LoadBMP("Textures/RGB.bmp", width, height, texture);
+
+
+
+	glm::mat4 trans;
+	//trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f));
+	trans = glm::rotate(trans, 0.0f, glm::vec3(1.0f, 1.0f, 0.0f));
+
+	GLint loc = glGetUniformLocation(shader.getProgramID(), "transform");
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(trans));
 }
 
 

@@ -10,9 +10,9 @@
 #include <vector>
 
 
-void LoadBMP(const char * fileName, std::vector<unsigned char> &buffer, unsigned long &width, unsigned long &height){
+void LoadBMP(const char * fileName, unsigned long &width, unsigned long &height, GLuint &texture){
 
-
+	
 	std::fstream file;
 	file.open(fileName, std::fstream::binary | std::fstream::in);
 
@@ -59,14 +59,28 @@ void LoadBMP(const char * fileName, std::vector<unsigned char> &buffer, unsigned
 	std::cout << "Bits per pixel: " << bpp;
 	std::cout << "\nCompression Method: " << compressionMethod << "\n";
 	//start of pixel array - 50
-	unsigned char *pixels = new unsigned char[length - headerOffset];
-	file.seekg(headerOffset);
-	file.read((char *)pixels, length - headerOffset);
+	unsigned char *pixels = new unsigned char[width*height * 3];
+	file.seekg(headerOffset + 40);
+	file.read((char *)pixels, width*height*3);
 
-	buffer.resize(length - headerOffset + 1);
-	for (int i = 0; i < length - headerOffset; i++)
-		buffer[i] = pixels[i];
-	buffer[length - headerOffset + 1] = '\0';
+	unsigned char tmpRGB = 0; // Swap buffer
+	for (unsigned long i = 0; i < width * height * 3; i += 3)
+	{
+		tmpRGB = pixels[i];
+		pixels[i] = pixels[i + 2];
+		pixels[i + 2] = tmpRGB;
+	}
+
+	glGenTextures(1, &texture);             // Generate a texture
+	glBindTexture(GL_TEXTURE_2D, texture); // Bind that texture temporarily
+
+	GLint mode = GL_RGB;                   // Set the mode
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, mode, width, height, 0, mode, GL_UNSIGNED_BYTE, pixels);
+
 
 	delete[] pixels;
 	delete[] data;

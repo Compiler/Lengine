@@ -68,10 +68,10 @@ void LengineCore::init() {
 		1.0f, 1.0f, 1.0f, 1.0f };
 
 	GLfloat tex[8] = {
-	1.0f, 1.0f, 
+	0.0f, 0.0f, 
 	1.0f, 0.0f,
-	0.0f, 0.0f,
-	0.0f, 1.0f
+	0.0f, 1.0f,
+	1.0f, 1.0f
 	};
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color) + sizeof(tex), nullptr, GL_STATIC_DRAW);
@@ -104,7 +104,7 @@ void LengineCore::init() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 	GLuint indices[4] = {
-		0,2,1,3
+		3,1,2,0
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 

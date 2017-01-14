@@ -46,8 +46,8 @@ void LoadBMP(const char * fileName, unsigned long &width, unsigned long &height,
 	case 'C':std::cout << "OS/2 struct icon"; break;
 	}
 
-	int headerOffset = 50;
-
+	int headerOffset = *(GLuint *)&data[10];
+	std::cout << "\n\n~~ "<< *(GLuint *)&data[10];
 	width = *(GLuint *)&data[18];
 	height = *(GLuint *)&data[22];
 
@@ -60,7 +60,7 @@ void LoadBMP(const char * fileName, unsigned long &width, unsigned long &height,
 	std::cout << "\nCompression Method: " << compressionMethod << "\n";
 	//start of pixel array - 50
 	unsigned char *pixels = new unsigned char[width*height * 3];
-	file.seekg(headerOffset + 40);
+	file.seekg(headerOffset);
 	file.read((char *)pixels, width*height*3);
 
 	unsigned char tmpRGB = 0; // Swap buffer

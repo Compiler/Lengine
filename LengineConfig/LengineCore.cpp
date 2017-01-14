@@ -117,12 +117,10 @@ void LengineCore::init() {
 
 
 
-	glm::mat4 trans;
-	//trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f));
-	trans = glm::rotate(trans, 0.0f, glm::vec3(1.0f, 1.0f, 0.0f));
+	glm::mat4 proj = glm::perspective(45.0f, (float)1 / (float)1, 0.1f, 100.0f);
 
 	GLint loc = glGetUniformLocation(shader.getProgramID(), "transform");
-	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(trans));
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(proj));
 }
 
 

@@ -82,7 +82,7 @@ void LengineCore::init() {
 
 
 	glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-
+	glEnable(GL_DEPTH_TEST);
 
 
 
@@ -115,12 +115,24 @@ void LengineCore::init() {
 	
 	LoadBMP("Textures/RGB.bmp", width, height, texture);
 
-
+	
 	glm::mat4 model;
-	model = glm::rotate(model, 90.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+	model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	glm::mat4 view;
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+
+	glm::mat4 projection;
+	projection = glm::perspective(glm::radians(45.0f), 640.0f/ 480.0f, 0.1f, 100.0f);
 
 	GLint loc = glGetUniformLocation(shader.getProgramID(), "model");
 	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(model));
+
+	loc = glGetUniformLocation(shader.getProgramID(), "view");
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(view));
+
+	loc = glGetUniformLocation(shader.getProgramID(), "projection");
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(projection));
 }
 
 
@@ -140,14 +152,14 @@ void LengineCore::update() {
 
 void LengineCore::render() {
 
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glBindTexture(GL_TEXTURE_2D, texture);
 	
 	glBindVertexArray(vertexID);
 
-	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0);
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDrawElements(GL_TRIANGLE_STRIP, 4 * 6, GL_UNSIGNED_INT, 0);
+	//glDrawArrays(GL_TRIANGLES, 0, 6);
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

@@ -8,11 +8,13 @@ out vec4 fColor;
 out vec2 fTexCoord;
 
 uniform mat4 model;
+uniform mat4 projection;
+uniform mat4 view;
 
 
 void main(){
 	
-	gl_Position = model * vPosition;
+	gl_Position = projection * view * model * vPosition;
 	
 	fTexCoord = vTexCoord;
 	

@@ -54,11 +54,57 @@ void LengineCore::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat verts[4 * 2 * 2] = { -0.5, -0.5, 0.0, 1.0,// bottom left
-							.5, -.5, 0.0, 1.0,    // bottom right
-							-.5, .5, 0.0, 1.0,    // top left
-							0.5, 0.5, 0.0, 1.0   // top right
-							};
+	//GLfloat verts[4 * 2 * 2] = { -0.5, -0.5, 0.0, 1.0,// bottom left
+	//						.5, -.5, 0.0, 1.0,    // bottom right
+	//						-.5, .5, 0.0, 1.0,    // top left
+	//						0.5, 0.5, 0.0, 1.0   // top right
+	//						};
+//
+	GLfloat verts[] = {
+		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+		-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+		0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+		0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+	};
+
+	//0, 1, 2, 2, 3, 1
 	
 	GLfloat color[4 * 3 * 2] = {
 		1.0f, 1.0f, 1.0f, 1.0f,
@@ -78,7 +124,7 @@ void LengineCore::init() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color) + sizeof(tex), nullptr, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verts), verts);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts), sizeof(color), color);
-	glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color), sizeof(tex), tex);
+	//glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color), sizeof(tex), tex);
 
 
 	glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
@@ -93,9 +139,10 @@ void LengineCore::init() {
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, NULL);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (const GLvoid *)(sizeof(GLfloat) * 3));
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts)));
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts) + sizeof(color)));
+	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts) + sizeof(color)));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
@@ -104,9 +151,9 @@ void LengineCore::init() {
 	glGenBuffers(1, &ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
-	GLuint indices[4] = {
-		3,1,2,0
-		//0,1,2,2,3,4
+	GLuint indices[6] = {
+		//3,1,2,0
+		0,1,2,  2,3,1
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
@@ -147,16 +194,14 @@ void LengineCore::render() {
 
 	st += 1.0f;
 	glm::mat4 model;
-	model = glm::rotate(model, glm::radians(st), glm::vec3(1.0f, 0.5f, 0.0f));
+	model = glm::rotate(model, glm::radians(st), glm::vec3(0.5f, 1.0f, 0.0f));
 
 	glm::mat4 view;
 	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
 
 	glm::mat4 projection;
 	projection = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
-
-	GLint loc = glGetUniformLocation(shader.getProgramID(), "model");
-	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(model));
+	GLint loc;
 
 	loc = glGetUniformLocation(shader.getProgramID(), "view");
 	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(view));
@@ -164,9 +209,12 @@ void LengineCore::render() {
 	loc = glGetUniformLocation(shader.getProgramID(), "projection");
 	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(projection));
 
-
-	glDrawElements(GL_TRIANGLE_STRIP, 4 , GL_UNSIGNED_INT, 0);
-	//glDrawArrays(GL_TRIANGLES, 0, 6);
+	loc = glGetUniformLocation(shader.getProgramID(), "model");
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(model));
+	
+	//glDrawElements(GL_TRIANGLES, 36 , GL_UNSIGNED_INT, 0);
+	
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

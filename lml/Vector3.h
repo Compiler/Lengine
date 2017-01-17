@@ -24,15 +24,17 @@ public:
 
 	Vector3 operator -(const Vector3 &vec) const;
 	Vector3 operator +(const Vector3 &vec) const;
-	Vector3 operator *(float mult) const;
-	Vector3 operator /(float div) const;
+	Vector3 operator *(GLfloat mult) const;
+	Vector3 operator /(GLfloat div) const;
 
 	Vector3 &operator -=(const Vector3 &vec);
 	Vector3 &operator +=(const Vector3 &vec);
-	Vector3 &operator *=(float mult);
-	Vector3 &operator /=(float div);
+	Vector3 &operator *=(GLfloat mult);
+	Vector3 &operator /=(GLfloat div);
 
-	float operator *(const Vector3 &vec) const;
+	GLfloat operator *(const Vector3 &vec) const;
+
+	void normalize();
 
 	~Vector3();
 };

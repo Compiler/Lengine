@@ -15,11 +15,11 @@ Vector3 Vector3::operator +(const Vector3 &vec) const{
 	return Vector3(x + vec.x, y + vec.y, z + vec.z);
 }
 
-Vector3 Vector3::operator *(float mult) const{
+Vector3 Vector3::operator *(GLfloat mult) const{
 	return Vector3(x * mult, y * mult, z * mult);
 }
 
-Vector3 Vector3::operator /(float div) const{
+Vector3 Vector3::operator /(GLfloat div) const{
 	return Vector3(x / div, y / div, z / div);
 }
 
@@ -34,18 +34,19 @@ Vector3 &Vector3::operator +=(const Vector3 &vec){
 	return *this;
 }
 
-Vector3 &Vector3::operator *=(float mult){
+Vector3 &Vector3::operator *=(GLfloat mult){
 	x *= mult; y *= mult; z *= mult;
 	return *this;
 }
 
-Vector3 &Vector3::operator /=(float div){
-	x /= div; y /= div; z /= div;
+Vector3 &Vector3::operator /=(GLfloat div){
+	float mult = 1.0f / div;
+	x *= mult; y *= mult; z *= mult;
 	return *this;
 }
 
 
-float Vector3::operator *(const Vector3 &vec) const{
+GLfloat Vector3::operator *(const Vector3 &vec) const{
 	return (x * vec.x) + (y * vec.y) + (z * vec.z);
 }
 

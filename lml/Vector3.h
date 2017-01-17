@@ -17,6 +17,21 @@ public:
 	bool operator ==(const Vector3 &vec){ return vec.x == x && vec.y == y && z == vec.z; }
 	bool operator !=(const Vector3 &vec){ return vec.x != x || vec.y != y || z != vec.z; }
 
+
+
+	void zero(){ x = y = z = 0.0f; }
+
+
+	Vector3 operator -(const Vector3 &vec) const;
+	Vector3 operator +(const Vector3 &vec) const;
+	Vector3 operator *(const Vector3 &vec) const;
+	Vector3 operator /(float div) const;
+
+	Vector3 &operator -=(const Vector3 &vec);
+	Vector3 &operator +=(const Vector3 &vec);
+	Vector3 &operator *=(const Vector3 &vec);
+	Vector3 &operator /=(float div);
+
 	~Vector3();
 };
 

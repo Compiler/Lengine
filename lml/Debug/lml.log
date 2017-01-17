@@ -1,48 +1,17 @@
 ﻿  Vector3.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(49): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(50): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(51): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(55): error C2804: binary 'operator *' has too many parameters
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(55): error C2333: 'Vector3::operator *': error in function declaration; skipping function body
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(60): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(61): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(62): error C3873: '0x2013': this character is not allowed as a first character of an identifier
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(68): error C2059: syntax error: 'constant'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(68): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2059: syntax error: 'string'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2361): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\concurrencysal.h(22): error C2059: syntax error: 'string'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\concurrencysal.h(22): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vadefs.h(18): error C2059: syntax error: 'string'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vadefs.h(18): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vadefs.h(122): error C2059: syntax error: 'string'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vadefs.h(123): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime.h(81): error C2059: syntax error: 'string'
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime.h(81): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\corecrt.h(12): error C2059: syntax error: 'string'
-c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\corecrt.h(12): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\math.h(13): error C2059: syntax error: 'string'
-c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\math.h(13): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(5): error C2535: 'Vector3::Vector3(GLfloat,GLfloat,GLfloat)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(13): note: see declaration of 'Vector3::Vector3'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(10): error C2535: 'Vector3 Vector3::operator -(const Vector3 &) const': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(25): note: see declaration of 'Vector3::operator -'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(14): error C2535: 'Vector3 Vector3::operator +(const Vector3 &) const': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(26): note: see declaration of 'Vector3::operator +'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(18): error C2535: 'Vector3 Vector3::operator *(GLfloat) const': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(27): note: see declaration of 'Vector3::operator *'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(22): error C2535: 'Vector3 Vector3::operator /(GLfloat) const': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(28): note: see declaration of 'Vector3::operator /'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(27): error C2535: 'Vector3 &Vector3::operator -=(const Vector3 &)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(30): note: see declaration of 'Vector3::operator -='
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(32): error C2535: 'Vector3 &Vector3::operator +=(const Vector3 &)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(31): note: see declaration of 'Vector3::operator +='
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(37): error C2535: 'Vector3 &Vector3::operator *=(GLfloat)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(32): note: see declaration of 'Vector3::operator *='
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(42): error C2535: 'Vector3 &Vector3::operator /=(GLfloat)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(33): note: see declaration of 'Vector3::operator /='
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(49): error C2535: 'GLfloat Vector3::operator *(const Vector3 &) const': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(35): note: see declaration of 'Vector3::operator *'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(54): error C2535: 'void Vector3::normalize(void)': member function already defined or declared
-  c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.h(37): note: see declaration of 'Vector3::normalize'
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(68): fatal error C1004: unexpected end-of-file found
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(57): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(92): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+glew32.lib(glew32.dll) : warning LNK4006: _wglewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _wglewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _wglewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetString@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: _glewGetErrorString@4 already defined in glew32s.lib(glew.obj); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+opengl32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  lml.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\lml.lib

@@ -12,7 +12,7 @@ out vec2 fNormal;
 
 void main(){
 	
-	gl_Position = vPosition;
+	gl_Position = vec4(vPosition.xyz, 1.0);
 	
 	fTexCoord = vTexCoord;
 	

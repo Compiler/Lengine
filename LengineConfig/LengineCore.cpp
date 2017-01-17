@@ -7,6 +7,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <lml\Vector3.h>	
+
 int state = 0;
 SDL_Window *window;
 
@@ -54,12 +56,12 @@ void LengineCore::init() {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
 
-	GLfloat verts[4 * 2 * 2] = { -0.5, -0.5, 0.0, 1.0,// bottom left
-							.5, -.5, 0.0, 1.0,    // bottom right
-							-.5, .5, 0.0, 1.0,    // top left
-							0.5, 0.5, 0.0, 1.0   // top right
-							};
-
+	Vector3 verts[4] = {
+		Vector3(-0.5f, -0.5f, 0.0),// Bottom left
+		Vector3(0.5f, -0.5f, 0.0), // Bottom right
+		Vector3(-0.5f, 0.5f, 0.0), // Top left
+		Vector3(0.5f, 0.5f, 0.0)   // Top right
+	};
 	//0, 1, 2, 2, 3, 1
 	GLfloat r, g, b;
 	r = 1.0f;
@@ -101,7 +103,7 @@ void LengineCore::init() {
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, NULL);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, NULL);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts)));
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 0, (const GLvoid *)(sizeof(verts) + sizeof(color)));
 	glEnableVertexAttribArray(0);

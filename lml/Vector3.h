@@ -36,6 +36,8 @@ public:
 
 	void normalize();
 
+
+
 	~Vector3();
 };
 

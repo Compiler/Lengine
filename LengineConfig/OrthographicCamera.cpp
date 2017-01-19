@@ -64,7 +64,8 @@ void OrthographicCamera::update(){
 
 
 void OrthographicCamera::sendToShader(const GLuint &programID) const{
-	glUniformMatrix4fv(programID, 1, GL_TRUE, matrix);
+	
+	glUniformMatrix4fv(glGetUniformLocation(programID, "projMatrix"); , 1, GL_TRUE, matrix);
 }
 
 OrthographicCamera::~OrthographicCamera(){

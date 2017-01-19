@@ -5,6 +5,7 @@
 #include <GL\glew.h>
 
 #include "ShaderProgram.h"
+#include "OrthographicCamera.h"
 
 class LengineCore
 {
@@ -28,6 +29,7 @@ private:
 
 
 	ShaderProgram shader;
+	OrthographicCamera cam;
 	GLuint vertexID, bufferID;
 };
 

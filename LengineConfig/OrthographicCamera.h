@@ -18,7 +18,7 @@ public:
 	void sendToShader(const GLuint &programID) const;
 	
 	void update();
-
+	void translate(GLfloat x, GLfloat y);
 
 	void print(){
 		
@@ -34,6 +34,6 @@ private:
 	GLfloat left, right, top, bottom;
 	GLfloat matrix[16] = {0.0f};
 
-	GLboolean _update = true;
+	GLboolean _update;
 };
 

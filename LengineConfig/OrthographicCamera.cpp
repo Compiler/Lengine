@@ -5,43 +5,54 @@
 
 
 OrthographicCamera::OrthographicCamera(): left(0), right(640), top(480), bottom(0){
-	update();
-
-	matrix[12] = -1.0f;
+	_update = true;
+	matrix[10] = -1.0f;
 	matrix[15] = 1.0f;
+	update();
 }
 
 OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): left(0), right(width), top(height), bottom(0){
-	
+	_update = true;
 
 	update();
-
+	matrix[10] = -1.0f;
+	matrix[15] = 1.0f;
 }
 
 OrthographicCamera::OrthographicCamera(GLfloat left, GLfloat right, GLfloat top, GLfloat bottom){
+	_update = true;
 	this->left = left;
 	this->right = right;
 	this->top = top;
 	this->bottom = bottom;
 	update();
+	matrix[10] = -1.0f;
+	matrix[15] = 1.0f;
 }
 
 
+
+
 void OrthographicCamera::init(GLfloat width, GLfloat height){
+	_update = true;
 	left = 0;
 	bottom = 0;
 
 	right = width;
 	height = height;
-
+	matrix[10] = -1.0f;
+	matrix[15] = 1.0f;
 	update();
 }
 
 void OrthographicCamera::init(GLfloat left, GLfloat right, GLfloat top, GLfloat bottom){
+	_update = true;
 	this->left = left;
 	this->right = right;
 	this->top = top;
 	this->bottom = bottom;
+	matrix[10] = -1.0f;
+	matrix[15] = 1.0f;
 	update();
 }
 
@@ -63,6 +74,17 @@ void OrthographicCamera::update(){
 
 }
 
+void OrthographicCamera::translate(GLfloat x, GLfloat y){
+	
+	right -= x;
+	left -= x;
+
+	top -= y;
+	bottom -= y;
+
+	_update = true;
+
+}
 
 void OrthographicCamera::sendToShader(const GLuint &programID) const{
 	

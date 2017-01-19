@@ -12,7 +12,7 @@ public:
 	void init(GLfloat width, GLfloat height);
 	void init(GLfloat left, GLfloat right, GLfloat top, GLfloat bottom);
 
-
+	void update();
 
 	~OrthographicCamera();
 
@@ -20,5 +20,7 @@ private:
 
 	GLfloat left, right, top, bottom;
 	GLfloat matrix[16] = {};
+
+	GLboolean _update = true;
 };
 

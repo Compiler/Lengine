@@ -66,7 +66,7 @@ void OrthographicCamera::update(){
 		matrix[0] = 2 / (right - left);
 		matrix[3] = -(right + left) / (right - left);
 
-		matrix[4] = 2 / (top - bottom);
+		matrix[5] = 2 / (top - bottom);
 		matrix[7] = -(top + bottom) / (top - bottom);
 
 		_update = false;

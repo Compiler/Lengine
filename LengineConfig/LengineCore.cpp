@@ -161,7 +161,7 @@ void LengineCore::render() {
 	left -= 1.01f;
 	right -= 1.01f;
 	GLfloat mat[16] = {2.0f / (right - left), 0.0f, 0.0f, -(right + left) / (right - left), /**/ 0.0f, 2.0f / (top - bottom), 0.0f, -(top + bottom) / (top - bottom) , /**/ 0.0f, 0.0f, -1.0f, 0.0,  /**/0.0f, 0.0f, 0.0f, 1.0f};
-
+	cam.translate(1.01f, 0.0f);
 	cam.update();
 	cam.sendToShader(shader.getProgramID());
 	

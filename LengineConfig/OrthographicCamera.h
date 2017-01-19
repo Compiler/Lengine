@@ -12,6 +12,8 @@ public:
 	void init(GLfloat width, GLfloat height);
 	void init(GLfloat left, GLfloat right, GLfloat top, GLfloat bottom);
 
+	void sendToShader(const GLuint &programID) const;
+
 	void update();
 
 	~OrthographicCamera();

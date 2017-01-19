@@ -2,6 +2,7 @@
 #include <string>
 #include <GL\glew.h>
 #include "IOManager.h"
+#include "OrthographicCamera.h"
 
 class ShaderProgram
 {
@@ -24,6 +25,8 @@ private:
 
 	GLint _shaderProgramID;
 	GLuint _vertexID, _fragmentID;
+
+	OrthographicCamera cam;
 	
 };
 

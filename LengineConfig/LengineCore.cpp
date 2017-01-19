@@ -55,7 +55,7 @@ void LengineCore::init() {
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-	GLfloat bottomLeft = 0.0f + 640 / 2 - 640.0f / 4.0f;
+	GLfloat bottomLeft = 0.0f;
 	GLfloat dim = 640.0f / 4.0f;
 	Vector3 verts[4] = {
 		Vector3(bottomLeft, bottomLeft, 0.0),// Bottom left
@@ -125,7 +125,7 @@ void LengineCore::init() {
 	
 	unsigned long width, height;
 	
-	LoadBMP("Textures/mandel.bmp", width, height, texture);
+	LoadBMP("Textures/woodcrate.bmp", width, height, texture);
 	
 	
 }

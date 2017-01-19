@@ -55,7 +55,7 @@ void LengineCore::init() {
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-	GLfloat bottomLeft = 0.0f;
+	GLfloat bottomLeft = 40.0f;
 	GLfloat dim = 640.0f / 4.0f;
 	Vector3 verts[4] = {
 		Vector3(bottomLeft, bottomLeft, 0.0),// Bottom left
@@ -127,7 +127,8 @@ void LengineCore::init() {
 	
 	LoadBMP("Textures/woodcrate.bmp", width, height, texture);
 	
-	cam.init(640, 480);
+	cam.init(640.0f, 480.0f);
+	cam.print();
 }
 
 
@@ -160,10 +161,12 @@ void LengineCore::render() {
 	left -= 1.01f;
 	right -= 1.01f;
 	GLfloat mat[16] = {2.0f / (right - left), 0.0f, 0.0f, -(right + left) / (right - left), /**/ 0.0f, 2.0f / (top - bottom), 0.0f, -(top + bottom) / (top - bottom) , /**/ 0.0f, 0.0f, -1.0f, 0.0,  /**/0.0f, 0.0f, 0.0f, 1.0f};
+
+	cam.update();
 	cam.sendToShader(shader.getProgramID());
 	
-	GLint loc = glGetUniformLocation(shader.getProgramID(), "projMatrix");
-	glUniformMatrix4fv(loc, 1, GL_TRUE, mat);
+	//GLint loc = glGetUniformLocation(shader.getProgramID(), "projMatrix");
+	//glUniformMatrix4fv(loc, 1, GL_TRUE, cam.get());
 
 	glDrawElements(GL_TRIANGLES, 6 , GL_UNSIGNED_INT, 0);
 	

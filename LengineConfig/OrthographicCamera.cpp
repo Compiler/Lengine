@@ -1,13 +1,14 @@
 #include "OrthographicCamera.h"
 
 
-#include <iostream>
-
 
 
 
 OrthographicCamera::OrthographicCamera(): left(0), right(640), top(480), bottom(0){
 	update();
+
+	matrix[12] = -1.0f;
+	matrix[15] = 1.0f;
 }
 
 OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): left(0), right(width), top(height), bottom(0){
@@ -65,7 +66,7 @@ void OrthographicCamera::update(){
 
 void OrthographicCamera::sendToShader(const GLuint &programID) const{
 	
-	glUniformMatrix4fv(glGetUniformLocation(programID, "projMatrix"); , 1, GL_TRUE, matrix);
+	glUniformMatrix4fv(glGetUniformLocation(programID, "projMatrix"), 1, GL_TRUE, matrix);
 }
 
 OrthographicCamera::~OrthographicCamera(){

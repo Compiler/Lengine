@@ -9,10 +9,11 @@ out vec4 fColor;
 out vec2 fTexCoord;
 out vec2 fNormal;
 
+uniform mat4 projMatrix;
 
 void main(){
 	
-	gl_Position = vec4(vPosition.xyz, 1.0);
+	gl_Position = projMatrix * vec4(vPosition.xyz, 1.0) ;
 	
 	fTexCoord = vTexCoord;
 	

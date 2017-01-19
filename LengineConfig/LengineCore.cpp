@@ -55,12 +55,13 @@ void LengineCore::init() {
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-
+	GLfloat bottomLeft = 0.0f + 640 / 2 - 640.0f / 4.0f;
+	GLfloat dim = 640.0f / 4.0f;
 	Vector3 verts[4] = {
-		Vector3(-0.5f, -0.5f, 0.0),// Bottom left
-		Vector3(0.5f, -0.5f, 0.0), // Bottom right
-		Vector3(-0.5f, 0.5f, 0.0), // Top left
-		Vector3(0.5f, 0.5f, 0.0)   // Top right
+		Vector3(bottomLeft, bottomLeft, 0.0),// Bottom left
+		Vector3(bottomLeft + dim, bottomLeft, 0.0), // Bottom right
+		Vector3(bottomLeft, bottomLeft + dim, 0.0), // Top left
+		Vector3(bottomLeft + dim, bottomLeft + dim, 0.0)   // Top right
 	};
 	//0, 1, 2, 2, 3, 1
 	GLfloat r, g, b;
@@ -86,6 +87,7 @@ void LengineCore::init() {
 	
 	};
 
+	
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts) + sizeof(color) + sizeof(tex), nullptr, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(verts), verts);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(verts), sizeof(color), color);
@@ -124,7 +126,6 @@ void LengineCore::init() {
 	unsigned long width, height;
 	
 	LoadBMP("Textures/mandel.bmp", width, height, texture);
-
 	
 	
 }
@@ -142,7 +143,10 @@ void LengineCore::update() {
 
 
 }
-
+float left = 0.0f;
+float right = 640.0f;
+float top = 480.0f;
+float bottom = 0;
 void LengineCore::render() {
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -152,7 +156,14 @@ void LengineCore::render() {
 	glBindVertexArray(vertexID);
 
 
+	
+	left -= 1.01f;
+	right -= 1.01f;
+	GLfloat mat[16] = {2.0f / (right - left), 0.0f, 0.0f, -(right + left) / (right - left), /**/ 0.0f, 2.0f / (top - bottom), 0.0f, -(top + bottom) / (top - bottom) , /**/ 0.0f, 0.0f, -1.0f, 0.0,  /**/0.0f, 0.0f, 0.0f, 1.0f};
 
+	
+	GLint loc = glGetUniformLocation(shader.getProgramID(), "projMatrix");
+	glUniformMatrix4fv(loc, 1, GL_TRUE, mat);
 
 	glDrawElements(GL_TRIANGLES, 6 , GL_UNSIGNED_INT, 0);
 	

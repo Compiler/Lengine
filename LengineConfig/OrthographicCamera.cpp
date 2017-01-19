@@ -1,6 +1,14 @@
 #include "OrthographicCamera.h"
 
 
+#include <iostream>
+
+
+
+
+OrthographicCamera::OrthographicCamera(): left(0), right(640), top(480), bottom(0){
+
+}
 
 OrthographicCamera::OrthographicCamera(GLfloat width, GLfloat height): left(0), right(width), top(height), bottom(0){
 	

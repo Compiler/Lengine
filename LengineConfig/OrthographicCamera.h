@@ -5,6 +5,7 @@
 class OrthographicCamera{
 public:
 	
+	OrthographicCamera();
 	OrthographicCamera(GLfloat width, GLfloat height);
 	OrthographicCamera(GLfloat left, GLfloat right, GLfloat top, GLfloat bottom);
 

@@ -2,11 +2,11 @@
 
 
 
-ShapeRenderer::ShapeRenderer(){
+ShapeRenderer::ShapeRenderer():type(ShapeType::LINE){
 }
 
 
-ShapeRenderer::ShapeRenderer(ShapeType type){
+ShapeRenderer::ShapeRenderer(ShapeType type): type(type){
 
 }
 

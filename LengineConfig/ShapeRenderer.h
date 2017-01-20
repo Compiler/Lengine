@@ -1,5 +1,6 @@
 #pragma once
 #include <GL\glew.h>
+#include "Color.h"
 
 enum ShapeType{
 	LINE,
@@ -19,6 +20,9 @@ public:
 
 
 private:
+
+	ShapeType type;
+	Color color = LIGHT_GRAY;
 
 };
 

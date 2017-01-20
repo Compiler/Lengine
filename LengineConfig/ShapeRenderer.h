@@ -13,7 +13,7 @@ public:
 
 
 
-	void drawRectangle();
+	void drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLfloat height);
 
 	~ShapeRenderer();
 

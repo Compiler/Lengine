@@ -132,6 +132,7 @@
     <ClInclude Include="OrthographicCamera.h" />
     <ClInclude Include="pico.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Shapes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

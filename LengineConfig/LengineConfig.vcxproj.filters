@@ -33,6 +33,9 @@
     <ClCompile Include="OrthographicCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IOManager.h">
@@ -53,7 +56,7 @@
     <ClInclude Include="OrthographicCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes.h">
+    <ClInclude Include="ShapeRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

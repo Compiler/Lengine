@@ -124,6 +124,7 @@
     <ClCompile Include="OrthographicCamera.cpp" />
     <ClCompile Include="pico.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="ShapeRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageLoader.h" />
@@ -132,7 +133,7 @@
     <ClInclude Include="OrthographicCamera.h" />
     <ClInclude Include="pico.h" />
     <ClInclude Include="ShaderProgram.h" />
-    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="ShapeRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

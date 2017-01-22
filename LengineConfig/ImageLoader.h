@@ -10,7 +10,7 @@
 #include <vector>
 
 
-void LoadBMP(const char * fileName, unsigned long &width, unsigned long &height, GLuint &texture){
+void LoadBMP(const char *fileName, unsigned long &width, unsigned long &height, GLuint &texture){
 
 	
 	std::fstream file;

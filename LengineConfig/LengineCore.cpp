@@ -98,10 +98,6 @@ void LengineCore::init() {
 
 
 
-
-
-
-
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
 
@@ -144,10 +140,7 @@ void LengineCore::update() {
 
 
 }
-float left = 0.0f;
-float right = 640.0f;
-float top = 480.0f;
-float bottom = 0;
+
 void LengineCore::render() {
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -156,21 +149,12 @@ void LengineCore::render() {
 	
 	glBindVertexArray(vertexID);
 
-
-	
-	left -= 1.01f;
-	right -= 1.01f;
-	GLfloat mat[16] = {2.0f / (right - left), 0.0f, 0.0f, -(right + left) / (right - left), /**/ 0.0f, 2.0f / (top - bottom), 0.0f, -(top + bottom) / (top - bottom) , /**/ 0.0f, 0.0f, -1.0f, 0.0,  /**/0.0f, 0.0f, 0.0f, 1.0f};
-	cam.translate(1.01f, 0.0f);
 	cam.update();
 	cam.sendToShader(shader.getProgramID());
 	
-	//GLint loc = glGetUniformLocation(shader.getProgramID(), "projMatrix");
-	//glUniformMatrix4fv(loc, 1, GL_TRUE, cam.get());
 
 	glDrawElements(GL_TRIANGLES, 6 , GL_UNSIGNED_INT, 0);
-	
-//	glDrawArrays(GL_TRIANGLES, 0, 36);
+
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

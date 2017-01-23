@@ -2,9 +2,25 @@
 #include <GL\glew.h>
 #include "Color.h"
 
+#include <vector>
+
 enum ShapeType{
 	LINE,
 	FILLED
+};
+
+
+struct Vertex{
+
+	Vertex(GLfloat xPos, GLfloat yPos, Color col){
+		x = xPos;
+		y = yPos;
+		color = col;
+	}
+
+	GLfloat x, y;
+	Color color = WHITE;
+	
 };
 
 class ShapeRenderer{
@@ -28,7 +44,7 @@ private:
 	GLuint vertexID, bufferID;
 
 	GLuint count;
-	GLfloat *vertices;
+	std::vector<GLfloat> vertices;
 
 };
 

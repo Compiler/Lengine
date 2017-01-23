@@ -55,7 +55,7 @@ void LengineCore::init() {
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-	GLfloat bottomLeft = 40.0f;
+	GLfloat bottomLeft = 90.0f;
 	GLfloat dim = 640.0f / 4.0f;
 	Vector3 verts[4] = {
 		Vector3(bottomLeft, bottomLeft, 0.0),// Bottom left

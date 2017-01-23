@@ -34,6 +34,9 @@ public:
 	void end();
 	void drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLfloat height);
 	void drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3);
+
+
+	GLuint getShaderID(){ return shader.getProgramID(); }
 	~ShapeRenderer();
 
 

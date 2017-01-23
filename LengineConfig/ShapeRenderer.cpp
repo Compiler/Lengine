@@ -49,6 +49,8 @@ void ShapeRenderer::begin(){
 	count = 0;
 	vertices.clear();
 
+	shader.useProgram();
+
 
 }
 void ShapeRenderer::end(){
@@ -63,7 +65,7 @@ void ShapeRenderer::end(){
 
 	glBindVertexArray(vertexID);
 
-	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glBindVertexArray(0);
 

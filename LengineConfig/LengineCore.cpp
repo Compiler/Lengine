@@ -160,13 +160,18 @@ void LengineCore::render() {
 	
 
 	glDrawElements(GL_TRIANGLES, 6 , GL_UNSIGNED_INT, 0);
+	
+	
+	glBindTexture(GL_TEXTURE_2D, 0);
+
 
 	glBindVertexArray(0);
 
 	shader.unuseProgram();
 
 	rend.begin();
-	rend.drawTriangle(25, 25, 50, 25, 40, 60);
+	cam.sendToShader(rend.getShaderID());
+	rend.drawTriangle(100.0f, 100.0f, 200.0f, 100.0f, 150.0f, 300.0f);
 	rend.end();
 	glFlush();
 	

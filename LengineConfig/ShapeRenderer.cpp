@@ -29,7 +29,9 @@ void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLf
 
 
 void ShapeRenderer::drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3){
-	
+	vertices.push_back(Vertex(xPos1, yPos1, color));
+	vertices.push_back(Vertex(xPos2, yPos2, color));
+	vertices.push_back(Vertex(xPos3, yPos3, color));
 }
 
 
@@ -40,8 +42,12 @@ void ShapeRenderer::begin(){
 
 }
 void ShapeRenderer::end(){
-
-
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), (GLvoid *)&vertices, GL_DYNAMIC_DRAW);
+	
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, 0);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (GLvoid *)(sizeof(GLfloat) * 2));
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 }
 

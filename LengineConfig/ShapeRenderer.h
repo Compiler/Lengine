@@ -44,7 +44,7 @@ private:
 	GLuint vertexID, bufferID;
 
 	GLuint count;
-	std::vector<GLfloat> vertices;
+	std::vector<Vertex> vertices;
 
 };
 

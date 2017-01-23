@@ -1,7 +1,7 @@
 #pragma once
 #include <GL\glew.h>
 #include "Color.h"
-
+#include "ShaderProgram.h"
 #include <vector>
 
 enum ShapeType{
@@ -46,5 +46,6 @@ private:
 	GLuint count;
 	std::vector<Vertex> vertices;
 
+	ShaderProgram shader;
 };
 

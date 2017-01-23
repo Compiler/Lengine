@@ -9,6 +9,10 @@ ShapeRenderer::ShapeRenderer():type(ShapeType::LINE){
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
+
+
+	shader.create("Shaders/shapes.vert", "Shaders/shapes.frag");
+	
 }
 
 
@@ -48,6 +52,14 @@ void ShapeRenderer::end(){
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (GLvoid *)(sizeof(GLfloat) * 2));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
+
+	shader.useProgram();
+
+	glBindVertexArray(vertexID);
+
+	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
+	glBindVertexArray(0);
 
 }
 

@@ -3,15 +3,7 @@
 
 
 ShapeRenderer::ShapeRenderer():type(ShapeType::LINE){
-	glGenVertexArrays(1, &vertexID);
-	glBindVertexArray(vertexID);
-
-	glGenBuffers(1, &bufferID);
-	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-
-
-
-	shader.create("Shaders/shapes.vert", "Shaders/shapes.frag");
+	
 	
 }
 
@@ -24,6 +16,20 @@ ShapeRenderer::ShapeRenderer(ShapeType type): type(type){
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 }
 
+void ShapeRenderer::init(){
+	type = ShapeType::LINE;
+
+	glGenVertexArrays(1, &vertexID);
+	glBindVertexArray(vertexID);
+
+	glGenBuffers(1, &bufferID);
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+
+
+
+	shader.create("Shaders/shapes.vert", "Shaders/shapes.frag");
+
+}
 
 
 void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLfloat height){

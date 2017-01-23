@@ -19,8 +19,7 @@ struct Vertex{
 	}
 
 	GLfloat x, y;
-	Color color = WHITE;
-	
+	Color color;
 };
 
 class ShapeRenderer{
@@ -28,6 +27,8 @@ public:
 	ShapeRenderer();
 	ShapeRenderer(ShapeType type);
 
+
+	void init();
 
 	void begin();
 	void end();
@@ -39,7 +40,7 @@ public:
 private:
 
 	ShapeType type;
-	Color color = LIGHT_GRAY;
+	Color color;
 
 	GLuint vertexID, bufferID;
 

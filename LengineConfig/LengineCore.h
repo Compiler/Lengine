@@ -6,6 +6,7 @@
 
 #include "ShaderProgram.h"
 #include "OrthographicCamera.h"
+#include "ShapeRenderer.h"
 
 class LengineCore
 {
@@ -27,7 +28,7 @@ private:
 	void update();
 	void render();
 
-
+	ShapeRenderer rend;
 	ShaderProgram shader;
 	OrthographicCamera cam;
 	GLuint vertexID, bufferID;

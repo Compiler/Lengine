@@ -45,8 +45,9 @@ void LengineCore::init() {
 	if (glewInit() != GLEW_OK) std::cout << "Error initializing GLEW\n";
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-
+	glewExperimental = GL_TRUE;
 	SDL_GL_SetSwapInterval(1);
+
 
 
 	glGenVertexArrays(1, &vertexID);
@@ -125,6 +126,8 @@ void LengineCore::init() {
 	
 	cam.init(640.0f, 480.0f);
 	cam.print();
+
+	rend.init();
 }
 
 
@@ -145,6 +148,9 @@ void LengineCore::render() {
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
+
+	shader.useProgram();
+
 	glBindTexture(GL_TEXTURE_2D, texture);
 	
 	glBindVertexArray(vertexID);
@@ -155,6 +161,13 @@ void LengineCore::render() {
 
 	glDrawElements(GL_TRIANGLES, 6 , GL_UNSIGNED_INT, 0);
 
+	glBindVertexArray(0);
+
+	shader.unuseProgram();
+
+	rend.begin();
+	rend.drawTriangle(25, 25, 50, 25, 40, 60);
+	rend.end();
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

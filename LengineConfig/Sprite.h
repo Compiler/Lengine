@@ -1,6 +1,14 @@
 #pragma once
-
+#include "Vertex.h"
 #include <GL\glew.h>
+
+
+enum PositionTuples{
+	BOTTOM_LEFT,
+	BOTTOM_RIGHT,
+	TOP_LEFT,
+	TOP_RIGHT
+};
 
 class Sprite{
 public:
@@ -20,6 +28,9 @@ public:
 
 
 private:
+
+	VertexNorm vertex[4];
+	
 	
 
 };

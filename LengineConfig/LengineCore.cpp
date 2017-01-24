@@ -173,12 +173,12 @@ void LengineCore::render() {
 
 	rend.begin();
 	cam.sendToShader(rend.getShaderID());
-	rend.setColor(0.0f, 1.0f, 0.0f, 1.0f);
+	rend.setColor(125, 123, 125, 2);
 	rend.drawTriangle(50.0f, 100.0f, 200.0f, 100.0f, 150.0f, 300.0f);
-	rend.setColor(1.0f, 0.0f, 0.0f, 1.0f);
+	
 	rend.drawTriangle(300.0f, 100.0f, 400.0f, 100.0f, 350.0f, 300.0f);
 
-	rend.setColor(0.0f, 0.0f, 1.0f, 1.0f);
+	
 	rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);
 	rend.end();
 	glFlush();

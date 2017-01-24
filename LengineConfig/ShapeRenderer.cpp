@@ -11,7 +11,7 @@ ShapeRenderer::ShapeRenderer():type(ShapeType::LINE){
 ShapeRenderer::ShapeRenderer(ShapeType type): type(type){
 	glGenVertexArrays(1, &vertexID);
 	glBindVertexArray(vertexID);
-	color.red = 1.0f; color.green = 1.0f; color.blue = 1.0f; color.alpha = 1.0f;
+	color.red = 255; color.green = 255; color.blue = 255; color.alpha = 255;
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 }
@@ -22,7 +22,7 @@ void ShapeRenderer::init(){
 
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-	color.red = 1.0f; color.green = 1.0f; color.blue = 1.0f; color.alpha = 1.0f;
+	color.red = 255; color.green = 255; color.blue = 255; color.alpha = 255;
 	shader.create("Shaders/shapes.vert", "Shaders/shapes.frag");
 
 }
@@ -55,7 +55,7 @@ void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLf
 }
 
 
-void ShapeRenderer::setColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha){
+void ShapeRenderer::setColor(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha){
 	color.red = red; color.green = green; color.blue = blue; color.alpha = alpha;
 }
 
@@ -90,17 +90,16 @@ void ShapeRenderer::end(){
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)&vertices[0], GL_DYNAMIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, pos)));
-	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
 	
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
 
-
-
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindVertexArray(0);

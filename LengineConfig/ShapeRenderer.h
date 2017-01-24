@@ -22,7 +22,7 @@ public:
 	void end();
 	void drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLfloat height);
 	void drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3);
-	void setColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
+	void setColor(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha);
 
 	GLuint getShaderID(){ return shader.getProgramID(); }
 	~ShapeRenderer();

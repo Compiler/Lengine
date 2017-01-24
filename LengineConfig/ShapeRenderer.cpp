@@ -30,6 +30,27 @@ void ShapeRenderer::init(){
 
 void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLfloat height){
 
+	Vertex vertex;
+	vertex.setPosition(xPos, yPos);//bottom left
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos + width, yPos); // bottom right
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos, yPos + height); // top left
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+
+
+	vertex.setPosition(xPos, yPos + height); // top left
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos + width, yPos + height); // top right
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos + width, yPos); // bottom right
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
 
 }
 

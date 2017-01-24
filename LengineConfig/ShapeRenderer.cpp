@@ -39,16 +39,16 @@ void ShapeRenderer::setColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat a
 }
 
 void ShapeRenderer::drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3){
-	Vertex vertex[3];
-	vertex[0].setPosition(xPos1, yPos1);
-	vertex[0].setColor(color.red, color.green, color.blue, color.alpha);
-	vertex[1].setPosition(xPos2, yPos2);
-	vertex[1].setColor(color.red, color.green, color.blue, color.alpha);
-	vertex[2].setPosition(xPos3, yPos3);
-	vertex[2].setColor(color.red, color.green, color.blue, color.alpha);
-	vertices.push_back(vertex[0]);
-	vertices.push_back(vertex[1]);
-	vertices.push_back(vertex[2]);
+	Vertex vertex;
+	vertex.setPosition(xPos1, yPos1);
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos2, yPos2);
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
+	vertex.setPosition(xPos3, yPos3);
+	vertex.setColor(color.red, color.green, color.blue, color.alpha);
+	vertices.push_back(vertex);
 	count++;
 }
 

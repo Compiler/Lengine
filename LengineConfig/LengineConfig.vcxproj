@@ -127,7 +127,6 @@
     <ClCompile Include="ShapeRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="IOManager.h" />
     <ClInclude Include="LengineCore.h" />
@@ -135,6 +134,7 @@
     <ClInclude Include="pico.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="ShapeRenderer.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

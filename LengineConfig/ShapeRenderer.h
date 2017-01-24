@@ -1,6 +1,6 @@
 #pragma once
 #include <GL\glew.h>
-#include "Color.h"
+#include "Vertex.h"
 #include "ShaderProgram.h"
 #include <vector>
 

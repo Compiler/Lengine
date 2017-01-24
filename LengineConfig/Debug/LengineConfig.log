@@ -1,9 +1,2 @@
-﻿  ShapeRenderer.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\shaperenderer.cpp(69): warning C4018: '<': signed/unsigned mismatch
-  LengineCore.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)
+﻿ShapeRenderer.obj : error LNK2019: unresolved external symbol "public: __thiscall Vector3::Vector3(class Vector3 const &)" (??0Vector3@@QAE@ABV0@@Z) referenced in function "public: __thiscall Position::Position(struct Position &&)" (??0Position@@QAE@$$QAU0@@Z)
+C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe : fatal error LNK1120: 1 unresolved externals

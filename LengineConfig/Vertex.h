@@ -20,7 +20,7 @@ struct Position{
 
 struct Vertex{
 
-
+	Vertex(){}
 	Position position;
 	Color color;
 

@@ -9,5 +9,5 @@ in vec4 fColor;
 void main()
 {
 	color = fColor;
-	color += vec4(1.0);
+	//color += vec4(1.0);
 }

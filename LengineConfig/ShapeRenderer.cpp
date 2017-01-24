@@ -11,7 +11,7 @@ ShapeRenderer::ShapeRenderer():type(ShapeType::LINE){
 ShapeRenderer::ShapeRenderer(ShapeType type): type(type){
 	glGenVertexArrays(1, &vertexID);
 	glBindVertexArray(vertexID);
-
+	color.set(1.0f, 1.0f, 1.0f, 1.0f);
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 }
@@ -23,7 +23,7 @@ void ShapeRenderer::init(){
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-
+	color.set(1.0f, 1.0f, 1.0f, 1.0f);
 
 	shader.create("Shaders/shapes.vert", "Shaders/shapes.frag");
 
@@ -36,10 +36,15 @@ void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLf
 }
 
 
+void ShapeRenderer::setColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha){
+	color.set(red, green,blue, alpha);
+}
+
 void ShapeRenderer::drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3){
 	vertices.push_back(Vertex(xPos1, yPos1, color));
 	vertices.push_back(Vertex(xPos2, yPos2, color));
 	vertices.push_back(Vertex(xPos3, yPos3, color));
+	count++;
 }
 
 
@@ -54,12 +59,28 @@ void ShapeRenderer::begin(){
 void ShapeRenderer::end(){
 	glBindVertexArray(vertexID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), (const GLvoid *)&vertices, GL_DYNAMIC_DRAW);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (GLvoid *)(sizeof(GLfloat) * 2));
+
+	GLfloat stuff[2*3 + 4*4] = {100, 100, 200, 100, 50, 200,  1, 1, 1, 1,  1, 1, 1, 1,  1,1,1,1,  1,1,1,1};
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)&vertices, GL_DYNAMIC_DRAW);
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, position)));
+	//glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
+	GLfloat *data = new GLfloat[vertices.size() * 7];
+	int mine = 0;
+	for(int i = 0; i < vertices.size(); i++){
+		for(int k = 0; k < 7; k++){
+			data[mine++] = vertices[i].info[k];
+		}
+	}
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)data, GL_DYNAMIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(sizeof(GLfloat) * 3));
+
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 22, (const GLvoid *)&stuff, GL_DYNAMIC_DRAW);
+	//glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex) * 0, 0);
+	//glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex) * 0, (GLvoid *)(sizeof(GLfloat) * 6));
+
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
-
 
 
 

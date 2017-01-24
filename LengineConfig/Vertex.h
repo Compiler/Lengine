@@ -14,17 +14,20 @@ struct Color{
 
 
 struct Position{
-	Vector3 pos;
+	GLfloat x;
+	GLfloat y;
+	GLfloat z;
 };
 
 
 struct Vertex{
 
 	Vertex(){}
-	Position position;
+	//Vector3 position;
 	Color color;
+	Position pos;
 
-	void setColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a){
+	void setColor(GLubyte r, GLubyte g, GLubyte b, GLubyte a){
 		color.red = r;
 		color.green = g;
 		color.blue = b;
@@ -32,8 +35,9 @@ struct Vertex{
 	}
 
 	void setPosition(GLfloat positionX, GLfloat positionY){
-		position.pos.x = positionX;
-		position.pos.y = positionY;
+		pos.x = positionX;
+		pos.y = positionY;
+		pos.z = 1.0f;
 	}
 
 

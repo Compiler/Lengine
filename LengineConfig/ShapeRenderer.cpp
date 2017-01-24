@@ -35,7 +35,7 @@ void ShapeRenderer::drawRectangle(GLfloat xPos, GLfloat yPos, GLfloat width, GLf
 
 
 void ShapeRenderer::setColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha){
-	//color.set(red, green,blue, alpha);
+	color.red = red; color.green = green; color.blue = blue; color.alpha = alpha;
 }
 
 void ShapeRenderer::drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3){
@@ -65,26 +65,12 @@ void ShapeRenderer::end(){
 	glBindVertexArray(vertexID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 
-	GLfloat stuff[2*3 + 4*4] = {100, 100, 200, 100, 50, 200,  1, 1, 1, 1,  1, 1, 1, 1,  1,1,1,1,  1,1,1,1};
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)&vertices, GL_DYNAMIC_DRAW);
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, position)));
-	//glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
-	
-	
-	//GLfloat *data = new GLfloat[vertices.size() * 7];
-	//int mine = 0;
-	//for(int i = 0; i < vertices.size(); i++){
-	//	for(int k = 0; k < 7; k++){
-	//		data[mine++] = vertices[i].info[k];
-	//	}
-	//}
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)data, GL_DYNAMIC_DRAW);
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	//glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(sizeof(GLfloat) * 3));
 
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 22, (const GLvoid *)&stuff, GL_DYNAMIC_DRAW);
-	//glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex) * 0, 0);
-	//glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex) * 0, (GLvoid *)(sizeof(GLfloat) * 6));
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)&vertices[0], GL_DYNAMIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, pos)));
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
+	
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);

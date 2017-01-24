@@ -17,8 +17,6 @@ ShapeRenderer::ShapeRenderer(ShapeType type): type(type){
 }
 
 void ShapeRenderer::init(){
-	type = ShapeType::LINE;
-
 	glGenVertexArrays(1, &vertexID);
 	glBindVertexArray(vertexID);
 
@@ -54,20 +52,26 @@ void ShapeRenderer::begin(){
 
 }
 void ShapeRenderer::end(){
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), (GLvoid *)&vertices, GL_DYNAMIC_DRAW);
-	
+	glBindVertexArray(vertexID);
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), (const GLvoid *)&vertices, GL_DYNAMIC_DRAW);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, 0);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (GLvoid *)(sizeof(GLfloat) * 2));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	shader.useProgram();
 
-	glBindVertexArray(vertexID);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+
+	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindVertexArray(0);
+
+
+
 
 }
 

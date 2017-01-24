@@ -119,6 +119,9 @@ void LengineCore::init() {
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
 
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 	
 	unsigned long width, height;
 	
@@ -163,8 +166,7 @@ void LengineCore::render() {
 	
 	
 	glBindTexture(GL_TEXTURE_2D, 0);
-
-
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 
 	shader.unuseProgram();

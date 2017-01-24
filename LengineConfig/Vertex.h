@@ -19,6 +19,12 @@ struct Position{
 	GLfloat z;
 };
 
+struct Normal{
+	GLfloat x;
+	GLfloat y;
+	GLfloat z;
+};
+
 
 struct Vertex{
 
@@ -38,6 +44,35 @@ struct Vertex{
 		pos.x = positionX;
 		pos.y = positionY;
 		pos.z = 1.0f;
+	}
+
+
+};
+
+struct VertexNorm{
+
+	VertexNorm(){}
+	Normal normal;
+	Color color;
+	Position pos;
+
+	void setColor(GLubyte r, GLubyte g, GLubyte b, GLubyte a){
+		color.red = r;
+		color.green = g;
+		color.blue = b;
+		color.alpha = a;
+	}
+
+	void setPosition(GLfloat positionX, GLfloat positionY){
+		pos.x = positionX;
+		pos.y = positionY;
+		pos.z = 1.0f;
+	}
+
+	void setNormal(GLfloat normalX, GLfloat normalY){
+		normal.x = normalX;
+		normal.y = normalY;
+		normal.z = 1.0f;
 	}
 
 

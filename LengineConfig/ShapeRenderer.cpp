@@ -97,9 +97,13 @@ void ShapeRenderer::end(){
 	glEnableVertexAttribArray(1);
 
 
+
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindVertexArray(0);

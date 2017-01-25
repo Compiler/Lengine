@@ -7,7 +7,7 @@
 #include "ShaderProgram.h"
 #include "OrthographicCamera.h"
 #include "ShapeRenderer.h"
-
+#include "Sprite.h"
 class LengineCore
 {
 public:
@@ -31,6 +31,10 @@ private:
 	ShapeRenderer rend;
 	ShaderProgram shader;
 	OrthographicCamera cam;
+
+
+	Sprite sprite;
+
 	GLuint vertexID, bufferID;
 };
 

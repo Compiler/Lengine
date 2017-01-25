@@ -24,8 +24,9 @@ public:
 	
 	void init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath);
 
+	GLuint getShader(){ return shader.getProgramID(); }
 
-
+	void start(){ shader.useProgram(); }
 	void render();
 
 	~Sprite();

@@ -29,15 +29,19 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath) {
 
 	vertex[PositionTuples::BOTTOM_LEFT].setPosition(positionX, positionY);
+	vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_LEFT].setNormal(1.0f, 1.0f);
 
 	vertex[PositionTuples::TOP_LEFT].setPosition(positionX, positionY + height);
+	vertex[PositionTuples::TOP_LEFT].setUV(0.0f, 1.0f);
 	vertex[PositionTuples::TOP_LEFT].setNormal(1.0f, 1.0f);
 
 	vertex[PositionTuples::TOP_RIGHT].setPosition(positionX + width, positionY + height);
+	vertex[PositionTuples::TOP_RIGHT].setUV(1.0f, 1.0f);
 	vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, 1.0f);
 
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
+	vertex[PositionTuples::BOTTOM_RIGHT].setUV(1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
 
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
@@ -45,24 +49,14 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 
 	glGenVertexArrays(1, &vertexID);
-	glBindVertexArray(vertexID);
 
 	glGenBuffers(1, &bufferID);
 	glGenBuffers(1, &eboID);
 	
-	glBindBuffer(1, bufferID);
+	glBindVertexArray(vertexID);
 
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STREAM_DRAW);
-
-
-	glBindBuffer(1, eboID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, normal)));
-	glVertexAttribPointer(0, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, color)));
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, uv)));
-
 
 
 	indices[0] = 0;
@@ -70,15 +64,28 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 	indices[2] = 2;
 	indices[3] = 3;
 
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboID);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	//LoadBMP(filePath);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm), reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, sizeof(VertexNorm), reinterpret_cast<GLvoid *>(offsetof(VertexNorm, color)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(VertexNorm), reinterpret_cast<GLvoid *>(offsetof(VertexNorm, uv)));
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm), reinterpret_cast<GLvoid *>(offsetof(VertexNorm, normal)));
+
+
+
+	unsigned long myWidth, myHeight;
+	LoadBMP(filePath, myWidth, myHeight, textureID);
 }
 
 
 
 void Sprite::render(){
+//	shader.useProgram();
+
 	glBindVertexArray(vertexID);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferID);
+
+	glBindTexture(GL_TEXTURE_2D, textureID);
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
@@ -91,6 +98,9 @@ void Sprite::render(){
 
 
 	glBindVertexArray(0);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	shader.unuseProgram();
 }
 
 

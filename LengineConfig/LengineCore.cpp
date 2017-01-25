@@ -131,6 +131,9 @@ void LengineCore::init() {
 	cam.print();
 
 	rend.init();
+
+
+	sprite.init(0.0f, 0.0f, 100.0f, 100.0f, "Textures/woodcrate.bmp");
 }
 
 
@@ -181,6 +184,12 @@ void LengineCore::render() {
 	
 	rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);
 	rend.end();
+
+
+	sprite.start();
+	cam.sendToShader(sprite.getShader());
+	sprite.render();
+
 	glFlush();
 	
 	SDL_GL_SwapWindow(window);

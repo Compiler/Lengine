@@ -39,6 +39,9 @@ private:
 
 	GLuint vertexID;
 	GLuint bufferID;
+	GLuint eboID;
+
+	GLuint indices[4];
 	
 	ShaderProgram shader;
 

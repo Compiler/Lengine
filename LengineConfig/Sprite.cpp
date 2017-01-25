@@ -52,7 +52,10 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STREAM_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexNorm) * 0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+
 
 
 
@@ -62,7 +65,11 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 
 void Sprite::render(){
+	glEnableVertexAttribArray(vertexID);
 
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 }
 

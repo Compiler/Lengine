@@ -84,15 +84,15 @@ void ShapeRenderer::begin(){
 }
 void ShapeRenderer::end(){
 	glBindVertexArray(vertexID);
+
+
+
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-
-
-
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), (const GLvoid *)&vertices[0], GL_DYNAMIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, pos)));
-	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
 	
 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, pos)));
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), reinterpret_cast<GLvoid *>(offsetof(Vertex, color)));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 

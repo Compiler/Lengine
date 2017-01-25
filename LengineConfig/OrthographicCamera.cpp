@@ -86,6 +86,13 @@ void OrthographicCamera::translate(GLfloat x, GLfloat y){
 
 }
 
+
+void OrthographicCamera::rotateX(GLfloat angle){
+
+	
+
+}
+
 void OrthographicCamera::sendToShader(const GLuint &programID) const{
 	
 	glUniformMatrix4fv(glGetUniformLocation(programID, "projMatrix"), 1, GL_TRUE, matrix);

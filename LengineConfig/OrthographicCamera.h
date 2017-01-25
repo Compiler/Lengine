@@ -20,6 +20,8 @@ public:
 	void update();
 	void translate(GLfloat x, GLfloat y);
 
+	void rotateX(GLfloat angle);
+
 	void print(){
 		
 		for(int i = 0; i < 16; i++)
@@ -33,6 +35,7 @@ private:
 
 	GLfloat left, right, top, bottom;
 	GLfloat matrix[16] = {0.0f};
+	
 
 	GLboolean _update;
 };

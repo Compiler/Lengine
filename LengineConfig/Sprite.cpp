@@ -84,8 +84,10 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 
 
-void Sprite::render(){
-//	shader.useProgram();
+void Sprite::render(const OrthographicCamera &camera){
+	shader.useProgram();
+
+
 
 	glBindVertexArray(vertexID);
 
@@ -96,7 +98,7 @@ void Sprite::render(){
 	glEnableVertexAttribArray(2);
 	glEnableVertexAttribArray(3);
 
-
+	camera.sendToShader(shader.getProgramID());
 
 	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0);
 

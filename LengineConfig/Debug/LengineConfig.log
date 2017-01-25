@@ -1,4 +1,11 @@
 ﻿  Sprite.cpp
 c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  LengineCore.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Generating Code...
   LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.pdb (Full PDB)

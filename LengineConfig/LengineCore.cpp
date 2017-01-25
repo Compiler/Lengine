@@ -186,9 +186,9 @@ void LengineCore::render() {
 	rend.end();
 
 
-	sprite.start();
-	cam.sendToShader(sprite.getShader());
-	sprite.render();
+	
+	
+	sprite.render(cam);
 
 	glFlush();
 	

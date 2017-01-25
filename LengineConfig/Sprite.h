@@ -7,6 +7,8 @@
 
 #include "ImageLoader.h"
 
+#include "OrthographicCamera.h"
+
 enum PositionTuples{
 	BOTTOM_LEFT,
 	BOTTOM_RIGHT,
@@ -26,8 +28,7 @@ public:
 
 	GLuint getShader(){ return shader.getProgramID(); }
 
-	void start(){ shader.useProgram(); }
-	void render();
+	void render(const OrthographicCamera &camera);
 
 	~Sprite();
 

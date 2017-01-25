@@ -42,6 +42,20 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
 
+
+
+	glGenVertexArrays(1, &vertexID);
+	glBindVertexArray(vertexID);
+
+	glGenBuffers(1, &bufferID);
+	glBindBuffer(1, bufferID);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STREAM_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*0, reinterpret_cast<GLvoid *>(offsetof(VertexNorm, pos)));
+
+
+
 	//LoadBMP(filePath);
 }
 

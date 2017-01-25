@@ -1,9 +1,21 @@
-﻿  LengineCore.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+﻿  Sprite.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  ShapeRenderer.cpp
+  ShaderProgram.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\shaderprogram.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\shaderprogram.cpp(68): warning C4018: '<': signed/unsigned mismatch
+  pico.cpp
+  OrthographicCamera.cpp
+  main.cpp
+  LengineCore.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  IOManager.cpp
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(37): warning C4244: 'argument': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(42): warning C4018: '<': signed/unsigned mismatch
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(64): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(70): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(104): warning C4244: 'argument': conversion from 'std::streamoff' to 'int', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\iomanager.cpp(126): warning C4244: 'argument': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
   Generating Code...
-  Compiling...
-  Sprite.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-  Generating Code...
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)
+  LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.exe
+  LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.pdb (Full PDB)

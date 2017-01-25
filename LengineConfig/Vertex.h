@@ -25,6 +25,12 @@ struct Normal{
 	GLfloat z;
 };
 
+struct UV{
+	GLfloat u;
+	GLfloat v;
+
+};
+
 
 struct Vertex{
 
@@ -55,6 +61,7 @@ struct VertexNorm{
 	Normal normal;
 	Color color;
 	Position pos;
+	UV uv;
 
 	void setColor(GLubyte r, GLubyte g, GLubyte b, GLubyte a){
 		color.red = r;
@@ -73,6 +80,11 @@ struct VertexNorm{
 		normal.x = normalX;
 		normal.y = normalY;
 		normal.z = 1.0f;
+	}
+
+	void setUV(GLfloat newU, GLfloat newV){
+		uv.u = newU;
+		uv.v = newV;
 	}
 
 

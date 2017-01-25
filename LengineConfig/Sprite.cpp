@@ -19,6 +19,11 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
+
+	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
+
+	//LoadBMP(filePath);
+
 }
 
 void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath) {
@@ -35,6 +40,9 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
 
+	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
+
+	//LoadBMP(filePath);
 }
 
 

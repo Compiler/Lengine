@@ -1,7 +1,11 @@
 #pragma once
+
 #include "Vertex.h"
+#include "ShaderProgram.h"
+
 #include <GL\glew.h>
 
+#include "ImageLoader.h"
 
 enum PositionTuples{
 	BOTTOM_LEFT,
@@ -30,8 +34,15 @@ public:
 private:
 
 	VertexNorm vertex[4];
+
+	GLuint width, height;
+
+	GLuint vertexID;
+	GLuint bufferID;
 	
-	
+	ShaderProgram shader;
+
+	GLuint textureID;
 
 };
 

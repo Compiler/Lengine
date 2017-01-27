@@ -14,6 +14,7 @@ public:
 
 	void run();
 
+	GLfloat deltaTime;
 
 	~LengineCore();
 

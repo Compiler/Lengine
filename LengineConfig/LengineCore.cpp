@@ -9,6 +9,8 @@
 
 #include <lml\Vector3.h>	
 
+
+
 int state = 0;
 SDL_Window *window;
 
@@ -112,6 +114,24 @@ void LengineCore::render() {
 	SDL_GL_SwapWindow(window);
 }
 
+
+GLfloat LengineCore::getDelta(){
+
+	static auto timePrev = std::chrono::high_resolution_clock::now();
+
+	auto current = std::chrono::high_resolution_clock::now();
+
+	auto timeDiff = std::chrono::duration_cast<std::chrono::nanoseconds>(current - timePrev);
+
+
+	GLfloat delta = timeDiff.count();
+
+	delta /= 1000000000;
+
+	timePrev = current;
+	deltaTime = delta;
+	return delta;
+}
 
 
 LengineCore::~LengineCore()

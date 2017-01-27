@@ -4,7 +4,6 @@
 #include <SDL\SDL.h>
 #include <GL\glew.h>
 
-#include "ShaderProgram.h"
 #include "OrthographicCamera.h"
 #include "ShapeRenderer.h"
 #include "Sprite.h"
@@ -29,12 +28,8 @@ private:
 	void render();
 
 	ShapeRenderer rend;
-	ShaderProgram shader;
 	OrthographicCamera cam;
 
-
 	Sprite sprite;
-
-	GLuint vertexID, bufferID;
 };
 

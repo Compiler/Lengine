@@ -12,8 +12,6 @@ class LengineCore
 public:
 	LengineCore();
 
-
-
 	void run();
 
 

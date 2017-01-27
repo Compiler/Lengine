@@ -30,6 +30,9 @@ public:
 
 	void render(const OrthographicCamera &camera);
 
+
+	void translate(GLfloat xAmount, GLfloat yAmount);
+
 	~Sprite();
 
 

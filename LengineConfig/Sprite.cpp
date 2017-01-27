@@ -110,5 +110,21 @@ void Sprite::render(const OrthographicCamera &camera){
 }
 
 
+void Sprite::translate(GLfloat xAmount, GLfloat yAmount){
+	vertex[PositionTuples::BOTTOM_LEFT].setPosition(vertex[PositionTuples::BOTTOM_LEFT].pos.x + xAmount,
+		vertex[PositionTuples::BOTTOM_LEFT].pos.y + yAmount);
+	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(vertex[PositionTuples::BOTTOM_RIGHT].pos.x + xAmount,
+		vertex[PositionTuples::BOTTOM_RIGHT].pos.y + yAmount);
+	vertex[PositionTuples::TOP_LEFT].setPosition(vertex[PositionTuples::TOP_LEFT].pos.x + xAmount,
+		vertex[PositionTuples::TOP_LEFT].pos.y + yAmount);
+	vertex[PositionTuples::TOP_RIGHT].setPosition(vertex[PositionTuples::TOP_RIGHT].pos.x + xAmount,
+		vertex[PositionTuples::TOP_RIGHT].pos.y + yAmount);
+
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STREAM_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+
+}
+
 Sprite::~Sprite(){
 }

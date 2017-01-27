@@ -66,7 +66,7 @@ void LengineCore::update() {
 	while (SDL_PollEvent(&mine) == 1) {
 		if (mine.type == SDL_QUIT || mine.key.keysym.sym == SDLK_ESCAPE)
 			state = 1;
-		float speed = 5.0f * deltaTime;
+		float speed = 5.0f / deltaTime;
 		switch(mine.key.keysym.sym){
 			
 			case SDLK_d:sprite.translate(speed, 0.0f); break;
@@ -89,7 +89,7 @@ void LengineCore::render() {
 	LAST = NOW;
 	NOW = SDL_GetPerformanceCounter();
 
-	deltaTime = (GLfloat)((NOW - LAST) * 1000 / SDL_GetPerformanceFrequency());
+	deltaTime = (GLfloat)((NOW - LAST) * 1000.0f / SDL_GetPerformanceFrequency());
 
 		
 	glClear(GL_COLOR_BUFFER_BIT);

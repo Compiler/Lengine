@@ -110,9 +110,9 @@ GLfloat LengineCore::getDelta(){
 
 	static auto timePrev = std::chrono::high_resolution_clock::now();
 
-	auto current = std::chrono::high_resolution_clock::now();
+	std::chrono::time_point<std::chrono::steady_clock> current = std::chrono::high_resolution_clock::now();
 
-	auto timeDiff = std::chrono::duration_cast<std::chrono::nanoseconds>(current - timePrev);
+	std::chrono::nanoseconds timeDiff = std::chrono::duration_cast<std::chrono::nanoseconds>(current - timePrev);
 
 
 	GLfloat delta = timeDiff.count();

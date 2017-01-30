@@ -29,35 +29,18 @@ namespace{
 		file.read(data, length);
 
 
-		if(file)
-			std::cout << "all characters read successfully.\n";
-		else
-			std::cout << "error: only " << file.gcount() << " could be read";
+		if(!file)std::cout << "error: only " << file.gcount() << " could be read";
 
 		GLchar sec = data[1];
 
-		std::cout << data[0] << data[1] << "= ";
-
-		switch(sec){
-			case 'M':std::cout << "Windows 3.1x"; break;
-			case 'A':std::cout << "OS/2 struct bitmap array"; break;
-			case 'I':std::cout << "OS/2 struct color icon"; break;
-			case 'P':std::cout << "OS/2 const color pointer"; break;
-			case 'C':std::cout << "OS/2 struct icon"; break;
-		}
 
 		int headerOffset = *(GLuint *)&data[10];
-		std::cout << "\n\n~~ " << *(GLuint *)&data[10];
 		width = *(GLuint *)&data[18];
 		height = *(GLuint *)&data[22];
 
 		int bpp = *(int *)&data[28];
 
 		int compressionMethod = *(int *)&data[30];
-
-		std::cout << "\nDimensions: " << width << "x" << height << "\n";
-		std::cout << "Bits per pixel: " << bpp;
-		std::cout << "\nCompression Method: " << compressionMethod << "\n";
 		//start of pixel array - 50
 		unsigned char *pixels = new unsigned char[width*height * 3];
 		file.seekg(headerOffset);
@@ -84,7 +67,5 @@ namespace{
 		delete[] pixels;
 		delete[] data;
 		file.close();
-		std::cout << "\n\n\n";
-
 	}
 }

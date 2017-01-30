@@ -70,16 +70,16 @@ struct VertexNorm{
 		color.alpha = a;
 	}
 
-	void setPosition(GLfloat positionX, GLfloat positionY){
+	void setPosition(GLfloat positionX, GLfloat positionY, GLfloat positionZ = 1.0f){
 		pos.x = positionX;
 		pos.y = positionY;
-		pos.z = 1.0f;
+		pos.z = positionZ;
 	}
 
-	void setNormal(GLfloat normalX, GLfloat normalY){
+	void setNormal(GLfloat normalX, GLfloat normalY, GLfloat normalZ = 1.0f){
 		normal.x = normalX;
 		normal.y = normalY;
-		normal.z = 1.0f;
+		normal.z = normalZ;
 	}
 
 	void setUV(GLfloat newU, GLfloat newV){

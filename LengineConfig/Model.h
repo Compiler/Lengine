@@ -30,7 +30,10 @@ public:
 
 
 private:
-	VertexNorm vertex[4];
+	// 3 vertices per triangle
+	// 2 triangles per square
+	// 6 squares per model/cube
+	VertexNorm vertex[3 * 2 * 6];
 
 	GLuint width, height;
 
@@ -38,7 +41,7 @@ private:
 	GLuint bufferID;
 	GLuint eboID;
 
-	GLuint indices[4];
+	GLuint indices[4 * 6];
 
 	ShaderProgram shader;
 

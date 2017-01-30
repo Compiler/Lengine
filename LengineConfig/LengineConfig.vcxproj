@@ -122,6 +122,7 @@
     <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="LengineCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="OrthographicCamera.cpp" />
     <ClCompile Include="pico.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="IOManager.h" />
     <ClInclude Include="LengineCore.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="OrthographicCamera.h" />
     <ClInclude Include="pico.h" />
     <ClInclude Include="ShaderProgram.h" />

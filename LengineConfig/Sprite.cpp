@@ -30,22 +30,22 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 	vertex[PositionTuples::BOTTOM_LEFT].setPosition(positionX, positionY);
 	vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
-	vertex[PositionTuples::BOTTOM_LEFT].setNormal(1.0f, 1.0f);
+	vertex[PositionTuples::BOTTOM_LEFT].setNormal(-1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_LEFT].setPosition(positionX, positionY + height);
 	vertex[PositionTuples::TOP_LEFT].setUV(0.0f, 1.0f);
-	vertex[PositionTuples::TOP_LEFT].setNormal(1.0f, 1.0f);
+	vertex[PositionTuples::TOP_LEFT].setNormal(-1.0f, 0.0f);
 	vertex[PositionTuples::TOP_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_RIGHT].setPosition(positionX + width, positionY + height);
 	vertex[PositionTuples::TOP_RIGHT].setUV(1.0f, 1.0f);
-	vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, 1.0f);
+	vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, 0.0f);
 	vertex[PositionTuples::TOP_RIGHT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setUV(1.0f, 0.0f);
-	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
+	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_RIGHT].setColor(255, 255, 255, 255);
 
 	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");

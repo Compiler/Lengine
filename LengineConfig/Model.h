@@ -13,9 +13,9 @@ public:
 
 
 
-	Model(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath);
+	Model(GLfloat positionX, GLfloat positionY, GLfloat positoinZ, GLfloat width, GLfloat height, GLfloat depth, const char* filePath);
 
-	void init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath);
+	void init(GLfloat positionX, GLfloat positionY, GLfloat positoinZ, GLfloat width, GLfloat height, GLfloat depth, const char* filePath);
 
 	GLuint getShader(){ return shader.getProgramID(); }
 

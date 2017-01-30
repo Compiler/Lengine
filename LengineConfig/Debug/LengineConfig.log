@@ -1,6 +1,7 @@
 ﻿  LengineCore.cpp
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(84): warning C4244: 'initializing': conversion from 'Uint64' to 'GLfloat', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(90): warning C4244: '=': conversion from 'Uint64' to 'GLfloat', possible loss of data
-  LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.exe
-  LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.pdb (Full PDB)
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(86): warning C4244: 'initializing': conversion from 'Uint64' to 'GLfloat', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(92): warning C4244: '=': conversion from 'Uint64' to 'GLfloat', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\lenginecore.cpp(127): warning C4244: 'initializing': conversion from '__int64' to 'GLfloat', possible loss of data
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
+  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)

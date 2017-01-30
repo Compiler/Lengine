@@ -68,15 +68,6 @@ void LengineCore::update() {
 	while (SDL_PollEvent(&mine) == 1) {
 		if (mine.type == SDL_QUIT || mine.key.keysym.sym == SDLK_ESCAPE)
 			state = 1;
-		float speed = 5.0f / deltaTime;
-		switch(mine.key.keysym.sym){
-			
-			case SDLK_d:sprite.translate(speed, 0.0f); break;
-			case SDLK_a:sprite.translate(-speed, 0.0f); break;
-			case SDLK_w:sprite.translate(0.0f, speed); break;
-			case SDLK_s:sprite.translate(0.0f, -speed); break;
-		}
-
 	}
 	
 

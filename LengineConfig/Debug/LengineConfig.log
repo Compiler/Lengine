@@ -1,4 +1,4 @@
-﻿  Sprite.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe
-  LengineConfig.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.pdb (Full PDB)
+﻿Sprite.obj : error LNK2019: unresolved external symbol "public: __thiscall lml::Vector3::Vector3(float,float,float)" (??0Vector3@lml@@QAE@MMM@Z) referenced in function "class lml::Vector3 __cdecl lml::crossProduct(class lml::Vector3 const &,class lml::Vector3 const &)" (?crossProduct@lml@@YA?AVVector3@1@ABV21@0@Z)
+Sprite.obj : error LNK2019: unresolved external symbol "public: class lml::Vector3 __thiscall lml::Vector3::operator-(class lml::Vector3 const &)const " (??GVector3@lml@@QBE?AV01@ABV01@@Z) referenced in function "public: void __thiscall Sprite::init(float,float,float,float,char const *)" (?init@Sprite@@QAEXMMMMPBD@Z)
+Sprite.obj : error LNK2019: unresolved external symbol "public: __thiscall lml::Vector3::~Vector3(void)" (??1Vector3@lml@@QAE@XZ) referenced in function "public: void __thiscall Sprite::init(float,float,float,float,char const *)" (?init@Sprite@@QAEXMMMMPBD@Z)
+C:\Users\User\Documents\Visual Studio 2015\Projects\LengineConfig\Debug\LengineConfig.exe : fatal error LNK1120: 3 unresolved externals

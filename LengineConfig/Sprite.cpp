@@ -21,7 +21,7 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
 
 	shader.create("Shaders/passthrough.vert", fragName);
-
+	
 	//LoadBMP(filePath);
 
 }
@@ -48,8 +48,15 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 	//vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_RIGHT].setColor(255, 255, 255, 255);
 
-	vertex[PositionTuples::BOTTOM_LEFT].setNormal();
 
+	using namespace lml;
+	Vector3 edge1 = Vector3(vertex[PositionTuples::TOP_LEFT].pos.x, vertex[PositionTuples::TOP_LEFT].pos.y, 1.0f) -
+		Vector3(vertex[PositionTuples::BOTTOM_RIGHT].pos.x, vertex[PositionTuples::BOTTOM_RIGHT].pos.y, 1.0f);
+	Vector3 edge2 = Vector3(vertex[PositionTuples::BOTTOM_RIGHT].pos.x, vertex[PositionTuples::BOTTOM_RIGHT].pos.y, 1.0f) -
+		Vector3(vertex[PositionTuples::BOTTOM_LEFT].pos.x, vertex[PositionTuples::BOTTOM_LEFT].pos.y, 1.0f);
+	Vector3 normals = lml::crossProduct(edge1, edge2);
+	vertex[PositionTuples::BOTTOM_LEFT].setNormal(normals.x, normals.y);
+	
 	shader.create("Shaders/passthrough.vert", fragName);
 
 

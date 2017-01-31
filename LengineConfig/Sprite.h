@@ -9,6 +9,8 @@
 
 #include "OrthographicCamera.h"
 
+#include <lml\Vector3.h>
+
 enum PositionTuples{
 	BOTTOM_LEFT,
 	BOTTOM_RIGHT,

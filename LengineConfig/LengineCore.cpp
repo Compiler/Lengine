@@ -74,15 +74,8 @@ void LengineCore::update() {
 
 }
 
-	GLfloat NOW = SDL_GetPerformanceCounter();
-	GLfloat LAST = 0;
-void LengineCore::render() {
-
 	
-	LAST = NOW;
-	NOW = SDL_GetPerformanceCounter();
-
-	deltaTime = (GLfloat)((NOW - LAST) * 1000.0f / SDL_GetPerformanceFrequency());
+void LengineCore::render() {
 
 		
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -91,14 +84,20 @@ void LengineCore::render() {
 	rend.begin();
 	cam.sendToShader(rend.getShaderID());
 	rend.setColor(125, 123, 125, 2);
-	
-	rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);
+	int incrementer = 10;
+	for(int i = 0; i < 640; i += incrementer){
+		for(int k = 0; k < 480; k += incrementer){
+			rend.drawRectangle(i + k * cos( atan2(k, i) * 10) * cos(deltaTime), k, 5, 5);
+			rend.setColor(i * (i+k), 255 - 255 * cos(k * i), 255*sin(i * deltaTime), 255);
+			
+		}
+	}
+	//rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);
 	rend.end();
 
-
+	deltaTime = getDelta();
 	
-	
-	sprite.render(cam);
+	//sprite.render(cam);
 
 	glFlush();
 	

@@ -20,7 +20,7 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 1.0f);
 
-	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
+	shader.create("Shaders/passthrough.vert", fragName);
 
 	//LoadBMP(filePath);
 
@@ -29,26 +29,28 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath) {
 
 	vertex[PositionTuples::BOTTOM_LEFT].setPosition(positionX, positionY);
-	vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
-	vertex[PositionTuples::BOTTOM_LEFT].setNormal(-1.0f, 0.0f);
+	//vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
+	vertex[PositionTuples::BOTTOM_LEFT].setNormal((positionX + width) - positionX, 1.0f);
 	vertex[PositionTuples::BOTTOM_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_LEFT].setPosition(positionX, positionY + height);
 	vertex[PositionTuples::TOP_LEFT].setUV(0.0f, 1.0f);
-	vertex[PositionTuples::TOP_LEFT].setNormal(-1.0f, 0.0f);
+	//vertex[PositionTuples::TOP_LEFT].setNormal(-1.0f, 1.0f);
 	vertex[PositionTuples::TOP_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_RIGHT].setPosition(positionX + width, positionY + height);
 	vertex[PositionTuples::TOP_RIGHT].setUV(1.0f, 1.0f);
-	vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, 0.0f);
+	//vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, -1.0f);
 	vertex[PositionTuples::TOP_RIGHT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setUV(1.0f, 0.0f);
-	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
+	//vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_RIGHT].setColor(255, 255, 255, 255);
 
-	shader.create("Shaders/passthrough.vert", "Shaders/passthrough.frag");
+	vertex[PositionTuples::BOTTOM_LEFT].setNormal();
+
+	shader.create("Shaders/passthrough.vert", fragName);
 
 
 
@@ -86,8 +88,9 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 
 void Sprite::render(const OrthographicCamera &camera){
 	shader.useProgram();
-
-
+	
+	glUniform3f(glGetUniformLocation(shader.getProgramID(), "lightColor"), 255, 0, 0);
+	glUniform3f(glGetUniformLocation(shader.getProgramID(), "lightPosition"), 0.5, 1, 1.0);
 
 	glBindVertexArray(vertexID);
 

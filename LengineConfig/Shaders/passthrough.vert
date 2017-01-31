@@ -19,5 +19,5 @@ void main(){
 	
 	fColor = vColor;
 	
-	fNormal = vNormal;
+	fNormal = normalize(vNormal);
 }

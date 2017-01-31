@@ -52,5 +52,7 @@ private:
 
 	GLuint textureID;
 
+	const char* fragName = "Shaders/spritelight.frag";
+
 };
 

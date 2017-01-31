@@ -1,7 +1,9 @@
 ﻿  Vector3.cpp
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(57): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(92): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(67): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(83): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\user\documents\visual studio 2015\projects\lengineconfig\lml\vector3.cpp(102): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Matrix4.cpp
+  Generating Code...
 glew32.lib(glew32.dll) : warning LNK4006: _wglewIsSupported@4 already defined in glew32s.lib(glew.obj); second definition ignored
 glew32.lib(glew32.dll) : warning LNK4006: _wglewInit@0 already defined in glew32s.lib(glew.obj); second definition ignored
 glew32.lib(glew32.dll) : warning LNK4006: _wglewGetExtension@4 already defined in glew32s.lib(glew.obj); second definition ignored

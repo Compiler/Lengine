@@ -58,9 +58,8 @@ void LengineCore::init() {
 	rend.init();
 
 
-	sprite.init(0.0f, 0.0f, 100.0f, 100.0f, "Textures/woodcrate.bmp");
+	sprite.init(0.0f, 0.0f, 640.0f, 480.0f, "Textures/woodcrate.bmp");
 }
-
 
 void LengineCore::update() {
 	SDL_Event mine;
@@ -74,33 +73,14 @@ void LengineCore::update() {
 
 }
 
-	
 void LengineCore::render() {
 
 		
 	glClear(GL_COLOR_BUFFER_BIT);
 
-
-	rend.begin();
-	cam.sendToShader(rend.getShaderID());
-	rend.setColor(125, 123, 125, 2);
-	int incrementer = 5;
-	int size = 5;
-	Vector3 lightPos(50, 50, 1);
-	for(int i = 0; i < 640; i += incrementer){
-		for(int k = 0; k < 480; k += incrementer){
-			//rend.drawRectangle(i + k * cos( atan2(k, i) * 10 * sin(deltaTime)), k, 5, 5);
-			rend.drawRectangle(i, k, size, size);
-			rend.setColor(i * (i+k), 255 - 255 * cos(k * i), 255*sin(i * deltaTime), 255);
-	
-		}
-	}
-	//rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);
-	rend.end();
-
 	deltaTime = getDelta();
 	
-	//sprite.render(cam);
+	sprite.render(cam);
 
 	glFlush();
 	

@@ -1,9 +1,13 @@
 ﻿  LengineCore.cpp
 c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\imageloader.h(23): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(90): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(91): warning C4244: 'argument': conversion from 'float' to 'GLubyte', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(91): warning C4244: 'argument': conversion from 'double' to 'GLubyte', possible loss of data
-c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(117): warning C4244: 'initializing': conversion from '__int64' to 'GLfloat', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(93): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(94): warning C4244: 'argument': conversion from 'float' to 'GLubyte', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(94): warning C4244: 'argument': conversion from 'double' to 'GLubyte', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(96): warning C4244: 'argument': conversion from 'GLfloat' to 'GLubyte', possible loss of data
+c:\users\luk\desktop\rtd\roadtolengine\lengineconfig\lenginecore.cpp(121): warning C4244: 'initializing': conversion from '__int64' to 'GLfloat', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  ShapeRenderer.cpp
   LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.exe
   LengineConfig.vcxproj -> C:\Users\Luk\Desktop\rtd\RoadToLengine\Debug\LengineConfig.pdb (Full PDB)

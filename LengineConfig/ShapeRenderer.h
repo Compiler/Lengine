@@ -24,6 +24,9 @@ public:
 	void drawTriangle(GLfloat xPos1, GLfloat yPos1, GLfloat xPos2, GLfloat yPos2, GLfloat xPos3, GLfloat yPos3);
 	void setColor(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha);
 
+
+	Color getColor(){ return color; }
+
 	GLuint getShaderID(){ return shader.getProgramID(); }
 	~ShapeRenderer();
 

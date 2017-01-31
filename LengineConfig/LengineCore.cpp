@@ -85,11 +85,15 @@ void LengineCore::render() {
 	cam.sendToShader(rend.getShaderID());
 	rend.setColor(125, 123, 125, 2);
 	int incrementer = 10;
+	int size = 5;
+	Vector3 lightPos(50, 50, 1);
 	for(int i = 0; i < 640; i += incrementer){
 		for(int k = 0; k < 480; k += incrementer){
-			rend.drawRectangle(i + k * cos( atan2(k, i) * 10) * cos(deltaTime), k, 5, 5);
+			//rend.drawRectangle(i + k * cos( atan2(k, i) * 10 * sin(deltaTime)), k, 5, 5);
+			rend.drawRectangle(i, k, size, size);
 			rend.setColor(i * (i+k), 255 - 255 * cos(k * i), 255*sin(i * deltaTime), 255);
-			
+			Vector3 color(rend.getColor().red, rend.getColor().green, rend.getColor().blue);
+			rend.setColor(color * lightPos, color * lightPos, color*lightPos, 255);
 		}
 	}
 	//rend.drawRectangle(400.0f, 200.0f, 100.0f, 100.0f);

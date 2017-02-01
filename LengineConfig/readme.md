@@ -1,6 +1,4 @@
 #Lengine Feature List
-## Features to be implemented
-
 
 - [ ] Creating a math library for games 
     - [ ] Camera
@@ -23,7 +21,7 @@
         - [ ] Cardinal Sine
         
 ---       
- 
+ ##Graphics Engine
  
  - [ ] Particle systems
     - [ ] Particle editor

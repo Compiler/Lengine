@@ -17,6 +17,7 @@
   - [ ] Ray Casting
   - [ ] Ray Marching
   - [x] Shape Renderer
+  - [x] Elemental Buffer > Reused vertices
   
 ---
 

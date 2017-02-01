@@ -103,7 +103,7 @@ void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat h
 void Sprite::render(const OrthographicCamera &camera){
 	shader.useProgram();
 	
-	glUniform3f(glGetUniformLocation(shader.getProgramID(), "lightColor"), 255, 0, 0);
+	glUniform3f(glGetUniformLocation(shader.getProgramID(), "lightColor"), 200, 220, 220);
 	glUniform3f(glGetUniformLocation(shader.getProgramID(), "lightPosition"), 0.5, 1, 1.0);
 
 	glBindVertexArray(vertexID);

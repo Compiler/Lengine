@@ -18,5 +18,5 @@ void main()
 	/ length(lightPosition - N)), 0.0, 1.0);
 	
     color = texture(texture1, fTexCoord);
-	color *= fColor * vec4(lightColor * cosTheta, 1.0);
+	color *= fColor * normalize(vec4(lightColor.xyz * cosTheta, 1.0));
 }

@@ -58,7 +58,7 @@ void LengineCore::init() {
 	rend.init();
 
 
-	sprite.init(640.0f / 3.0f, 480/3.0f, 640.0f / 4, 480.0f / 4, "Textures/woodcrate.bmp");
+	sprite.init(640.0f / 2.5f, 480 / 2.5f, 640.0f / 2, 480.0f / 2, "Textures/woodcrate.bmp");
 }
 
 void LengineCore::update() {

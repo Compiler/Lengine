@@ -3,7 +3,6 @@
 
 #include <GL\glew.h>
 #include <math.h>
-namespace lml{
 
 	class Vector3{
 	public:
@@ -40,8 +39,8 @@ namespace lml{
 
 
 		~Vector3();
-	};
 
+	};
 	// Compute the magnitude of a vector
 	inline float vectorMag(const Vector3 &a){
 		return sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
@@ -67,4 +66,3 @@ namespace lml{
 	}
 
 	extern const Vector3 kZeroVector;
-}

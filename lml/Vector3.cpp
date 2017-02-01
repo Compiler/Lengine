@@ -1,7 +1,7 @@
 #include "Vector3.h"
 
 
-namespace lml{
+
 
 	Vector3::Vector3(GLfloat x, GLfloat y, GLfloat z): x(x), y(y), z(z){
 
@@ -79,4 +79,3 @@ namespace lml{
 
 
 
-}

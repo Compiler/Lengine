@@ -29,37 +29,44 @@ Sprite::Sprite(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat heig
 void Sprite::init(GLfloat positionX, GLfloat positionY, GLfloat width, GLfloat height, const char* filePath) {
 
 	vertex[PositionTuples::BOTTOM_LEFT].setPosition(positionX, positionY);
-	//vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
+	vertex[PositionTuples::BOTTOM_LEFT].setUV(0.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_LEFT].setNormal((positionX + width) - positionX, 1.0f);
 	vertex[PositionTuples::BOTTOM_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_LEFT].setPosition(positionX, positionY + height);
 	vertex[PositionTuples::TOP_LEFT].setUV(0.0f, 1.0f);
-	//vertex[PositionTuples::TOP_LEFT].setNormal(-1.0f, 1.0f);
+	vertex[PositionTuples::TOP_LEFT].setNormal(-1.0f, 1.0f);
 	vertex[PositionTuples::TOP_LEFT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::TOP_RIGHT].setPosition(positionX + width, positionY + height);
 	vertex[PositionTuples::TOP_RIGHT].setUV(1.0f, 1.0f);
-	//vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, -1.0f);
+	vertex[PositionTuples::TOP_RIGHT].setNormal(1.0f, -1.0f);
 	vertex[PositionTuples::TOP_RIGHT].setColor(255, 255, 255, 255);
 
 	vertex[PositionTuples::BOTTOM_RIGHT].setPosition(positionX + width, positionY);
 	vertex[PositionTuples::BOTTOM_RIGHT].setUV(1.0f, 0.0f);
-	//vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
+	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(1.0f, 0.0f);
 	vertex[PositionTuples::BOTTOM_RIGHT].setColor(255, 255, 255, 255);
 
 
-	using namespace lml;
+	//using namespace lml;
 	Vector3 edge1 = Vector3(vertex[PositionTuples::TOP_LEFT].pos.x, vertex[PositionTuples::TOP_LEFT].pos.y, 1.0f) -
-		Vector3(vertex[PositionTuples::BOTTOM_RIGHT].pos.x, vertex[PositionTuples::BOTTOM_RIGHT].pos.y, 1.0f);
+		Vector3(vertex[PositionTuples::BOTTOM_RIGHT].pos.x, vertex[PositionTuples::BOTTOM_RIGHT].pos.y, -1.0f);
+	std::cout << "\n" << edge1.x << ", " << edge1.y;
 	Vector3 edge2 = Vector3(vertex[PositionTuples::BOTTOM_RIGHT].pos.x, vertex[PositionTuples::BOTTOM_RIGHT].pos.y, 1.0f) -
 		Vector3(vertex[PositionTuples::BOTTOM_LEFT].pos.x, vertex[PositionTuples::BOTTOM_LEFT].pos.y, 1.0f);
-	Vector3 normals = lml::crossProduct(edge1, edge2);
-	vertex[PositionTuples::BOTTOM_LEFT].setNormal(normals.x, normals.y);
+	std::cout << "\n" << edge2.x << ", " << edge2.y;
+	Vector3 normals = ::crossProduct(edge2, edge1);
+	normals.normalize();
+	std::cout << "~" << normals.x;
+	vertex[PositionTuples::BOTTOM_LEFT].setNormal(-normals.x, normals.y);
+	vertex[PositionTuples::BOTTOM_RIGHT].setNormal(normals.x, -normals.y);
+	vertex[PositionTuples::TOP_LEFT].setNormal(normals.x, normals.y);
+	vertex[PositionTuples::TOP_RIGHT].setNormal(normals.x, normals.y);
 	
 	shader.create("Shaders/passthrough.vert", fragName);
 
-
+	
 
 	glGenVertexArrays(1, &vertexID);
 

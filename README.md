@@ -18,7 +18,8 @@
   - [ ] Ray Marching
   - [x] Shape Renderer
   - [x] Elemental Buffer > Reused vertices
-  
+  - [x] Shadow Mapping
+
 ---
 
 ### Audio
